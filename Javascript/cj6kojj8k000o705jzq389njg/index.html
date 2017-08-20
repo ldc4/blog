@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Head tag -->
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!--Description-->
+    
+        <meta name="description" content="weedustzhao的个人博客">
+    
+
+    <!--Author-->
+    
+        <meta name="author" content="Weedustzhao">
+    
+
+    <!--Open Graph Title-->
+    
+        <meta property="og:title" content="《深入理解Javascript原型和闭包》笔记"/>
+    
+
+    <!--Open Graph Description-->
+    
+        <meta property="og:description" content="weedustzhao的个人博客" />
+    
+
+    <!--Open Graph Site Name-->
+    <meta property="og:site_name" content="零度尘封"/>
+
+    <!--Type page-->
+    
+        <meta property="og:type" content="article" />
+    
+
+    <!--Page Cover-->
+    
+
+    <meta name="twitter:card" content="summary" />
+    
+
+    <!-- Title -->
+    
+    <title>《深入理解Javascript原型和闭包》笔记 - 零度尘封</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.2/css/bootstrap.min.css" integrity="sha384-y3tfxAZXuh4HwSYylfB+J125MxIs6mR5FOHamPBG064zB+AFeWH94NdvaCBm8qnd" crossorigin="anonymous">
+
+    <!-- Custom Fonts -->
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="//oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="//oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- Gallery -->
+    <link href="//cdnjs.cloudflare.com/ajax/libs/featherlight/1.3.5/featherlight.min.css" type="text/css" rel="stylesheet" />
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/blog/css/style.css">
+
+    <!-- Google Analytics -->
+    
+
+
+</head>
+
+
+<body>
+
+<div class="bg-gradient"></div>
+<div class="bg-pattern"></div>
+
+<!-- Menu -->
+<!--Menu Links and Overlay-->
+<div class="menu-bg">
+    <div class="menu-container">
+        <ul>
+            
+            <li class="menu-item">
+                <a href="/blog/">
+                    Home - 首页
+                </a>
+            </li>
+            
+            <li class="menu-item">
+                <a href="/blog/tags">
+                    Tags - 标签
+                </a>
+            </li>
+            
+            <li class="menu-item">
+                <a href="/blog/archives">
+                    Archives - 归档
+                </a>
+            </li>
+            
+            <li class="menu-item">
+                <a href="/blog/categories">
+                    Categories - 分类
+                </a>
+            </li>
+            
+            <li class="menu-item">
+                <a href="/blog/#menu">
+                    +
+                </a>
+            </li>
+            
+            <li class="menu-item">
+                <a href="/blog/../page/e-nav">
+                    E-Nav - 生态导航
+                </a>
+            </li>
+            
+            <li class="menu-item">
+                <a href="/blog/../page/wd-event">
+                    WD-Event - 凌辰大事件
+                </a>
+            </li>
+            
+        </ul>
+    </div>
+</div>
+
+<!--Hamburger Icon-->
+<nav>
+    <a href="#menu"></a>
+</nav>
+
+<div class="container">
+
+    <!-- Main Content -->
+    <div class="row">
+    <div class="col-sm-12">
+
+        <!--Title and Logo-->
+        <header>
+    <div class="logo">
+        <a href="/blog/"><i class="logo-icon fa fa-gg" aria-hidden="true"></i></a>
+        
+    </div>
+</header>
+
+        <section class="main">
+            
+<div class="post">
+
+    <div class="post-header">
+        <h1 class="title">
+            <a href="/blog/Javascript/cj6kojj8k000o705jzq389njg/">
+                《深入理解Javascript原型和闭包》笔记
+            </a>
+        </h1>
+        <div class="post-info">
+            
+                <span class="date">2016-08-14</span>
+            
+            
+                <a href="#disqus_thread" class="comments">Kommentare</a>
+            
+            
+                <span class="category">
+                    <a href="/blog/categories/Javascript/">Javascript</a>
+                </span>
+            
+        </div>
+    </div>
+
+    <div class="content">
+
+        <!-- Gallery -->
+        
+
+        <!-- Post Content -->
+        <p>作为一个前j2ee方向的javaer，当时对于前端、对于JS只是粗浅的认识。<br>昨晚在整理印象笔记的时候，恰巧看到“学习方向”分支下的前端篇，正好现在也在从事前端工作，由于之前对原型和闭包理解不是很深刻。<br>所以，有了这个学习笔记。笔记不适合阅读，请移步参考资料。此文放出来，只是取悦自己，记录成长，加深印象。<br>现在，还不是时候，依然在沉淀知识中。后续会像这些网上的大牛一样，消费自己，取悦读者。</p>
+<a id="more"></a>
+<h2 id="一切都是对象"><a href="#一切都是对象" class="headerlink" title="一切都是对象"></a>一切都是对象</h2><p>js里面的类型分为值类型和引用类型，值类型没有对象的概念。</p>
+<p>类型判断 typeof()<br>对象判断 xx instanceof x</p>
+<p>一切（引用类型）都是对象，对象是属性的集合。</p>
+<h2 id="函数和对象的关系"><a href="#函数和对象的关系" class="headerlink" title="函数和对象的关系"></a>函数和对象的关系</h2><p>对象都是通过函数来创建的<br>var obj = new Object();</p>
+<p>typeof(Object) 的值为function</p>
+<h2 id="prototype原型"><a href="#prototype原型" class="headerlink" title="prototype原型"></a>prototype原型</h2><p>默认给函数一个属性-prototype</p>
+<p>prototype的属性值是一个对象，该对象有一个constructor属性，其属性值指向函数本身</p>
+<p>每个对象都有一个隐藏的<strong>proto</strong>属性，指向创建该对象的函数的prototype(即fn.<strong>proto</strong> === Fn.prototype)</p>
+<h2 id="隐式原型"><a href="#隐式原型" class="headerlink" title="隐式原型"></a>隐式原型</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">函数有prototype属性</div><div class="line">prototype属性值是一个对象</div><div class="line">上述对象中有个constructor属性</div><div class="line">constructor属性值指向的是函数本身</div><div class="line">另外，对象有__proto__属性，被称为隐式原型</div><div class="line">__proto__属性指向创建该对象的函数的prototype</div><div class="line">自定义函数的prototype对象的__proto__属性指向Object.prototype</div><div class="line">Object.prototype没有__proto__属性</div><div class="line">函数也是对象，即函数也有__proto__属性</div><div class="line">函数的__proto__属性指向Function.prototype</div><div class="line">Function.__proto__属性指向Function.prototype,即Function是被自身创建的</div><div class="line">Function.prototype对象的__proto__属性指向Object.prototye</div></pre></td></tr></table></figure>
+<h2 id="instanceof"><a href="#instanceof" class="headerlink" title="instanceof"></a>instanceof</h2><p>Instanceof运算符的第一个变量是一个对象，暂时称为A；第二个变量一般是一个函数，暂时称为B。</p>
+<p>Instanceof的判断队则是：沿着A的<strong>proto</strong>这条线来找，同时沿着B的prototype这条线来找，如果两条线能找到同一个引用，即同一个对象，那么就返回true。如果找到终点还未重合，则返回false。</p>
+<p>instanceof表示的就是一种继承关系，或者原型链的结构。</p>
+<h2 id="继承"><a href="#继承" class="headerlink" title="继承"></a>继承</h2><p>javascript的继承是通过原型链来体现的。</p>
+<p>访问一个对象的属性时，先在基本属性中查找，如果没有，再沿着<strong>proto</strong>这条链向上找，这就是原型链。</p>
+<p>在实际应用中如何区分一个属性到底是基本的还是从原型中找到的呢？<br>Object.prototype中的hasOwnProperty方法</p>
+<h2 id="原型的灵活性"><a href="#原型的灵活性" class="headerlink" title="原型的灵活性"></a>原型的灵活性</h2><p>在Java和C#中，你可以简单的理解class是一个模子，对象就是被这个模子压出来的一批一批月饼（中秋节刚过完）。压个啥样，就得是个啥样，不能随便动，动一动就坏了。<br>而在javascript中，就没有模子了，月饼被换成了面团，你可以捏成自己想要的样子。</p>
+<p>首先，对象属性可以随时改动。<br>对象或者函数，刚开始new出来之后，可能啥属性都没有。但是你可以这会儿加一个，过一会儿在加两个，非常灵活。</p>
+<h2 id="执行上下文"><a href="#执行上下文" class="headerlink" title="执行上下文"></a>执行上下文</h2><p>在“准备工作”中完成了哪些工作：<br>变量、函数表达式——变量声明，默认赋值为undefined；<br>this——赋值；<br>函数声明——赋值；<br>这三种数据的准备情况我们称之为“执行上下文”或者“执行上下文环境”。</p>
+<p>javascript在执行一个代码段之前，都会进行这些“准备工作”来生成执行上下文。这个“代码段”其实分三种情况——全局代码，函数体，eval代码。</p>
+<p><img src="http://ldc4.qiniudn.com/images/JSProtoAndClosure/JSProtoAndClosure-1.png" alt=""></p>
+<h2 id="this"><a href="#this" class="headerlink" title="this"></a>this</h2><p>在函数中this到底取何值?<br>是在函数真正被调用执行的时候确定的，函数定义的时候确定不了</p>
+<p>1.构造函数<br>this表示构造出来的对象<br>如果是当成普通函数执行，则表示window<br>2.函数作为对象的一个属性<br>并且的确是作为对象的一个属性被调用，this表示该对象<br>3.函数用call或apply调用时<br>this表示传入的对象<br>4.全局&amp;调用普通函数<br>this都表示window</p>
+<h2 id="执行上下文栈"><a href="#执行上下文栈" class="headerlink" title="执行上下文栈"></a>执行上下文栈</h2><p>这个很好理解。</p>
+<h2 id="作用域"><a href="#作用域" class="headerlink" title="作用域"></a>作用域</h2><p>javascript没有块级作用域<br>javascript除了全局作用域之外，只有函数可以创建作用域。</p>
+<p>所以，我们在声明变量时，全局代码要在代码前端声明，函数中要在函数体一开始就声明好。除了这两个地方，其他地方都不要出现变量声明。而且建议用“单var”形式。</p>
+<p>作用域最大的用处就是隔离变量，不同作用域下同名变量不会有冲突。</p>
+<h2 id="作用域与上下文环境"><a href="#作用域与上下文环境" class="headerlink" title="作用域与上下文环境"></a>作用域与上下文环境</h2><p>除了全局作用域之外，每个函数都会创建自己的作用域，作用域在函数定义时就已经确定了。而不是在函数调用时确定</p>
+<h2 id="自由变量"><a href="#自由变量" class="headerlink" title="自由变量"></a>自由变量</h2><p>在A作用域中使用的变量x，却没有在A作用域中声明（即在其他作用域中声明的），对于A作用域来说，x就是一个自由变量。</p>
+<p>（要到创建这个函数的那个作用域中取值——是“创建”，而不是“调用”）  ——其实这就是所谓的“静态作用域”。</p>
+<h2 id="作用域链"><a href="#作用域链" class="headerlink" title="作用域链"></a>作用域链</h2><p>第一步，现在当前作用域查找a，如果有则获取并结束。如果没有则继续；</p>
+<p>第二步，如果当前作用域是全局作用域，则证明a未定义，结束；否则继续；</p>
+<p>第三步，（不是全局作用域，那就是函数作用域）将创建该函数的作用域作为当前作用域；</p>
+<p>第四步，跳转到第一步。</p>
+<h2 id="闭包"><a href="#闭包" class="headerlink" title="闭包"></a>闭包</h2><p>1.函数作为返回值<br>2.函数作为参数</p>
+<p>使用闭包会增加内容开销</p>
+<h2 id="写在最后"><a href="#写在最后" class="headerlink" title="写在最后"></a>写在最后</h2><p>工作之余，切不可忘记充电</p>
+<p>参考资料：<br><a href="http://www.cnblogs.com/wangfupeng1988/p/3977924.html" target="_blank" rel="external">http://www.cnblogs.com/wangfupeng1988/p/3977924.html</a></p>
+
+    </div>
+
+    
+
+    
+        <div class="post-tags">
+            <i class="fa fa-tags" aria-hidden="true"></i>
+            <a href="/blog/tags/prototype/">#prototype</a> <a href="/blog/tags/closure/">#closure</a>
+        </div>
+    
+
+    <!-- Comments -->
+    
+    <div class="comments">
+        
+<div id="disqus_thread">
+    <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+
+
+
+    </div>
+    
+
+</div>
+        </section>
+
+    </div>
+</div>
+
+</div>
+
+<!-- Footer -->
+<div class="push"></div>
+
+<footer class="footer-content">
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 footer-about">
+                <h2>About</h2>
+                <p>
+                    天道酬勤，越努力，越幸运！<br />克己自律，逐梦前行！<br />知足常乐！
+                </p>
+            </div>
+            
+    <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3 recent-posts">
+        <h2>Recent Posts</h2>
+        <ul>
+            
+            <li>
+                <a class="footer-post" href="/blog/React/cj6kojja3002p705jbsr4l46r/">React学习总结</a>
+            </li>
+            
+            <li>
+                <a class="footer-post" href="/blog/AngularJS2/cj6kojj7r0002705jljbfgxqy/">AngularJS2辅助应用</a>
+            </li>
+            
+            <li>
+                <a class="footer-post" href="/blog/AngularJS2/cj6kojj7y0006705jenejijnh/">AngularJS2起步</a>
+            </li>
+            
+            <li>
+                <a class="footer-post" href="/blog/Javascript/cj6kojj8k000o705jzq389njg/">《深入理解Javascript原型和闭包》笔记</a>
+            </li>
+            
+        </ul>
+    </div>
+
+
+
+            
+<div class="col-xs-6 col-sm-6 col-md-3 col-lg-3 footer-categories">
+    <h2>Categories</h2>
+    <ul>
+        
+        <li>
+            <a class="footer-post" href="/blog/categories/Hexo/">Hexo</a>
+        </li>
+        
+        <li>
+            <a class="footer-post" href="/blog/categories/Tencent/">Tencent</a>
+        </li>
+        
+        <li>
+            <a class="footer-post" href="/blog/categories/Plugin/">Plugin</a>
+        </li>
+        
+        <li>
+            <a class="footer-post" href="/blog/categories/JDBC/">JDBC</a>
+        </li>
+        
+    </ul>
+</div>
+
+        </div>
+        <div class="row">
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                <ul class="list-inline footer-social-icons">
+                    
+                    <li class="list-inline-item">
+                        <a href="https://github.com/ldc4">
+                            <span class="footer-icon-container">
+                                <i class="fa fa-github"></i>
+                            </span>
+                        </a>
+                    </li>
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    <li class="list-inline-item">
+                        <a href="mailto:544420314@qq.com">
+                            <span class="footer-icon-container">
+                                <i class="fa fa-envelope-o"></i>
+                            </span>
+                        </a>
+                    </li>
+                    
+                    
+                </ul>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                <div class="footer-copyright">
+                    @weedustzhao. All right reserved
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<!-- After footer scripts -->
+
+<!-- jQuery -->
+<script src="//code.jquery.com/jquery-2.1.4.min.js"></script>
+
+<!-- Tween Max -->
+<script src="//cdnjs.cloudflare.com/ajax/libs/gsap/1.18.5/TweenMax.min.js"></script>
+
+<!-- Gallery -->
+<script src="//cdnjs.cloudflare.com/ajax/libs/featherlight/1.3.5/featherlight.min.js" type="text/javascript" charset="utf-8"></script>
+
+<!-- Custom JavaScript -->
+<script src="/blog/js/main.js"></script>
+
+<!-- Disqus Comments -->
+
+<script type="text/javascript">
+    var disqus_shortname = 'Weedustzhao';
+
+    (function(){
+        var dsq = document.createElement('script');
+        dsq.type = 'text/javascript';
+        dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    }());
+</script>
+
+
+
+</body>
+
+</html>
