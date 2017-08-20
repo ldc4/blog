@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Head tag -->
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!--Description-->
+    
+        <meta name="description" content="weedustzhao的个人博客">
+    
+
+    <!--Author-->
+    
+        <meta name="author" content="Weedustzhao">
+    
+
+    <!--Open Graph Title-->
+    
+        <meta property="og:title" content="红黑树Java实现"/>
+    
+
+    <!--Open Graph Description-->
+    
+        <meta property="og:description" content="weedustzhao的个人博客" />
+    
+
+    <!--Open Graph Site Name-->
+    <meta property="og:site_name" content="零度尘封"/>
+
+    <!--Type page-->
+    
+        <meta property="og:type" content="article" />
+    
+
+    <!--Page Cover-->
+    
+
+    <meta name="twitter:card" content="summary" />
+    
+
+    <!-- Title -->
+    
+    <title>红黑树Java实现 - 零度尘封</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.2/css/bootstrap.min.css" integrity="sha384-y3tfxAZXuh4HwSYylfB+J125MxIs6mR5FOHamPBG064zB+AFeWH94NdvaCBm8qnd" crossorigin="anonymous">
+
+    <!-- Custom Fonts -->
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="//oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="//oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- Gallery -->
+    <link href="//cdnjs.cloudflare.com/ajax/libs/featherlight/1.3.5/featherlight.min.css" type="text/css" rel="stylesheet" />
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/blog/css/style.css">
+
+    <!-- Google Analytics -->
+    
+
+
+</head>
+
+
+<body>
+
+<div class="bg-gradient"></div>
+<div class="bg-pattern"></div>
+
+<!-- Menu -->
+<!--Menu Links and Overlay-->
+<div class="menu-bg">
+    <div class="menu-container">
+        <ul>
+            
+            <li class="menu-item">
+                <a href="/blog/">
+                    Home - 首页
+                </a>
+            </li>
+            
+            <li class="menu-item">
+                <a href="/blog/tags">
+                    Tags - 标签
+                </a>
+            </li>
+            
+            <li class="menu-item">
+                <a href="/blog/archives">
+                    Archives - 归档
+                </a>
+            </li>
+            
+            <li class="menu-item">
+                <a href="/blog/categories">
+                    Categories - 分类
+                </a>
+            </li>
+            
+            <li class="menu-item">
+                <a href="/blog/#menu">
+                    +
+                </a>
+            </li>
+            
+            <li class="menu-item">
+                <a href="/blog/../page/e-nav">
+                    E-Nav - 生态导航
+                </a>
+            </li>
+            
+            <li class="menu-item">
+                <a href="/blog/../page/wd-event">
+                    WD-Event - 凌辰大事件
+                </a>
+            </li>
+            
+        </ul>
+    </div>
+</div>
+
+<!--Hamburger Icon-->
+<nav>
+    <a href="#menu"></a>
+</nav>
+
+<div class="container">
+
+    <!-- Main Content -->
+    <div class="row">
+    <div class="col-sm-12">
+
+        <!--Title and Logo-->
+        <header>
+    <div class="logo">
+        <a href="/blog/"><i class="logo-icon fa fa-gg" aria-hidden="true"></i></a>
+        
+    </div>
+</header>
+
+        <section class="main">
+            
+<div class="post">
+
+    <div class="post-header">
+        <h1 class="title">
+            <a href="/blog/DataStructure/cj6kp5rmf002emc5jpuupz0r6/">
+                红黑树Java实现
+            </a>
+        </h1>
+        <div class="post-info">
+            
+                <span class="date">2016-05-03</span>
+            
+            
+                <a href="#disqus_thread" class="comments">Comments</a>
+            
+            
+                <span class="category">
+                    <a href="/blog/categories/DataStructure/">DataStructure</a>
+                </span>
+            
+        </div>
+    </div>
+
+    <div class="content">
+
+        <!-- Gallery -->
+        
+
+        <!-- Post Content -->
+        <p><img src="http://ldc4.qiniudn.com/images/RBTree/RBTree-1.png" alt="" title="红黑树"></p>
+<a id="more"></a>
+<h2 id="红黑树定义"><a href="#红黑树定义" class="headerlink" title="红黑树定义"></a>红黑树定义</h2><p>红黑树是每个节点都带有颜色属性的二叉查找树，颜色为红色或黑色。在二叉查找树强制一般要求以外，对于任何有效的红黑树我们增加了如下的额外要求：</p>
+<pre><code>1. 节点是红色或黑色。
+2. 根是黑色。
+3. 所有叶子都是黑色（叶子是NIL节点）。
+4. 每个红色节点必须有两个黑色的子节点。（从每个叶子到根的所有路径上不能有两个连续的红色节点。）
+5. 从任一节点到其每个叶子的所有简单路径都包含相同数目的黑色节点。
+</code></pre><p>（摘自维基百科）</p>
+<h2 id="红黑树Java代码实现"><a href="#红黑树Java代码实现" class="headerlink" title="红黑树Java代码实现"></a>红黑树Java代码实现</h2><h3 id="节点颜色"><a href="#节点颜色" class="headerlink" title="节点颜色"></a>节点颜色</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">//节点颜色</div><div class="line">enum Color&#123;</div><div class="line">	BLACK,</div><div class="line">	RED</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="红黑树节点"><a href="#红黑树节点" class="headerlink" title="红黑树节点"></a>红黑树节点</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div></pre></td><td class="code"><pre><div class="line">//红黑树节点</div><div class="line">class RBTNode &#123;</div><div class="line">	</div><div class="line">	private int value; //值</div><div class="line">	private RBTNode left;//左子节点</div><div class="line">	private RBTNode right;//右子节点</div><div class="line">	private RBTNode parent;//父亲节点</div><div class="line">	private Color color;//节点颜色</div><div class="line">	</div><div class="line">	</div><div class="line">	public RBTNode(int value)&#123;</div><div class="line">		this(value,Color.BLACK);</div><div class="line">	&#125;</div><div class="line">	</div><div class="line">	public RBTNode(int value,Color color)&#123;</div><div class="line">		this(value,null,null,null,color);</div><div class="line">	&#125;</div><div class="line">	</div><div class="line">	public RBTNode(int value, RBTNode left, RBTNode right, RBTNode parent, Color color) &#123;</div><div class="line">		this.value = value;</div><div class="line">		this.left = left;</div><div class="line">		this.right = right;</div><div class="line">		this.parent = parent;</div><div class="line">		this.setColor(color);</div><div class="line">	&#125;</div><div class="line"></div><div class="line"></div><div class="line">	public int getValue() &#123;</div><div class="line">		return value;</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	public void setValue(int value) &#123;</div><div class="line">		this.value = value;</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	public RBTNode getLeft() &#123;</div><div class="line">		return left;</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	public void setLeft(RBTNode left) &#123;</div><div class="line">		this.left = left;</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	public RBTNode getRight() &#123;</div><div class="line">		return right;</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	public void setRight(RBTNode right) &#123;</div><div class="line">		this.right = right;</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	public RBTNode getParent() &#123;</div><div class="line">		return parent;</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	public void setParent(RBTNode parent) &#123;</div><div class="line">		this.parent = parent;</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	public Color getColor() &#123;</div><div class="line">		return color;</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	public void setColor(Color color) &#123;</div><div class="line">		this.color = color;</div><div class="line">	&#125;</div><div class="line">	</div><div class="line">	</div><div class="line">	//找到祖父节点</div><div class="line">	public RBTNode getGrandparent()&#123;</div><div class="line">		return this.getParent().getParent();</div><div class="line">	&#125;</div><div class="line">	//找到叔父节点</div><div class="line">	public RBTNode getUncle()&#123;</div><div class="line">		if(this.parent == this.getGrandparent().left)&#123;</div><div class="line">			return getGrandparent().right;</div><div class="line">		&#125;else&#123;</div><div class="line">			return getGrandparent().left;</div><div class="line">		&#125;</div><div class="line">	&#125;</div><div class="line">	//找到兄弟节点</div><div class="line">	public RBTNode getSibling()&#123;</div><div class="line">		if(this == this.parent.left)&#123;</div><div class="line">			return this.parent.right;</div><div class="line">		&#125;else&#123;</div><div class="line">			return this.parent.left;</div><div class="line">		&#125;</div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="红黑树"><a href="#红黑树" class="headerlink" title="红黑树"></a>红黑树</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div><div class="line">90</div><div class="line">91</div><div class="line">92</div><div class="line">93</div><div class="line">94</div><div class="line">95</div><div class="line">96</div><div class="line">97</div><div class="line">98</div><div class="line">99</div><div class="line">100</div><div class="line">101</div><div class="line">102</div><div class="line">103</div><div class="line">104</div><div class="line">105</div><div class="line">106</div><div class="line">107</div><div class="line">108</div><div class="line">109</div><div class="line">110</div><div class="line">111</div><div class="line">112</div><div class="line">113</div><div class="line">114</div><div class="line">115</div><div class="line">116</div><div class="line">117</div><div class="line">118</div><div class="line">119</div><div class="line">120</div><div class="line">121</div><div class="line">122</div><div class="line">123</div><div class="line">124</div><div class="line">125</div><div class="line">126</div><div class="line">127</div><div class="line">128</div><div class="line">129</div><div class="line">130</div><div class="line">131</div><div class="line">132</div><div class="line">133</div><div class="line">134</div><div class="line">135</div><div class="line">136</div><div class="line">137</div><div class="line">138</div><div class="line">139</div><div class="line">140</div><div class="line">141</div><div class="line">142</div><div class="line">143</div><div class="line">144</div><div class="line">145</div><div class="line">146</div><div class="line">147</div><div class="line">148</div><div class="line">149</div><div class="line">150</div><div class="line">151</div><div class="line">152</div><div class="line">153</div><div class="line">154</div><div class="line">155</div><div class="line">156</div><div class="line">157</div><div class="line">158</div><div class="line">159</div><div class="line">160</div><div class="line">161</div><div class="line">162</div><div class="line">163</div><div class="line">164</div><div class="line">165</div><div class="line">166</div><div class="line">167</div><div class="line">168</div><div class="line">169</div><div class="line">170</div><div class="line">171</div><div class="line">172</div><div class="line">173</div><div class="line">174</div><div class="line">175</div><div class="line">176</div><div class="line">177</div><div class="line">178</div><div class="line">179</div><div class="line">180</div><div class="line">181</div><div class="line">182</div><div class="line">183</div><div class="line">184</div><div class="line">185</div><div class="line">186</div><div class="line">187</div><div class="line">188</div><div class="line">189</div><div class="line">190</div><div class="line">191</div><div class="line">192</div><div class="line">193</div><div class="line">194</div><div class="line">195</div><div class="line">196</div><div class="line">197</div><div class="line">198</div><div class="line">199</div><div class="line">200</div><div class="line">201</div><div class="line">202</div><div class="line">203</div><div class="line">204</div><div class="line">205</div><div class="line">206</div><div class="line">207</div><div class="line">208</div><div class="line">209</div><div class="line">210</div><div class="line">211</div><div class="line">212</div><div class="line">213</div><div class="line">214</div><div class="line">215</div><div class="line">216</div><div class="line">217</div><div class="line">218</div><div class="line">219</div><div class="line">220</div><div class="line">221</div><div class="line">222</div><div class="line">223</div><div class="line">224</div><div class="line">225</div><div class="line">226</div><div class="line">227</div><div class="line">228</div><div class="line">229</div><div class="line">230</div><div class="line">231</div><div class="line">232</div><div class="line">233</div><div class="line">234</div><div class="line">235</div><div class="line">236</div><div class="line">237</div><div class="line">238</div><div class="line">239</div><div class="line">240</div><div class="line">241</div><div class="line">242</div><div class="line">243</div><div class="line">244</div><div class="line">245</div><div class="line">246</div><div class="line">247</div><div class="line">248</div><div class="line">249</div><div class="line">250</div><div class="line">251</div><div class="line">252</div><div class="line">253</div><div class="line">254</div><div class="line">255</div><div class="line">256</div><div class="line">257</div><div class="line">258</div><div class="line">259</div><div class="line">260</div><div class="line">261</div><div class="line">262</div><div class="line">263</div><div class="line">264</div><div class="line">265</div><div class="line">266</div><div class="line">267</div><div class="line">268</div><div class="line">269</div><div class="line">270</div><div class="line">271</div><div class="line">272</div><div class="line">273</div><div class="line">274</div><div class="line">275</div><div class="line">276</div><div class="line">277</div><div class="line">278</div><div class="line">279</div><div class="line">280</div><div class="line">281</div><div class="line">282</div><div class="line">283</div><div class="line">284</div><div class="line">285</div><div class="line">286</div><div class="line">287</div><div class="line">288</div><div class="line">289</div><div class="line">290</div><div class="line">291</div><div class="line">292</div><div class="line">293</div><div class="line">294</div><div class="line">295</div><div class="line">296</div><div class="line">297</div><div class="line">298</div><div class="line">299</div><div class="line">300</div><div class="line">301</div><div class="line">302</div><div class="line">303</div><div class="line">304</div><div class="line">305</div><div class="line">306</div><div class="line">307</div><div class="line">308</div><div class="line">309</div><div class="line">310</div><div class="line">311</div><div class="line">312</div><div class="line">313</div><div class="line">314</div><div class="line">315</div><div class="line">316</div><div class="line">317</div><div class="line">318</div><div class="line">319</div><div class="line">320</div><div class="line">321</div><div class="line">322</div><div class="line">323</div><div class="line">324</div><div class="line">325</div><div class="line">326</div><div class="line">327</div><div class="line">328</div><div class="line">329</div><div class="line">330</div><div class="line">331</div><div class="line">332</div><div class="line">333</div><div class="line">334</div><div class="line">335</div><div class="line">336</div><div class="line">337</div><div class="line">338</div><div class="line">339</div><div class="line">340</div><div class="line">341</div><div class="line">342</div><div class="line">343</div><div class="line">344</div><div class="line">345</div><div class="line">346</div><div class="line">347</div><div class="line">348</div><div class="line">349</div><div class="line">350</div><div class="line">351</div><div class="line">352</div><div class="line">353</div><div class="line">354</div><div class="line">355</div><div class="line">356</div><div class="line">357</div></pre></td><td class="code"><pre><div class="line">public class RBTree&#123;</div><div class="line">	</div><div class="line">	//NIL节点，即根节点，要求为黑色</div><div class="line">	private final RBTNode NIL = new RBTNode(-1);</div><div class="line">	</div><div class="line">	private RBTNode root;</div><div class="line">	</div><div class="line">	public RBTree()&#123;</div><div class="line">		root = NIL;</div><div class="line">	&#125;</div><div class="line">	</div><div class="line">	public RBTree(RBTNode node)&#123;</div><div class="line">		root = node;</div><div class="line">	&#125;</div><div class="line">	</div><div class="line">	</div><div class="line">	//插入节点</div><div class="line">	public void insert(RBTNode node)&#123;</div><div class="line">		RBTNode temp = root,previous = NIL;</div><div class="line">		</div><div class="line">		//找到插入节点</div><div class="line">		while(temp!=NIL)&#123;</div><div class="line">			previous = temp;</div><div class="line">			if(temp.getValue() &lt; node.getValue())&#123;</div><div class="line">				temp = previous.getRight();</div><div class="line">			&#125;else if(temp.getValue() &gt; node.getValue())&#123;</div><div class="line">				temp = previous.getLeft();</div><div class="line">			&#125;else&#123;</div><div class="line">				return;</div><div class="line">			&#125;</div><div class="line">		&#125;</div><div class="line">		</div><div class="line">		node.setParent(previous);</div><div class="line">		</div><div class="line">		//如果是空树</div><div class="line">		if(previous==NIL)&#123;</div><div class="line">			root = node;</div><div class="line">		&#125;else if(previous.getValue() &gt; node.getValue())&#123;</div><div class="line">			previous.setLeft(node);</div><div class="line">		&#125;else&#123;</div><div class="line">			previous.setRight(node);</div><div class="line">		&#125;</div><div class="line">		</div><div class="line">		node.setLeft(NIL);</div><div class="line">		node.setRight(NIL);</div><div class="line">		node.setColor(Color.RED);//因为性质5的约束，插入节点必须是红节点（其实这里可以理解为，插入节点为红色，可以更方便操作）</div><div class="line">		insert1(node);</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	</div><div class="line"></div><div class="line">	//插入情形1:默认插入节点是红色，下面用N表示插入节点，P表示父亲节点，U表示叔父节点</div><div class="line">	//插入节点为根节点（插入是作为叶子节点插入的，这里要注意红黑树的nil叶子节点与树的叶子节点的区别）</div><div class="line">	private void insert1(RBTNode node)&#123;</div><div class="line">		if(node.getParent() == NIL)&#123;</div><div class="line">			node.setColor(Color.BLACK);</div><div class="line">		&#125;else&#123;</div><div class="line">			insert2(node);</div><div class="line">		&#125;</div><div class="line">	&#125;</div><div class="line">	//插入情形2:N红P黑U任意</div><div class="line">	//如果父节点是黑色，则没有影响。</div><div class="line">	private void insert2(RBTNode node)&#123;</div><div class="line">		if(node.getParent().getColor() == Color.BLACK)&#123;</div><div class="line">			return ;</div><div class="line">		&#125;else&#123;</div><div class="line">			insert3(node);</div><div class="line">		&#125;</div><div class="line">	&#125;</div><div class="line">	//插入情形3:N红P红U红</div><div class="line">	//如果叔父节点不为空且是红色(由于前面的情况排除，到达这里 父亲节点是红色)</div><div class="line">	private void insert3(RBTNode node) &#123;</div><div class="line">		//这里有个隐形的条件：祖父节点一定是存在的，且为黑</div><div class="line">		if(node.getUncle()!=NIL &amp;&amp; node.getUncle().getColor() == Color.RED)&#123;</div><div class="line">			node.getParent().setColor(Color.BLACK);</div><div class="line">			node.getUncle().setColor(Color.BLACK);</div><div class="line">			node.getGrandparent().setColor(Color.RED);</div><div class="line">			//如果祖父节点是根节点，而根节点要为黑色</div><div class="line">			insert1(node.getGrandparent());</div><div class="line">		&#125;else&#123;</div><div class="line">			insert4(node);</div><div class="line">		&#125;</div><div class="line">	&#125;</div><div class="line">	//插入情形4：N红P红  U黑/NIL (LR或者RL型)</div><div class="line">	//叔父节点是黑色或者为空,且插入节点是父节点的右子节点，父节点是祖父节点的左子节点</div><div class="line">	//左右旋后变成情况5</div><div class="line">	private void insert4(RBTNode node) &#123;</div><div class="line">		if(node == node.getParent().getRight() &amp;&amp; node.getParent() == node.getGrandparent().getLeft())&#123;</div><div class="line">			leftRotate(node.getParent());</div><div class="line">			node = node.getLeft();</div><div class="line">		&#125;else if(node == node.getParent().getLeft() &amp;&amp; node.getParent() == node.getGrandparent().getRight())&#123;</div><div class="line">			rightRotate(node.getParent());</div><div class="line">			node = node.getRight();</div><div class="line">		&#125;</div><div class="line">		insert5(node);</div><div class="line">	&#125;</div><div class="line">	//插入情形5：N红P红 U黑/NIL  (RR或者LL型)</div><div class="line">	//父节点P是红色而叔父节点U是黑色或缺少，新节点N是其父节点的左子节点，而父节点P又是其父节点G的左子节点。</div><div class="line">	private void insert5(RBTNode node) &#123;</div><div class="line">		node.getParent().setColor(Color.BLACK);</div><div class="line">		node.getGrandparent().setColor(Color.RED);</div><div class="line">		if(node == node.getParent().getLeft() &amp;&amp; node.getParent() == node.getGrandparent().getLeft())&#123;</div><div class="line">			rightRotate(node.getGrandparent());</div><div class="line">		&#125;else&#123;</div><div class="line">			leftRotate(node.getGrandparent());</div><div class="line">		&#125;</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	//左旋</div><div class="line">	private void leftRotate(RBTNode node) &#123;</div><div class="line">		</div><div class="line">		//得到Node的右子节点</div><div class="line">		RBTNode nr = node.getRight();</div><div class="line">		</div><div class="line">		node.setRight(nr.getLeft());</div><div class="line">		</div><div class="line">		if(node.getRight() != NIL)&#123;</div><div class="line">			node.getRight().setParent(node);</div><div class="line">		&#125;</div><div class="line">		</div><div class="line">		nr.setLeft(node);</div><div class="line">		nr.setParent(node.getParent());</div><div class="line">		if(node.getParent() == NIL)&#123;</div><div class="line">			root = nr;</div><div class="line">		&#125;else if(node.getParent().getLeft() == node)&#123;</div><div class="line">			node.getParent().setLeft(nr);</div><div class="line">		&#125;else if(node.getParent().getRight() == node)&#123;</div><div class="line">			node.getParent().setRight(nr);</div><div class="line">		&#125;</div><div class="line">		node.setParent(nr);</div><div class="line">		</div><div class="line">	&#125;</div><div class="line">	//右旋</div><div class="line">	private void rightRotate(RBTNode node) &#123;</div><div class="line"></div><div class="line">		RBTNode nl = node.getLeft();</div><div class="line">		</div><div class="line">		node.setLeft(nl.getRight());</div><div class="line">		</div><div class="line">		if(node.getLeft() != NIL)&#123;</div><div class="line">			node.getLeft().setParent(node);</div><div class="line">		&#125;</div><div class="line">		</div><div class="line">		nl.setRight(node);</div><div class="line">		</div><div class="line">		nl.setParent(node.getParent());</div><div class="line">		</div><div class="line">		if(node.getParent() == NIL)&#123;</div><div class="line">			root = nl;</div><div class="line">		&#125;else if(node.getParent().getLeft() == node)&#123;</div><div class="line">			node.getParent().setLeft(nl);</div><div class="line">		&#125;else if(node.getParent().getRight() == node)&#123;</div><div class="line">			node.getParent().setRight(nl);</div><div class="line">		&#125;</div><div class="line"></div><div class="line">		node.setParent(nl);</div><div class="line"></div><div class="line">	&#125;</div><div class="line">		</div><div class="line">	//按值删除</div><div class="line">	public void deleteWithValue(int value)&#123;</div><div class="line">		delete(search(value));</div><div class="line">	&#125;</div><div class="line">	//按节点删除</div><div class="line">	public void delete(RBTNode node)&#123;</div><div class="line">		</div><div class="line">		RBTNode temp = NIL;</div><div class="line">		RBTNode child = NIL;</div><div class="line">		</div><div class="line">		if(node == null)&#123;</div><div class="line">			return ;</div><div class="line">		&#125;else&#123;</div><div class="line">			if(node.getLeft() == NIL || node.getRight() == NIL)&#123;</div><div class="line">				temp = node;</div><div class="line">			&#125;else&#123;</div><div class="line">				temp = successor(node);</div><div class="line">			&#125;</div><div class="line">			</div><div class="line">			//如果不是原节点，只需要把后继节点的值赋值过来就行了</div><div class="line">			if(temp != node)&#123;</div><div class="line">				node.setValue(temp.getValue());</div><div class="line">			&#125;</div><div class="line"></div><div class="line">			//因为前面的操作，这里最终退化成删除只有1个孩子的节点的情况，或者叶子节点</div><div class="line">			child = temp.getLeft()==NIL?temp.getRight():temp.getLeft();</div><div class="line">			</div><div class="line">			//删除节点具体行为</div><div class="line">			child.setParent(temp.getParent());</div><div class="line">			//如果temp是根</div><div class="line">			if(temp.getParent() == NIL)&#123;</div><div class="line">				root = child;</div><div class="line">			&#125;else if(temp == temp.getParent().getLeft())&#123;</div><div class="line">				temp.getParent().setLeft(child);</div><div class="line">			&#125;else if(temp == temp.getParent().getRight())&#123;</div><div class="line">				temp.getParent().setRight(child);</div><div class="line">			&#125;</div><div class="line">			</div><div class="line">			if(temp.getColor() == Color.BLACK)&#123;</div><div class="line">				if(child.getColor() == Color.RED)&#123;</div><div class="line">					child.setColor(Color.BLACK);</div><div class="line">				&#125;else&#123;</div><div class="line">					delete1(child);//删除修正，删除黑色节点，儿子节点也为黑色</div><div class="line">				&#125;</div><div class="line">			&#125;</div><div class="line">			</div><div class="line">		&#125;</div><div class="line">		</div><div class="line">	&#125;</div><div class="line">		</div><div class="line">	//情形1：如果node是新的根,什么也不干.</div><div class="line">	//下面用N表示删除节点的孩子节点（即方法调用的child参数），S表示N的兄弟节点，P表示N的父亲节点，SL表示S的左子，SR表示S的右子</div><div class="line">	private void delete1(RBTNode node) &#123;</div><div class="line">		if(node.getParent() != NIL)&#123;</div><div class="line">			delete2(node);</div><div class="line">		&#125;</div><div class="line">	&#125;</div><div class="line">	//情形2：S红</div><div class="line">	//兄弟节点是红色</div><div class="line">	private void delete2(RBTNode node) &#123;</div><div class="line">		RBTNode sibling = node.getSibling();</div><div class="line">		</div><div class="line">		if(sibling.getColor() == Color.RED)&#123;</div><div class="line">			node.getParent().setColor(Color.RED);</div><div class="line">			sibling.setColor(Color.BLACK);</div><div class="line">			if(node == node.getParent().getLeft())&#123;</div><div class="line">				leftRotate(node.getParent());</div><div class="line">			&#125;else&#123;</div><div class="line">				rightRotate(node.getParent());</div><div class="line">			&#125;</div><div class="line">		&#125;</div><div class="line">		</div><div class="line">		delete3(node);//去执行4,5,6,的情况，不满足3的条件，会直接跳过</div><div class="line">	&#125;</div><div class="line">	//情形3：P黑S黑SL黑SR黑</div><div class="line">	private void delete3(RBTNode node) &#123;</div><div class="line">		RBTNode sibling = node.getSibling();</div><div class="line">		</div><div class="line">		if(node.getParent().getColor() == Color.BLACK </div><div class="line">				&amp;&amp; sibling.getColor() == Color.BLACK</div><div class="line">				&amp;&amp; sibling.getLeft().getColor() == Color.BLACK</div><div class="line">				&amp;&amp; sibling.getRight().getColor() == Color.BLACK)&#123;</div><div class="line">			sibling.setColor(Color.RED);</div><div class="line">			//这就变成了第一种情况了</div><div class="line">			delete1(node.getParent());</div><div class="line">		&#125;else&#123;</div><div class="line">			delete4(node);</div><div class="line">		&#125;</div><div class="line">	&#125;</div><div class="line">	//情形4：P红S黑SL黑SR黑</div><div class="line">	private void delete4(RBTNode node) &#123;</div><div class="line">		RBTNode sibling = node.getSibling();</div><div class="line">		</div><div class="line">		if(node.getParent().getColor() == Color.RED </div><div class="line">				&amp;&amp; sibling.getColor() == Color.BLACK</div><div class="line">				&amp;&amp; sibling.getLeft().getColor() == Color.BLACK</div><div class="line">				&amp;&amp; sibling.getRight().getColor() == Color.BLACK)&#123;</div><div class="line">			sibling.setColor(Color.RED);</div><div class="line">			node.getParent().setColor(Color.BLACK);</div><div class="line">		&#125;else&#123;</div><div class="line">			delete5(node);</div><div class="line">		&#125;</div><div class="line">	&#125;	</div><div class="line">	//情形5：S黑SL红SR黑且N是S的父亲的左子( 还要对称一下)</div><div class="line">	private void delete5(RBTNode node) &#123;</div><div class="line">		RBTNode sibling = node.getSibling();</div><div class="line">		</div><div class="line">		//这个条件可以不要，因为到达这里只能是红色。</div><div class="line">		//情形2执行了的话，兄弟节点就变成了黑色</div><div class="line">		//if(sibling.getColor() == Color.BLACK)&#123;</div><div class="line">		if(node == node.getParent().getLeft() </div><div class="line">				&amp;&amp; sibling.getRight().getColor() == Color.BLACK</div><div class="line">				&amp;&amp; sibling.getLeft().getColor() == Color.RED)&#123;</div><div class="line">			sibling.setColor(Color.RED);</div><div class="line">			sibling.getLeft().setColor(Color.BLACK);</div><div class="line">			rightRotate(sibling);</div><div class="line">		&#125;else if(node == node.getParent().getLeft() </div><div class="line">				&amp;&amp; sibling.getRight().getColor() == Color.BLACK</div><div class="line">				&amp;&amp; sibling.getLeft().getColor() == Color.RED)&#123;</div><div class="line">			sibling.setColor(Color.RED);</div><div class="line">			sibling.getRight().setColor(Color.BLACK);</div><div class="line">			leftRotate(sibling);</div><div class="line">		&#125;</div><div class="line">		//&#125;</div><div class="line">		delete6(node);</div><div class="line">	&#125;</div><div class="line">	</div><div class="line">	//情形6：S黑SL黑SR红且N是S的父亲的左子（依然对称一下）</div><div class="line">	private void delete6(RBTNode node) &#123;</div><div class="line">		RBTNode sibling = node.getSibling();</div><div class="line">		</div><div class="line">		sibling.setColor(node.getParent().getColor());</div><div class="line">		node.getParent().setColor(Color.BLACK);</div><div class="line">		</div><div class="line">		if(node == node.getParent().getLeft())&#123;</div><div class="line">			sibling.getRight().setColor(Color.BLACK);</div><div class="line">			leftRotate(node.getParent());</div><div class="line">		&#125;else&#123;</div><div class="line">			sibling.getLeft().setColor(Color.BLACK);</div><div class="line">			rightRotate(node.getParent());</div><div class="line">		&#125;</div><div class="line">	&#125;</div><div class="line">	</div><div class="line">	</div><div class="line">    //查找节点  </div><div class="line">    public RBTNode search(int data) &#123;  </div><div class="line">    	RBTNode temp = root;  </div><div class="line">          </div><div class="line">        while (temp != NIL) &#123;  </div><div class="line">            if (temp.getValue() == data) &#123;  </div><div class="line">                return temp;  </div><div class="line">            &#125; else  if (data &lt; temp.getValue()) &#123;  </div><div class="line">                temp = temp.getLeft();  </div><div class="line">            &#125; else &#123;  </div><div class="line">                temp = temp.getRight();  </div><div class="line">            &#125;  </div><div class="line">        &#125;  </div><div class="line">        return null;  </div><div class="line">    &#125;  </div><div class="line">    </div><div class="line">    //查找后继节点 (待仔细分析)(我觉得这里是应该是狭义的后继，只考虑后继的第一种情况)</div><div class="line">    public RBTNode successor(RBTNode node) &#123;  </div><div class="line">    	RBTNode nr = node.getRight();  </div><div class="line">        if(nr != NIL) &#123;  </div><div class="line">        	RBTNode previous = null;  </div><div class="line">            while (nr != NIL) &#123;  </div><div class="line">                previous = nr;  </div><div class="line">                nr = nr.getLeft();  </div><div class="line">            &#125;  </div><div class="line">            return previous;  </div><div class="line">        &#125;else&#123;  </div><div class="line">        	</div><div class="line">        	return node;</div><div class="line">        	</div><div class="line">        	/*</div><div class="line">        	RBTNode parent = node.getParent();  </div><div class="line">        	while (parent != NIL &amp;&amp; node != parent.getLeft()) &#123;  </div><div class="line">                node = parent;  </div><div class="line">                parent = parent.getParent();  </div><div class="line">        	&#125;   </div><div class="line">        	return parent;</div><div class="line">        	*/</div><div class="line">        &#125; </div><div class="line">    &#125;</div><div class="line">	</div><div class="line">	//中序遍历红黑树  </div><div class="line">    public void printTree() &#123;  </div><div class="line">        inOrderTraverse(root);  </div><div class="line">    &#125;  </div><div class="line">	      </div><div class="line">    private void inOrderTraverse(RBTNode node) &#123;  </div><div class="line">        if (node != NIL) &#123;  </div><div class="line">            inOrderTraverse(node.getLeft());  </div><div class="line">            System.out.println(&quot; 节点：&quot;+node.getValue() + &quot;的颜色为：&quot; + node.getColor());  </div><div class="line">            inOrderTraverse(node.getRight());  </div><div class="line">        &#125;  </div><div class="line">    &#125;  </div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h2 id="红黑树的应用"><a href="#红黑树的应用" class="headerlink" title="红黑树的应用"></a>红黑树的应用</h2><p>典型的用途是实现关联数组</p>
+<p>例如Java的TreeMap就是基于红黑树（Red-Black tree）的 NavigableMap 实现</p>
+<p>TreeSet是基于 TreeMap 的 NavigableSet 实现</p>
+<h2 id="写在最后"><a href="#写在最后" class="headerlink" title="写在最后"></a>写在最后</h2><p>之前一直搞不清楚，平衡树，搜索树，查找树，AVL树，红黑树，B+树，B-树的关系。<br>但是又害怕被面试官问到这类问题。<br>正好遇到一个面经题：让你介绍一下平衡树，左旋，右旋。<br>左旋右旋这东西一直在我脑海中徘徊，但又具体不知道是什么。总之，这种感觉很烦。<br>本来要去看看平衡树，然后索性就直接找红黑树看了。<br>红黑树里面的逻辑很复杂，我懒悠悠的花了一天时间才勉强照着别人的代码，以及维基百科的C语言实现，敲出来。<br>总之，一些基本概念知道了，也会写左旋右旋了，代码就没有继续调试。大差不差的。</p>
+<p>在中午吃饭，晚上吃饭的时候，老是想快速省略这步，简单了解下就行了，毕竟快要阿里面试了，合理分配时间很重要。<br>由此延伸出想法：把时间用在正确的地方。<br>当然，这个所谓的正确，是很难把握的。<br>或许，我花一整天时间来实现红黑树，以后在某个时间点某个事情上排上用场了。当然这概率很小，哈哈。<br>不废话了，赶紧进入下一个阶段。</p>
+<p>参考资料：<br><a href="https://zh.wikipedia.org/wiki/红黑树" target="_blank" rel="external">https://zh.wikipedia.org/wiki/红黑树</a><br><a href="http://www.cnblogs.com/fornever/archive/2011/12/02/2270692.html" target="_blank" rel="external">http://www.cnblogs.com/fornever/archive/2011/12/02/2270692.html</a><br><a href="http://blog.csdn.net/skylinesky/article/details/6610950" target="_blank" rel="external">http://blog.csdn.net/skylinesky/article/details/6610950</a></p>
+<p>源代码：<br><a href="https://github.com/ldc4/LeetCode/tree/master/src/net/ldc4/argorithm/struct" target="_blank" rel="external">红黑树</a></p>
+
+    </div>
+
+    
+
+    
+        <div class="post-tags">
+            <i class="fa fa-tags" aria-hidden="true"></i>
+            <a href="/blog/tags/RBT/">#RBT</a>
+        </div>
+    
+
+    <!-- Comments -->
+    
+    <div class="comments">
+        
+<div id="disqus_thread">
+    <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+
+
+
+    </div>
+    
+
+</div>
+        </section>
+
+    </div>
+</div>
+
+</div>
+
+<!-- Footer -->
+<div class="push"></div>
+
+<footer class="footer-content">
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 footer-about">
+                <h2>About</h2>
+                <p>
+                    天道酬勤，越努力，越幸运！<br />克己自律，逐梦前行！<br />知足常乐！
+                </p>
+            </div>
+            
+    <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3 recent-posts">
+        <h2>Recent Posts</h2>
+        <ul>
+            
+            <li>
+                <a class="footer-post" href="/blog/React/cj6kp5rmj002nmc5jx5w2q9nj/">React学习总结</a>
+            </li>
+            
+            <li>
+                <a class="footer-post" href="/blog/AngularJS2/cj6kp5rkf0006mc5j7xztkg2c/">AngularJS2辅助应用</a>
+            </li>
+            
+            <li>
+                <a class="footer-post" href="/blog/AngularJS2/cj6kp5rk00000mc5jmihza7wl/">AngularJS2起步</a>
+            </li>
+            
+            <li>
+                <a class="footer-post" href="/blog/Javascript/cj6kp5rlz001pmc5j1f144pmp/">《深入理解Javascript原型和闭包》笔记</a>
+            </li>
+            
+        </ul>
+    </div>
+
+
+
+            
+<div class="col-xs-6 col-sm-6 col-md-3 col-lg-3 footer-categories">
+    <h2>Categories</h2>
+    <ul>
+        
+        <li>
+            <a class="footer-post" href="/blog/categories/JDBC/">JDBC</a>
+        </li>
+        
+        <li>
+            <a class="footer-post" href="/blog/categories/VPS/">VPS</a>
+        </li>
+        
+        <li>
+            <a class="footer-post" href="/blog/categories/Tencent/">Tencent</a>
+        </li>
+        
+        <li>
+            <a class="footer-post" href="/blog/categories/DesignPattern/">DesignPattern</a>
+        </li>
+        
+    </ul>
+</div>
+
+        </div>
+        <div class="row">
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                <ul class="list-inline footer-social-icons">
+                    
+                    <li class="list-inline-item">
+                        <a href="https://github.com/ldc4">
+                            <span class="footer-icon-container">
+                                <i class="fa fa-github"></i>
+                            </span>
+                        </a>
+                    </li>
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    <li class="list-inline-item">
+                        <a href="mailto:544420314@qq.com">
+                            <span class="footer-icon-container">
+                                <i class="fa fa-envelope-o"></i>
+                            </span>
+                        </a>
+                    </li>
+                    
+                    
+                </ul>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                <div class="footer-copyright">
+                    @weedustzhao. All right reserved
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<!-- After footer scripts -->
+
+<!-- jQuery -->
+<script src="//code.jquery.com/jquery-2.1.4.min.js"></script>
+
+<!-- Tween Max -->
+<script src="//cdnjs.cloudflare.com/ajax/libs/gsap/1.18.5/TweenMax.min.js"></script>
+
+<!-- Gallery -->
+<script src="//cdnjs.cloudflare.com/ajax/libs/featherlight/1.3.5/featherlight.min.js" type="text/javascript" charset="utf-8"></script>
+
+<!-- Custom JavaScript -->
+<script src="/blog/js/main.js"></script>
+
+<!-- Disqus Comments -->
+
+<script type="text/javascript">
+    var disqus_shortname = 'Weedustzhao';
+
+    (function(){
+        var dsq = document.createElement('script');
+        dsq.type = 'text/javascript';
+        dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    }());
+</script>
+
+
+
+</body>
+
+</html>
