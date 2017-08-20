@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Head tag -->
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!--Description-->
+    
+        <meta name="description" content="weedustzhao的个人博客">
+    
+
+    <!--Author-->
+    
+        <meta name="author" content="Weedustzhao">
+    
+
+    <!--Open Graph Title-->
+    
+        <meta property="og:title" content="JVM之类文件结构"/>
+    
+
+    <!--Open Graph Description-->
+    
+        <meta property="og:description" content="weedustzhao的个人博客" />
+    
+
+    <!--Open Graph Site Name-->
+    <meta property="og:site_name" content="零度尘封"/>
+
+    <!--Type page-->
+    
+        <meta property="og:type" content="article" />
+    
+
+    <!--Page Cover-->
+    
+
+    <meta name="twitter:card" content="summary" />
+    
+
+    <!-- Title -->
+    
+    <title>JVM之类文件结构 - 零度尘封</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.2/css/bootstrap.min.css" integrity="sha384-y3tfxAZXuh4HwSYylfB+J125MxIs6mR5FOHamPBG064zB+AFeWH94NdvaCBm8qnd" crossorigin="anonymous">
+
+    <!-- Custom Fonts -->
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="//oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="//oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- Gallery -->
+    <link href="//cdnjs.cloudflare.com/ajax/libs/featherlight/1.3.5/featherlight.min.css" type="text/css" rel="stylesheet" />
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/blog/css/style.css">
+
+    <!-- Google Analytics -->
+    
+    <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+                    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+                m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-104966508-1', 'auto');
+        ga('send', 'pageview');
+
+    </script>
+
+
+
+</head>
+
+
+<body>
+
+<div class="bg-gradient"></div>
+<div class="bg-pattern"></div>
+
+<!-- Menu -->
+<!--Menu Links and Overlay-->
+<div class="menu-bg">
+    <div class="menu-container">
+        <ul>
+            
+            <li class="menu-item">
+                <a href="/blog/">
+                    Home - 首页
+                </a>
+            </li>
+            
+            <li class="menu-item">
+                <a href="/blog/tags">
+                    Tags - 标签
+                </a>
+            </li>
+            
+            <li class="menu-item">
+                <a href="/blog/archives">
+                    Archives - 归档
+                </a>
+            </li>
+            
+            <li class="menu-item">
+                <a href="/blog/categories">
+                    Categories - 分类
+                </a>
+            </li>
+            
+            <li class="menu-item">
+                <a href="/blog/#menu">
+                    +
+                </a>
+            </li>
+            
+            <li class="menu-item">
+                <a href="/blog/../page/e-nav">
+                    E-Nav - 生态导航
+                </a>
+            </li>
+            
+            <li class="menu-item">
+                <a href="/blog/../page/wd-event">
+                    WD-Event - 凌辰大事件
+                </a>
+            </li>
+            
+        </ul>
+    </div>
+</div>
+
+<!--Hamburger Icon-->
+<nav>
+    <a href="#menu"></a>
+</nav>
+
+<div class="container">
+
+    <!-- Main Content -->
+    <div class="row">
+    <div class="col-sm-12">
+
+        <!--Title and Logo-->
+        <header>
+    <div class="logo">
+        <a href="/blog/"><i class="logo-icon fa fa-gg" aria-hidden="true"></i></a>
+        
+    </div>
+</header>
+
+        <section class="main">
+            
+<div class="post">
+
+    <div class="post-header">
+        <h1 class="title">
+            <a href="/blog/JVM/cj6ktyv1x000w7s5j903wyqra/">
+                JVM之类文件结构
+            </a>
+        </h1>
+        <div class="post-info">
+            
+                <span class="date">2016-04-12</span>
+            
+            
+                <a href="#disqus_thread" class="comments">留言</a>
+            
+            
+                <span class="category">
+                    <a href="/blog/categories/JVM/">JVM</a>
+                </span>
+            
+        </div>
+    </div>
+
+    <div class="content">
+
+        <!-- Gallery -->
+        
+
+        <!-- Post Content -->
+        <p>实现“无关性”的基石：虚拟机和字节码存储格式</p>
+<a id="more"></a>
+<h1 id="字节码文件"><a href="#字节码文件" class="headerlink" title="字节码文件"></a>字节码文件</h1><p>class文件是一组以8位字节为基础单位的二进制流。<br>当遇到需要占用8位字节以上空间的数据项时，则会按照高位在前的方式分割成若干个8位字节进行存储</p>
+<p>Class文件格式采用一种类似于C语言结构体的伪结构（无符号数和表）来存储数据</p>
+<p>无符号数：属于基本的数据类型<br>     以 u1、u2、u4、u8来代表1 2 4 8 字节的无符号数</p>
+<p>表：由多个无符号数或者其他表作为数据项构成的复合数据类型，所有表都习惯性地以“_info”结尾<br>     用于描述有层次关系的复合结构的数据</p>
+<p>无论是无符号数还是表，当需要描述同一类型但数量不定的多个数据时，经常会使用一个前置的容量计数器加若干个连续的数据项的格式</p>
+<p>class文件中字节序为Big-Endian</p>
+<p>整个class文件本质上就是一张表</p>
+<hr>
+<h2 id="魔数与Class文件的版本"><a href="#魔数与Class文件的版本" class="headerlink" title="魔数与Class文件的版本"></a>魔数与Class文件的版本</h2><p>每个Class文件的头4个字节称为魔数：用于确定这个文件是否为一个能被虚拟机接受的Class文件<br>0xCAFEBABE<br>5 6 字节 为次版本号<br>7 8 字节 为主版本号</p>
+<h2 id="常量池"><a href="#常量池" class="headerlink" title="常量池"></a>常量池</h2><p>紧跟着主次版本号之后的是常量池入口<br>常量词可以理解为Class文件之中的资源仓库</p>
+<p>由于常量池中常量的数量是不固定的，所以在常量池的入口放置一项u2类型的数据，代表常量池容量计数值（constant_pool_count）<br>这个容量计数是从1而不是从0开始的</p>
+<p>常量池中主要存放两大类常量：<br>     字面量：<br>          文本字符串、申明为final的常量值<br>     符号引用：<br>          类和接口的全限定名<br>          字段的名称和描述符<br>          方法的名称和描述符</p>
+<p>当虚拟机运行时，需要从常量池获得对应的符号引用，再在类创建时或运行时解析、翻译到具体的内存地址之中。</p>
+<p>常量池中每一项常量都是一个表</p>
+<p>Java程序中如果定义了超过64K长度的方法名或字段名，将无法编译</p>
+<p>javap:用于分析class文件字节码的工具</p>
+<pre><code>javap -verbose Helloworld
+</code></pre><h2 id="访问标志"><a href="#访问标志" class="headerlink" title="访问标志"></a>访问标志</h2><p>用于识别一些类或者接口层次的访问信息</p>
+<ul>
+<li>这个Class是类还是接口</li>
+<li>是否定义为public类型</li>
+<li>是否定义为abstract类型</li>
+<li>如果是类的话，是否被声明为final<br>等</li>
+</ul>
+<p>0x0001 ACC_PUBLIC<br>0x0010 ACC_FINAL<br>0x0020 ACC_SUPER<br>0x0200 ACC_INTERFACE<br>0x0400 ACC_ABSTRACT<br>0x1000 ACC_SYNTHETIC<br>0x2000 ACC_ANNOTATION<br>0x4000 ACC_ENUM</p>
+<h2 id="类索引、父类索引与接口索引集合"><a href="#类索引、父类索引与接口索引集合" class="headerlink" title="类索引、父类索引与接口索引集合"></a>类索引、父类索引与接口索引集合</h2><p>Class文件由这三项数据来确定这个类的继承关系。</p>
+<p>类索引和父类索引 为u2类型的数据<br>接口索引集合是一组u2类型的数据的集合：第一项为接口计数器（interface_count）</p>
+<h2 id="字段表集合"><a href="#字段表集合" class="headerlink" title="字段表集合"></a>字段表集合</h2><ul>
+<li>字段的作用域（public、private、protected修饰符）</li>
+<li>是实例变量还是类变量（static修饰符）</li>
+<li>可变性（final）</li>
+<li>并发可见性（volatile修饰符，是否强制从主内存读写）</li>
+<li>可否被序列化（transient修饰符）</li>
+<li>字段数据类型（基本类型，对象，数组）</li>
+<li>字段名称</li>
+</ul>
+<p>u2  access_flags<br>u2  name_index<br>u2  descriptor_index<br>字段和方法的描述符：用来描述字段的数据类型、方法的参数列表（包括数量、类型以及顺序）和返回值。<br>u2  attributes_count<br>attribute_info  attributes</p>
+<p>字段表集合中不会列出从超类或者父类口中继承而来的字段，但有可能列出原本java代码中不存在的字段，<br>譬如在内部类中为了保持对外部类的访问性，会自动添加指向外部类实例的字段。另外，在Java语言中字段是无法重载的，两个字段的数据类型、修饰符不管是否相同，都必须使用不一样的名称，但是对于字节码来讲，如果两个字段的修饰符不一致，那字段重名就是合法的。</p>
+<h2 id="方法表集合"><a href="#方法表集合" class="headerlink" title="方法表集合"></a>方法表集合</h2><p>和字段表集合大同小异。</p>
+<p>方法里的java代码，经过编译器编译成字节码指令后，存放在方法属性表集合中一个名为”Code“的属性里面</p>
+<h2 id="属性表集合"><a href="#属性表集合" class="headerlink" title="属性表集合"></a>属性表集合</h2><p>（略）。。。太复杂了！</p>
+<h1 id="字节码指令"><a href="#字节码指令" class="headerlink" title="字节码指令"></a>字节码指令</h1><p>java虚拟机的指令由一个字节长度的、代表着某种特定操作含义的数字（称为操作码）以及跟随其后的零至多个代表此操作所需参数（称为操作数）而构成。</p>
+<p>jvm采用面向操作数栈</p>
+<p>大多数的指令都包含了其操作所对应的数据类型信息。</p>
+<p>a代表reference</p>
+<p>指令集故意被设计成非完全独立的<br>Not Orthogonal</p>
+<p>大多数指令没有支持byte,char,short<br>没有任何指令支持boolean…</p>
+<p>编译器会在编译期或运行期将byte和short类型的数据带符号扩展（Sign-Extend）为相应的int类型数据，将boolean和char类型数据零位扩展（Zero-Extend）为相应的int类型数据</p>
+<p>阅读字节码</p>
+<h2 id="加载和存储指令"><a href="#加载和存储指令" class="headerlink" title="加载和存储指令"></a>加载和存储指令</h2><p>回顾：java虚拟机栈，每个方法在执行时都会创建一个栈帧，用于存储局部变量表、操作数栈、动态链接、方法出口等信息。</p>
+<p>加载和存储指令用于将数据在栈帧中的局部变量表和操作数栈之间来回传输，有如下：<br>-将一个局部变量加载到操作数：<code>iload,iload_&lt;n&gt;,lload,lload_&lt;n&gt;,fload,fload_&lt;n&gt;,dload,dload_&lt;n&gt;,aload,aload_&lt;n&gt;</code><br>-将一个数值从操作数栈存储到局部变量表：<code>Tstore,Tstore_&lt;n&gt;</code><br>-将一个常量加载到操作数栈<br>-扩充局部变量表的访问索引的指令：wide</p>
+<p><code>iload_&lt;n&gt;</code>代表了 iload_0 iload_1 iload_2和iload_3</p>
+<p>例如iload_0的语义与操作数为0的iload指令语义完全一致。</p>
+<h2 id="运算指令"><a href="#运算指令" class="headerlink" title="运算指令"></a>运算指令</h2><p>运算或算术指令用于对两个操作数栈上的值进行某种特定运算，并把结果重新存入到操作栈顶。</p>
+<p>大体上算术指令可以分为两种：<br>-对整型数据进行运算的指令<br>-对浮点型数据进行运算的指令</p>
+<p>加法指令：Tadd<br>减法指令：Tsub<br>乘法指令：Tmul<br>除法指令：Tdiv<br>求余指令：Trem<br>取反指令：Tneg<br>位移指令：Tshl,Tshr,Tushr<br>按位或指令：Tor<br>按位与指令：Tand<br>按位异或指令：Txor<br>局部变量自增指令：iinc<br>比较指令：Tcmpg,Tcmpl,Tcmp</p>
+<h2 id="类型转换指令"><a href="#类型转换指令" class="headerlink" title="类型转换指令"></a>类型转换指令</h2><p>类型转换指令可以将两种不同的数值类型进行相互转换，这些转换操作一般用于实现用户代码中的显式类型转换操作<br>或者用来处理字节码指令集中数据类型相关指令无法与数据类型一一对应的问题</p>
+<p>jvm直接支持宽化类型转换（小范围类型向大范围类型的安全转换）<br>处理窄化类型转换，必须显示使用转换指令来完成，指令为T2T<br>i2b,i2c,i2s,l2i,f2i,f2l,d2i,d2l,d2f<br>窄化类型转换可能会导致转换结果产生不同的正负号、不同的数量级的情况。</p>
+<h2 id="对象创建与访问指令"><a href="#对象创建与访问指令" class="headerlink" title="对象创建与访问指令"></a>对象创建与访问指令</h2><p>创建类实例的指令： new<br>创建数组的指令：newarray,anewarray,multianewarray<br>访问类字段和实例字段的指令：getfield,putfield,getstatic,putstatic<br>把一个数组元素加载到操作数栈的指令：Taload<br>将一个操作数栈的值存储到数组元素中的指令：Tastore<br>取数组长度的指令：arraylength<br>检查类实例类型的指令：instanceof,checkcast</p>
+<h2 id="操作数栈管理指令"><a href="#操作数栈管理指令" class="headerlink" title="操作数栈管理指令"></a>操作数栈管理指令</h2><p>如同操作一个普通数据结构中的堆栈那样，Java虚拟机提供了一些用于直接操作操作数栈的指令</p>
+<p>将操作数栈的栈顶一个或两个元素出栈：pop,pop2<br>复制栈顶一个或两个数值并将复制值或双份的复制值重新压入栈顶：dup,dup2,dup_x1,dup2_x1,dup_x2,dup2_x2<br>将栈最顶端的两个数值互换：swap</p>
+<h2 id="控制转移指令"><a href="#控制转移指令" class="headerlink" title="控制转移指令"></a>控制转移指令</h2><p>控制转移指令可以让Java虚拟机有条件或无条件地从指定的位置指令（而不是控制转移指令）的下一条指令继续执行程序、</p>
+<p>从概念模型上理解，可以认为控制转移指令就是在有条件或无条件地修改PC寄存器的值</p>
+<p>条件分支：ifeq、iflt、ifle、ifne、ifgt、ifge、ifnull、ifnonnull、if_icmpeq、if_icmpne、if_icmplt、if_icmpgt、if_icmple、if_icmpge、if_acmpeq、if_acmpne<br>符合条件分支：tableswitch,lookupswitch<br>无条件分支：goto,goto_w,jsr,jsr_w,ret(jump and set return)</p>
+<p>对于long类型、float类型和double类型的条件分支比较操作，则会先执行相应类型的比较运算指令（dcmpg,dcmpl,fcmpg,fcmpl,lcmp）,运算指令会返回一个整数型值到操作数栈中，随后再执行int类型的条件分支比较操作来完成整个分支跳转。</p>
+<h2 id="方法调用和返回指令"><a href="#方法调用和返回指令" class="headerlink" title="方法调用和返回指令"></a>方法调用和返回指令</h2><p>invokevirtual：用于调用对象的实例方法，根据对象的实际类型进行分派（虚方法分派）<br>invokeinterface：用于调用接口方法，它会在运行时搜索一个实现了这个接口方法的对象，找出合适的方法进行调用<br>invokespecial：用于调用一些需要特殊处理的实例方法，包括实例初始化方法、私有方法和父类方法<br>invokestatic：用于调用类方法<br>invokedynamic：用于在运行时动态解析出调用点限定符所引用的方法，并执行该方法</p>
+<p>前面4条调用指令的分派逻辑都固化在Java虚拟机内部，而invokedynamic指令的分配逻辑是有用户所设定的引导方法决定的。</p>
+<p>Treturn<br>return指令供声明为void的方法，实例初始化方法以及类和接口的类初始化方法使用。</p>
+<h2 id="异常处理指令"><a href="#异常处理指令" class="headerlink" title="异常处理指令"></a>异常处理指令</h2><p>在Java程序中显式抛出异常的操作（throw语句）都由athrow指令来实现。<br>处理异常（catch语句）不是由字节码指令来实现的，而是采用异常表来完成的。</p>
+<h2 id="同步指令"><a href="#同步指令" class="headerlink" title="同步指令"></a>同步指令</h2><p>JVM支持方法级同步和方法内部一段指令序列的同步，这两种同步结构都是使用管程（Monitor）来支持的。</p>
+<p>方法级同步是隐式的，无须字节码指令来控制，它是实现在方法调用和返回操作之中。ACC_SYNCHRONIZED访问标志<br>同步一段指令集序列：monitorenter和monitorexit指令来支持synchronized关键字</p>
+<p>编译器必须确保无论方法通过何种方式完成，方法中调用过的每条monitorrenter指令都必须执行其对应的monitorexit指令,而无论这个方法是正常结束还是异常结束。</p>
+<hr>
+<h1 id="书中总结"><a href="#书中总结" class="headerlink" title="书中总结"></a>书中总结</h1><p>前方高能！！！</p>
+<p>公有设计与私有实现：</p>
+<p>Class文件格式以及字节码指令集，这些内容与硬件、操作系统及具体的Java虚拟机实现之间是完全独立的</p>
+<p>虚拟机实现的主要方式有：<br>将输入的Java虚拟机代码在加载或执行时翻译成另外一种虚拟机的指令集<br>将输入的Java虚拟机代码在加载或执行时翻译成宿主机CPU的本地指令集</p>
+<p>Class文件格式所具备的平台中立、紧凑、稳定和可扩展的特点，是Java技术体系实现平台无关、语言无关两项特性的重要支柱。</p>
+
+    </div>
+
+    
+
+    
+        <div class="post-tags">
+            <i class="fa fa-tags" aria-hidden="true"></i>
+            <a href="/blog/tags/jvm/">#jvm</a> <a href="/blog/tags/class/">#class</a> <a href="/blog/tags/字节码文件/">#字节码文件</a> <a href="/blog/tags/字节码指令/">#字节码指令</a>
+        </div>
+    
+
+    <!-- Comments -->
+    
+    <div class="comments">
+        
+<div id="disqus_thread">
+    <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+
+
+
+    </div>
+    
+
+</div>
+        </section>
+
+    </div>
+</div>
+
+</div>
+
+<!-- Footer -->
+<div class="push"></div>
+
+<footer class="footer-content">
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 footer-about">
+                <h2>About</h2>
+                <p>
+                    天道酬勤，越努力，越幸运！<br />克己自律，逐梦前行！<br />知足常乐！
+                </p>
+            </div>
+            
+    <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3 recent-posts">
+        <h2>Recent Posts</h2>
+        <ul>
+            
+            <li>
+                <a class="footer-post" href="/blog/React/cj6ktyv35002r7s5jdz6wl96y/">React学习总结</a>
+            </li>
+            
+            <li>
+                <a class="footer-post" href="/blog/AngularJS2/cj6ktyv1400067s5jcaae08e3/">AngularJS2辅助应用</a>
+            </li>
+            
+            <li>
+                <a class="footer-post" href="/blog/AngularJS2/cj6ktyv0x00027s5jwi9t0r8o/">AngularJS2起步</a>
+            </li>
+            
+            <li>
+                <a class="footer-post" href="/blog/Javascript/cj6ktyv1w000u7s5j90s432is/">《深入理解Javascript原型和闭包》笔记</a>
+            </li>
+            
+        </ul>
+    </div>
+
+
+
+            
+<div class="col-xs-6 col-sm-6 col-md-3 col-lg-3 footer-categories">
+    <h2>Categories</h2>
+    <ul>
+        
+        <li>
+            <a class="footer-post" href="/blog/categories/Javascript/">Javascript</a>
+        </li>
+        
+        <li>
+            <a class="footer-post" href="/blog/categories/Python/">Python</a>
+        </li>
+        
+        <li>
+            <a class="footer-post" href="/blog/categories/DataStructure/">DataStructure</a>
+        </li>
+        
+        <li>
+            <a class="footer-post" href="/blog/categories/Hexo/">Hexo</a>
+        </li>
+        
+    </ul>
+</div>
+
+        </div>
+        <div class="row">
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                <ul class="list-inline footer-social-icons">
+                    
+                    <li class="list-inline-item">
+                        <a href="https://github.com/ldc4">
+                            <span class="footer-icon-container">
+                                <i class="fa fa-github"></i>
+                            </span>
+                        </a>
+                    </li>
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    <li class="list-inline-item">
+                        <a href="mailto:544420314@qq.com">
+                            <span class="footer-icon-container">
+                                <i class="fa fa-envelope-o"></i>
+                            </span>
+                        </a>
+                    </li>
+                    
+                    
+                </ul>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                <div class="footer-copyright">
+                    @weedustzhao. All right reserved
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<!-- After footer scripts -->
+
+<!-- jQuery -->
+<script src="//code.jquery.com/jquery-2.1.4.min.js"></script>
+
+<!-- Tween Max -->
+<script src="//cdnjs.cloudflare.com/ajax/libs/gsap/1.18.5/TweenMax.min.js"></script>
+
+<!-- Gallery -->
+<script src="//cdnjs.cloudflare.com/ajax/libs/featherlight/1.3.5/featherlight.min.js" type="text/javascript" charset="utf-8"></script>
+
+<!-- Custom JavaScript -->
+<script src="/blog/js/main.js"></script>
+
+<!-- Disqus Comments -->
+
+<script type="text/javascript">
+    var disqus_shortname = 'weedust';
+
+    (function(){
+        var dsq = document.createElement('script');
+        dsq.type = 'text/javascript';
+        dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    }());
+</script>
+
+
+
+</body>
+
+</html>
