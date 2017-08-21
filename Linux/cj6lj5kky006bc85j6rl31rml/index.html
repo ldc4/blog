@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Head tag -->
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!--Description-->
+    
+        <meta name="description" content="weedustzhao的个人博客">
+    
+
+    <!--Author-->
+    
+        <meta name="author" content="Weedustzhao">
+    
+
+    <!--Open Graph Title-->
+    
+        <meta property="og:title" content="Shell基础语法"/>
+    
+
+    <!--Open Graph Description-->
+    
+        <meta property="og:description" content="weedustzhao的个人博客" />
+    
+
+    <!--Open Graph Site Name-->
+    <meta property="og:site_name" content="零度尘封"/>
+
+    <!--Type page-->
+    
+        <meta property="og:type" content="article" />
+    
+
+    <!--Page Cover-->
+    
+
+    <meta name="twitter:card" content="summary" />
+    
+
+    <!-- Title -->
+    
+    <title>Shell基础语法 - 零度尘封</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.2/css/bootstrap.min.css" integrity="sha384-y3tfxAZXuh4HwSYylfB+J125MxIs6mR5FOHamPBG064zB+AFeWH94NdvaCBm8qnd" crossorigin="anonymous">
+
+    <!-- Custom Fonts -->
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="//oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="//oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- Gallery -->
+    <link href="//cdnjs.cloudflare.com/ajax/libs/featherlight/1.3.5/featherlight.min.css" type="text/css" rel="stylesheet" />
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/blog/css/style.css">
+
+    <!-- Google Analytics -->
+    
+    <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+                    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+                m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-104966508-1', 'auto');
+        ga('send', 'pageview');
+
+    </script>
+
+
+
+</head>
+
+
+<body>
+
+<div class="bg-gradient"></div>
+<div class="bg-pattern"></div>
+
+<!-- Menu -->
+<!--Menu Links and Overlay-->
+<div class="menu-bg">
+    <div class="menu-container">
+        <ul>
+            
+            <li class="menu-item">
+                <a href="/blog/">
+                    Home - 首页
+                </a>
+            </li>
+            
+            <li class="menu-item">
+                <a href="/blog/tags">
+                    Tags - 标签
+                </a>
+            </li>
+            
+            <li class="menu-item">
+                <a href="/blog/archives">
+                    Archives - 归档
+                </a>
+            </li>
+            
+            <li class="menu-item">
+                <a href="/blog/categories">
+                    Categories - 分类
+                </a>
+            </li>
+            
+            <li class="menu-item">
+                <a href="/blog/#menu">
+                    +
+                </a>
+            </li>
+            
+            <li class="menu-item">
+                <a href="/blog/../page/e-nav">
+                    E-Nav - 生态导航
+                </a>
+            </li>
+            
+            <li class="menu-item">
+                <a href="/blog/../page/wd-event">
+                    WD-Event - 凌辰大事件
+                </a>
+            </li>
+            
+        </ul>
+    </div>
+</div>
+
+<!--Hamburger Icon-->
+<nav>
+    <a href="#menu"></a>
+</nav>
+
+<div class="container">
+
+    <!-- Main Content -->
+    <div class="row">
+    <div class="col-sm-12">
+
+        <!--Title and Logo-->
+        <header>
+    <div class="logo">
+        <a href="/blog/"><i class="logo-icon fa fa-gg" aria-hidden="true"></i></a>
+        
+    </div>
+</header>
+
+        <section class="main">
+            
+<div class="post">
+
+    <div class="post-header">
+        <h1 class="title">
+            <a href="/blog/Linux/cj6lj5kky006bc85j6rl31rml/">
+                Shell基础语法
+            </a>
+        </h1>
+        <div class="post-info">
+            
+                <span class="date">2016-06-13</span>
+            
+            
+                <a href="#disqus_thread" class="comments">留言</a>
+            
+            
+                <span class="category">
+                    <a href="/blog/categories/Linux/">Linux</a>
+                </span>
+            
+        </div>
+    </div>
+
+    <div class="content">
+
+        <!-- Gallery -->
+        
+
+        <!-- Post Content -->
+        <p>鸟哥第一遍刷完了，就紧接着回顾了一下shell，<br>并没有看鸟哥书上的，网上随便找了个资源看了看。</p>
+<a id="more"></a>
+<h2 id="变量定义"><a href="#变量定义" class="headerlink" title="变量定义"></a>变量定义</h2><p>变量名和等号之间不能有空格<br>首个字符必须为字母（a-z，A-Z）。<br>中间不能有空格，可以使用下划线（_）。<br>不能使用标点符号。<br>不能使用bash里的关键字（可用help命令查看保留关键字）。</p>
+<p>例： <code>myname=&quot;ldc4&quot;</code></p>
+<h2 id="使用变量"><a href="#使用变量" class="headerlink" title="使用变量"></a>使用变量</h2><p><strong>在变量前加上$符号</strong></p>
+<p>变量名外面的花括号是可选的，加不加都行，加花括号是为了帮助解释器识别变量的边界</p>
+<p>例：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">myname=&quot;ldc4&quot;</div><div class="line">echo $myname</div><div class="line">echo $&#123;myname&#125;ismyname</div></pre></td></tr></table></figure></p>
+<h2 id="只读变量"><a href="#只读变量" class="headerlink" title="只读变量"></a>只读变量</h2><p><code>readonly</code>修饰变量</p>
+<p>修改自读变量会报错</p>
+<h2 id="删除变量"><a href="#删除变量" class="headerlink" title="删除变量"></a>删除变量</h2><p><code>unset variable_name</code></p>
+<h2 id="变量类型"><a href="#变量类型" class="headerlink" title="变量类型"></a>变量类型</h2><p>运行shell时，会同时存在三种变量：<br>1) 局部变量 局部变量在脚本或命令中定义，仅在当前shell实例中有效，其他shell启动的程序不能访问局部变量。</p>
+<p>2) 环境变量 所有的程序，包括shell启动的程序，都能访问环境变量，有些程序需要环境变量来保证其正常运行。必要的时候shell脚本也可以定义环境变量。</p>
+<p>3) shell变量 shell变量是由shell程序设置的特殊变量。shell变量中有一部分是环境变量，有一部分是局部变量，这些变量保证了shell的正常运行</p>
+<h2 id="shell字符串"><a href="#shell字符串" class="headerlink" title="shell字符串"></a>shell字符串</h2><p>字符串可以用单引号，也可以用双引号，也可以不用引号。<br>单引号里面的 $变量名 不被替换。<br>双引号里面的 $变量名 会被替换。且可以用转义字符</p>
+<p><strong>拼接字符串：不需要+号，但不能留空格</strong></p>
+<p>获取字符串长度：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">var1=&quot;abcd&quot;</div><div class="line">echo $&#123;#var1&#125;</div></pre></td></tr></table></figure></p>
+<p>提取子字符串：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">var2=&quot;i was sleepy&quot;</div><div class="line">echo $&#123;var2:2:5&#125;</div></pre></td></tr></table></figure></p>
+<h2 id="shell数组"><a href="#shell数组" class="headerlink" title="shell数组"></a>shell数组</h2><p>bash支持一维数组（不支持多维数组），并且没有限定数组的大小。<br>类似与C语言，数组元素的下标由0开始编号。<br>获取数组中的元素要利用下标，下标可以是整数或算术表达式，其值应大于或等于0。</p>
+<p>定义数组：<br>数组名=(值1 值2 值3)</p>
+<p>例：<br><code>array_name=(value0 value1 value2 value3)</code><br>或者<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">array_name=(</div><div class="line">value0</div><div class="line">value1</div><div class="line">value2</div><div class="line">value3</div><div class="line">)</div></pre></td></tr></table></figure></p>
+<p>还可以单独定义数组的各个分量：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">array_name[0]=value0</div><div class="line">array_name[1]=value1</div><div class="line">array_name[n]=valuen</div></pre></td></tr></table></figure></p>
+<p>可以不使用连续的下标，而且下标的范围没有限制。</p>
+<p>读取数组：<br>${数组名[下标]}</p>
+<p>例：<br><code>value={array_name[0]}</code></p>
+<p><code>*</code>,@可以获取所有数组元素<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">value=&#123;array_name[@]&#125;</div><div class="line">value=&#123;array_name[*]&#125;</div></pre></td></tr></table></figure></p>
+<p>获取数组长度：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">length=$&#123;#array_name[@]&#125;</div><div class="line">length=$&#123;#array_name[*]&#125;</div></pre></td></tr></table></figure></p>
+<p>获取单个元素的长度：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">length=$&#123;#array_name[0]&#125;</div></pre></td></tr></table></figure></p>
+<h2 id="shell注释"><a href="#shell注释" class="headerlink" title="shell注释"></a>shell注释</h2><p>以”#”开头的行就是注释，会被解释器忽略。<br>sh里没有多行注释，只能每一行加一个#号</p>
+<p>如果在开发过程中，遇到大段的代码需要临时注释起来，过一会儿又取消注释，怎么办呢？<br>每一行加个#符号太费力了，可以把这一段要注释的代码用一对花括号括起来，定义成一个函数，没有地方调用这个函数，这块代码就不会执行，达到了和注释一样的效果。</p>
+<h2 id="shell传递参数"><a href="#shell传递参数" class="headerlink" title="shell传递参数"></a>shell传递参数</h2><p>我们可以在执行 Shell 脚本时，向脚本传递参数，脚本内获取参数的格式为：$n。<br>n 代表一个数字，1 为执行脚本的第一个参数，2 为执行脚本的第二个参数，以此类推……<br>其中 $0 为执行的文件名</p>
+<p>还有几个特殊字符用处理参数：<br><strong>$$ $# $* $@ $! $? $-</strong></p>
+<p>$<em> 与 $@ 区别：<br>相同点：都是引用所有参数。<br>不同点：只有在双引号中体现出来。假设在脚本运行时写了三个参数 1、2、3，，则 “ </em> “ 等价于 “1 2 3”（传递了一个参数），而 “@” 等价于 “1” “2” “3”（传递了三个参数）。</p>
+<h2 id="shell基本运算符"><a href="#shell基本运算符" class="headerlink" title="shell基本运算符"></a>shell基本运算符</h2><p>算数运算符：<br>+-*/% = == !=<br>原生bash不支持简单的数学运算，但是可以通过其他命令来实现，例如 awk 和 expr，expr 最常用。</p>
+<p>例：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">a=12</div><div class="line">b=5</div><div class="line">echo `expr $a + $b`</div><div class="line">echo `expr $a \* $b`</div></pre></td></tr></table></figure></p>
+<p>表达式和运算符之间要有空格，例如 2+2 是不对的，必须写成 2 + 2，这与我们熟悉的大多数编程语言不一样。<br>完整的表达式要被<code>` </code> <code>` </code> 包含，注意这个字符不是常用的单引号，在 Esc 键下边。</p>
+<p>乘号<code>(*)</code>前边必须加反斜杠<code>(\)</code>才能实现乘法运算；</p>
+<p>关系运算符：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">-eq  (equal)</div><div class="line">-ne  (not equal)</div><div class="line">-gt   (greater than)</div><div class="line">-lt    (less than)</div><div class="line">-ge   (greater than or equal)</div><div class="line">-le    (less than or equal)</div></pre></td></tr></table></figure></p>
+<p>关系运算符只支持数字，不支持字符串，除非字符串的值是数字。</p>
+<p>因为<code>&lt;&gt;</code>被用作数据流重定向了，所有没有用<code>&gt;&lt;</code>来充当大于小于（个人理解）</p>
+<p>布尔运算符:<br>!<br>-o<br>-a</p>
+<p>逻辑运算符：<br>&amp;&amp;<br>||</p>
+<p>注意这里是双中括号</p>
+<p>例：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">if [[ $a != $b &amp;&amp; $a == $c ]]</div><div class="line">then </div><div class="line">     echo xxx</div><div class="line">fi</div></pre></td></tr></table></figure></p>
+<p>字符串运算符:<br>=<br>!=<br>-z zero<br>-n no zero<br>str (这里表示直接写字符串变量本身)</p>
+<p>= 与 == 都能进行比较<br>不定义，定义一个空字符串，或者字符串为空格，都会被判定为空</p>
+<p>文件测试运算符:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">-b block</div><div class="line">-c char</div><div class="line">-d directory</div><div class="line">-f file</div><div class="line">-g SGID</div><div class="line">-k Strick Bit</div><div class="line">-p pipe</div><div class="line">-u SUID</div><div class="line">-r  read</div><div class="line">-w write</div><div class="line">-x execute</div><div class="line">-s size</div><div class="line">-e exist</div></pre></td></tr></table></figure></p>
+<h2 id="echo命令"><a href="#echo命令" class="headerlink" title="echo命令"></a>echo命令</h2><p>显示普通字符串：<br><code>echo I am ldc4,as weedust</code></p>
+<p>不加引号的字符串，可以含有空格</p>
+<p>显示转义字符：<br><code>echo \&quot;hey, june\&quot;</code></p>
+<p>显示变量：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">read name</div><div class="line">echo hello,$name</div></pre></td></tr></table></figure></p>
+<p>read 命令从标准输入中读取一行,并把输入行的每个字段的值指定给 shell 变量</p>
+<p>显示换行：<br><code>echo -e &quot;haha\n&quot;</code></p>
+<p>显示不换行：<br><code>echo -e &quot;haha\c&quot;</code></p>
+<p>显示结果定向至文件：<br><code>echo I am ldc4, as weedust &gt; out.txt</code></p>
+<p>原样输出字符串，不进行转义或取变量（用单引号）：<br><code>echo &#39;$name\&quot;&#39;</code></p>
+<p>显示命令执行结果（用反引号）：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">echo `date`</div></pre></td></tr></table></figure></p>
+<h2 id="printf命令"><a href="#printf命令" class="headerlink" title="printf命令"></a>printf命令</h2><p><code>printf  format-string  [arguments...]</code></p>
+<p>例：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">printf &quot;%-10s %-8s %-4s\n&quot; 姓名 性别 体重kg </div><div class="line">printf &quot;%-10s %-8s %-4.2f\n&quot; 郭靖 男 66.1234</div><div class="line">printf &quot;%-10s %-8s %-4.2f\n&quot; 杨过 男 48.6543</div><div class="line">printf &quot;%-10s %-8s %-4.2f\n&quot; 郭芙 女 47.9876</div></pre></td></tr></table></figure></p>
+<p>%s %c %d %f都是格式替代符<br>%-10s 指一个宽度为10个字符（-表示左对齐，没有则表示右对齐），任何字符都会被显示在10个字符宽的字符内，如果不足则自动以空格填充，超过也会将内容全部显示出来。<br>%-4.2f 指格式化为小数，其中.2指保留2位小数。</p>
+<h2 id="test命令"><a href="#test命令" class="headerlink" title="test命令"></a>test命令</h2><p>test可以替换掉if的中括号<code>[]</code></p>
+<h2 id="shell流程控制"><a href="#shell流程控制" class="headerlink" title="shell流程控制"></a>shell流程控制</h2><p>shell的流程控制不能为空，如果else分支没有语句执行，就不要写else</p>
+<p>ifelse:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">if [ xxx ]</div><div class="line">then</div><div class="line">    xxx</div><div class="line">elif [ xxx ]</div><div class="line">then</div><div class="line">    xxx</div><div class="line">else</div><div class="line">    xxx</div><div class="line">fi</div></pre></td></tr></table></figure></p>
+<p>如果要写成一行的话，得要添加;号</p>
+<p>for:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">for var in xxx</div><div class="line">do</div><div class="line">    xxx</div><div class="line">done</div></pre></td></tr></table></figure></p>
+<p>while:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">while (( xxx ))</div><div class="line">do</div><div class="line">    xxx</div><div class="line">done</div></pre></td></tr></table></figure></p>
+<p>无限循环：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">while :</div><div class="line">do</div><div class="line">     xxx</div><div class="line">done</div></pre></td></tr></table></figure></p>
+<p>或<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">while true</div><div class="line">do</div><div class="line">     xxx</div><div class="line">done</div></pre></td></tr></table></figure></p>
+<p>until:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">until (( xxx ))</div><div class="line">do</div><div class="line">     xxx</div><div class="line">done</div></pre></td></tr></table></figure></p>
+<p><strong>[ xxx ] 与 (( xxx )) 都能表示条件</strong></p>
+<p>case:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">case 值 in</div><div class="line">模式1)</div><div class="line">    xxx</div><div class="line">    ;;</div><div class="line">模式2）</div><div class="line">    xxx</div><div class="line">    ;;</div><div class="line">esac</div></pre></td></tr></table></figure></p>
+<p>如果无一匹配模式，使用星号 * 捕获该值，再执行后面的命令。</p>
+<p>break 与 continue</p>
+<h2 id="shell函数"><a href="#shell函数" class="headerlink" title="shell函数"></a>shell函数</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">[ function ] funname [()]</div><div class="line">&#123;</div><div class="line">    action;</div><div class="line">    [return int;]</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>中括号表示可要可不要<br>return 返回，如果不加，将以最后一条命令运行结果，作为返回值。<br>return后跟数值n(0-255)<br>返回值，在函数调用后用$?来获取</p>
+<p>所有函数在使用前必须定义。这意味着必须将函数放在脚本开始部分，直至shell解释器首次发现它时，才可以使用。调用函数仅使用其函数名即可。</p>
+<p>函数参数：<br>在函数体内部，通过 $n 的形式来获取参数的值<br>$10 不能获取第十个参数，获取第十个参数需要${10}<br>当n&gt;=10时，需要使用${n}来获取参数。</p>
+<h2 id="shell-I-O重定向"><a href="#shell-I-O重定向" class="headerlink" title="shell I/O重定向"></a>shell I/O重定向</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">&gt; 输出重定向</div><div class="line">&lt; 输入重定向</div><div class="line">&gt;&gt; 将输出以追加的方式重定向</div><div class="line">&gt;&amp; 将输出文件合并</div><div class="line">&lt;&amp; 将输入文件合并</div></pre></td></tr></table></figure>
+<p>文件描述符：<br>0 通常是标准输入（STDIN），<br>1 是标准输出（STDOUT），<br>2 是标准错误输出（STDERR）</p>
+<p>例：<br><code>command 2 &gt; file</code><br><code>command &gt; file 2&gt;&amp;1</code></p>
+<p>Here Document:<code>(&lt;&lt;)</code></p>
+<p>Here Document 是 Shell 中的一种特殊的重定向方式，用来将输入重定向到一个交互式 Shell 脚本或程序。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">command &lt;&lt; delimiter</div><div class="line">    document</div><div class="line">delimiter</div></pre></td></tr></table></figure></p>
+<p>/dev/null 可以起到”禁止输出“的作用</p>
+<h2 id="shell文件包含"><a href="#shell文件包含" class="headerlink" title="shell文件包含"></a>shell文件包含</h2><p><code>. filename</code><br>或<br><code>source filename</code></p>
+<p>被包含的文件不需要可执行权限。</p>
+<p>被包含的代码也会执行。</p>
+<p>参考资料：<br><a href="http://www.runoob.com/linux/linux-shell.html" target="_blank" rel="external">http://www.runoob.com/linux/linux-shell.html</a></p>
+
+    </div>
+
+    
+
+    
+        <div class="post-tags">
+            <i class="fa fa-tags" aria-hidden="true"></i>
+            <a href="/blog/tags/shell/">#shell</a>
+        </div>
+    
+
+    <!-- Comments -->
+    
+    <div class="comments">
+        
+<div id="disqus_thread">
+    <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+
+
+
+    </div>
+    
+
+</div>
+        </section>
+
+    </div>
+</div>
+
+</div>
+
+<!-- Footer -->
+<div class="push"></div>
+
+<footer class="footer-content">
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 footer-about">
+                <h2>About</h2>
+                <p>
+                    天道酬勤，越努力，越幸运！<br />克己自律，逐梦前行！<br />知足常乐！
+                </p>
+            </div>
+            
+    <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3 recent-posts">
+        <h2>Recent Posts</h2>
+        <ul>
+            
+            <li>
+                <a class="footer-post" href="/blog/React/cj6lj5kkw0068c85jax387tht/">React学习总结</a>
+            </li>
+            
+            <li>
+                <a class="footer-post" href="/blog/AngularJS2/cj6lj5khs0006c85jdvkumywm/">AngularJS2辅助应用</a>
+            </li>
+            
+            <li>
+                <a class="footer-post" href="/blog/AngularJS2/cj6lj5khe0000c85jwfdxk9ql/">AngularJS2起步</a>
+            </li>
+            
+            <li>
+                <a class="footer-post" href="/blog/Javascript/cj6lj5ki9000pc85jlgri3o9n/">《深入理解Javascript原型和闭包》笔记</a>
+            </li>
+            
+        </ul>
+    </div>
+
+
+
+            
+<div class="col-xs-6 col-sm-6 col-md-3 col-lg-3 footer-categories">
+    <h2>Categories</h2>
+    <ul>
+        
+        <li>
+            <a class="footer-post" href="/blog/categories/DesignPattern/">DesignPattern</a>
+        </li>
+        
+        <li>
+            <a class="footer-post" href="/blog/categories/VPS/">VPS</a>
+        </li>
+        
+        <li>
+            <a class="footer-post" href="/blog/categories/Tencent/">Tencent</a>
+        </li>
+        
+        <li>
+            <a class="footer-post" href="/blog/categories/Hexo/">Hexo</a>
+        </li>
+        
+    </ul>
+</div>
+
+        </div>
+        <div class="row">
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                <ul class="list-inline footer-social-icons">
+                    
+                    <li class="list-inline-item">
+                        <a href="https://github.com/ldc4">
+                            <span class="footer-icon-container">
+                                <i class="fa fa-github"></i>
+                            </span>
+                        </a>
+                    </li>
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    <li class="list-inline-item">
+                        <a href="mailto:544420314@qq.com">
+                            <span class="footer-icon-container">
+                                <i class="fa fa-envelope-o"></i>
+                            </span>
+                        </a>
+                    </li>
+                    
+                    
+                </ul>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                <div class="footer-copyright">
+                    @weedustzhao. All right reserved
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<!-- After footer scripts -->
+
+<!-- jQuery -->
+<script src="//code.jquery.com/jquery-2.1.4.min.js"></script>
+
+<!-- Tween Max -->
+<script src="//cdnjs.cloudflare.com/ajax/libs/gsap/1.18.5/TweenMax.min.js"></script>
+
+<!-- Gallery -->
+<script src="//cdnjs.cloudflare.com/ajax/libs/featherlight/1.3.5/featherlight.min.js" type="text/javascript" charset="utf-8"></script>
+
+<!-- Custom JavaScript -->
+<script src="/blog/js/main.js"></script>
+
+<!-- Disqus Comments -->
+
+<script type="text/javascript">
+    var disqus_shortname = 'weedust';
+
+    (function(){
+        var dsq = document.createElement('script');
+        dsq.type = 'text/javascript';
+        dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    }());
+</script>
+
+
+
+</body>
+
+</html>
