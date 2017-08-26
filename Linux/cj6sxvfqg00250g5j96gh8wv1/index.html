@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Head tag -->
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!--Description-->
+    
+        <meta name="description" content="weedustzhao的个人博客">
+    
+
+    <!--Author-->
+    
+        <meta name="author" content="Weedustzhao">
+    
+
+    <!--Open Graph Title-->
+    
+        <meta property="og:title" content="Linux下如何进程调度"/>
+    
+
+    <!--Open Graph Description-->
+    
+        <meta property="og:description" content="weedustzhao的个人博客" />
+    
+
+    <!--Open Graph Site Name-->
+    <meta property="og:site_name" content="零度尘封"/>
+
+    <!--Type page-->
+    
+        <meta property="og:type" content="article" />
+    
+
+    <!--Page Cover-->
+    
+
+    <meta name="twitter:card" content="summary" />
+    
+
+    <!-- Title -->
+    
+    <title>Linux下如何进程调度 - 零度尘封</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.2/css/bootstrap.min.css" integrity="sha384-y3tfxAZXuh4HwSYylfB+J125MxIs6mR5FOHamPBG064zB+AFeWH94NdvaCBm8qnd" crossorigin="anonymous">
+
+    <!-- Custom Fonts -->
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="//oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="//oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- Gallery -->
+    <link href="//cdnjs.cloudflare.com/ajax/libs/featherlight/1.3.5/featherlight.min.css" type="text/css" rel="stylesheet" />
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/blog/css/style.css">
+
+    <!-- Google Analytics -->
+    
+    <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+                    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+                m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-104966508-1', 'auto');
+        ga('send', 'pageview');
+
+    </script>
+
+
+
+</head>
+
+
+<body>
+
+<div class="bg-gradient"></div>
+<div class="bg-pattern"></div>
+
+<!-- Menu -->
+<!--Menu Links and Overlay-->
+<div class="menu-bg">
+    <div class="menu-container">
+        <ul>
+            
+            <li class="menu-item">
+                <a href="/blog/">
+                    Home - 首页
+                </a>
+            </li>
+            
+            <li class="menu-item">
+                <a href="/blog/tags">
+                    Tags - 标签
+                </a>
+            </li>
+            
+            <li class="menu-item">
+                <a href="/blog/archives">
+                    Archives - 归档
+                </a>
+            </li>
+            
+            <li class="menu-item">
+                <a href="/blog/categories">
+                    Categories - 分类
+                </a>
+            </li>
+            
+            <li class="menu-item">
+                <a href="/blog/#menu">
+                    +
+                </a>
+            </li>
+            
+            <li class="menu-item">
+                <a href="/blog/../page/e-nav">
+                    E-Nav - 生态导航
+                </a>
+            </li>
+            
+        </ul>
+    </div>
+</div>
+
+<!--Hamburger Icon-->
+<nav>
+    <a href="#menu"></a>
+</nav>
+
+<div class="container">
+
+    <!-- Main Content -->
+    <div class="row">
+    <div class="col-sm-12">
+
+        <!--Title and Logo-->
+        <header>
+    <div class="logo">
+        <a href="/blog/"><i class="logo-icon fa fa-gg" aria-hidden="true"></i></a>
+        
+    </div>
+</header>
+
+        <section class="main">
+            
+<div class="post">
+
+    <div class="post-header">
+        <h1 class="title">
+            <a href="/blog/Linux/cj6sxvfqg00250g5j96gh8wv1/">
+                Linux下如何进程调度
+            </a>
+        </h1>
+        <div class="post-info">
+            
+                <span class="date">2016-05-07</span>
+            
+            
+                <a href="#disqus_thread" class="comments">留言</a>
+            
+            
+                <span class="category">
+                    <a href="/blog/categories/Linux/">Linux</a>
+                </span>
+            
+        </div>
+    </div>
+
+    <div class="content">
+
+        <!-- Gallery -->
+        
+
+        <!-- Post Content -->
+        <p>当遇到这个面试题，我内心是崩溃的。<br>好吧，还是得去看，先看了《现代操作系统》的调度那一小节。<br>看完后发现，与问题风马牛不相及啊。<br>然后，翻到后面的Linux进程调度，继续看，不是太好理解，可能是翻译的书都这样。<br>后面找到一个文章写得不错。<br>最后，怕忘，觉得还是写个博文总结一下比较好。</p>
+<a id="more"></a>
+<p>先来看看基础知识：</p>
+<h2 id="进程的调度"><a href="#进程的调度" class="headerlink" title="进程的调度"></a>进程的调度</h2><blockquote>
+<p>不同的环境需要不同的调度算法</p>
+</blockquote>
+<p>三种环境：</p>
+<ul>
+<li>批处理</li>
+<li>交互式</li>
+<li>实时</li>
+</ul>
+<p>1.批处理系统中的调度</p>
+<pre><code>a.先来先服务
+b.最短作业优先
+c.最短剩余时间优先
+</code></pre><p>2.交互式系统中的调度</p>
+<pre><code>a.轮转调度
+b.优先级调度
+c.多级队列
+d.最短进程优先
+e.保证调度
+f.彩票调度
+d.公平分享调度
+</code></pre><h2 id="Linux下的进程调度"><a href="#Linux下的进程调度" class="headerlink" title="Linux下的进程调度"></a>Linux下的进程调度</h2><blockquote>
+<p>最基本的手段：优先级</p>
+</blockquote>
+<h3 id="如何确定优先级？"><a href="#如何确定优先级？" class="headerlink" title="如何确定优先级？"></a>如何确定优先级？</h3><p>由用户程序指定、由内核调度程序动态调整</p>
+<h3 id="如何调度？"><a href="#如何调度？" class="headerlink" title="如何调度？"></a>如何调度？</h3><p>Linux内核将进程分成两个级别：普通进程和实时进程。<br>实时进程的优先级都高于普通线程，除此之外，它们的调度策略也有所不同。</p>
+<h4 id="实时进程的调度"><a href="#实时进程的调度" class="headerlink" title="实时进程的调度"></a>实时进程的调度</h4><p>1.如果有一个进程有实时需求，则只要它是可执行状态的，内核就一直让它执行，以尽可能地满足它对CPU的需要，直到它完成所有需要做的事情，然后睡眠或退出<br>2.如果有多个实时进程都处于可自行状态， 内核先满足优先级最高的实时进程对CPU的需要，直到它变为非可自行状态<br>3.如果多个相同优先级的实时进程都处于可执行状态，这时就有两种调度策略可供选择：先进先出，轮转调度</p>
+<h4 id="普通进程的调度"><a href="#普通进程的调度" class="headerlink" title="普通进程的调度"></a>普通进程的调度</h4><p>1.动态调整进程的优先级</p>
+<p>交互式进程和批处理进程</p>
+<p>调度程序关注进程近一段时间内的表现（主要是检查其睡眠时间和运行时间），根据一些经验性的公式，判断它现在是交互式的还是批处理的？程度如何？最后决定给它的优先级做一定的调整。<br>进程的优先级被动态调整后，就出现了两个优先级：<br>a.用户程序设置的优先级（如果未设置，则使用默认值），称为静态优先级。这是进程优先级的基准，在进程执行的过程中往往是不改变的；<br>b.优先级动态调整后，实际生效的优先级。这个值是可能时时刻刻都在变化的；</p>
+<p>2.调度的公平性</p>
+<p>Linux实现公平调度基本上是两种思路：<br>a.给处于可执行状态的进程分配时间片（按照优先级），<strong>用完时间片的进程被放到“过期队列”中</strong>。等可执行状态的进程都过期了，再重新分配时间片；<br>b.动态调整进程的优先级。<strong>随着进程在CPU上运行，其优先级被不断调低</strong>，以便其他优先级较低的进程得到运行机会；</p>
+<p>后一种方式有更小的调度粒度，并且将“公平性”与“动态调整优先级”两件事情合而为一，大大简化了内核调度程序的代码。因此，这种方式也成为内核调度程序的新宠。</p>
+<h2 id="疑问"><a href="#疑问" class="headerlink" title="疑问"></a>疑问</h2><p>《现代操作系统》写到：</p>
+<blockquote>
+<p>Linux系统的线程是内核线程，所以Linux系统的调度是基于线程的，而不是基于进程的。</p>
+</blockquote>
+<p>那调度的到底是进程还是内核线程？</p>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>那么回到最初，如何回答标题这个问题呢？</p>
+<p>Linux进程调度是将优先级调度、时间片轮转法调度、先进先出调度综合起来应用的，这三类调度策略均基于优先级。<br>Linux内核将进程分为实时进程和普通进程。普通进程的优先级低于实时进程。<br>实时进程采用先进先出和轮转调度两种调度策略。其优先级由用户指定，因为内核不知道进程是不是实时，以及有多实时。<br>普通进程又分为交互式进程和批处理进程，交互式的优先级一般比批处理优先级高，调度程序关注进程近一段时间内的表现，会给它的优先级进行调整。<br>Linux内核对于普通进程说还要考虑调度的公平性，实现有两种思路：第一种，给处于可执行状态的进程分配时间片（按照优先级），用完时间片的进程被放到“过期队列”中。等可执行状态的进程都过期了，再重新分配时间片；第二种，动态调整进程的优先级。随着进程在CPU上运行，其优先级被不断调低，以便其他优先级较低的进程得到运行机会；</p>
+<p>参考资料：<br><a href="https://yq.aliyun.com/articles/8900" target="_blank" rel="external">https://yq.aliyun.com/articles/8900</a></p>
+<p>我博文写得很随意，因为这些都不是我自己创造的内容，尽量以简要的形势列出重点。如有疑惑，请前往参考资料查阅。</p>
+
+    </div>
+
+    
+
+    
+        <div class="post-tags">
+            <i class="fa fa-tags" aria-hidden="true"></i>
+            <a href="/blog/tags/linux/">#linux</a> <a href="/blog/tags/schedule/">#schedule</a>
+        </div>
+    
+
+    <!-- Comments -->
+    
+    <div class="comments">
+        
+<div id="disqus_thread">
+    <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+
+
+
+    </div>
+    
+
+</div>
+        </section>
+
+    </div>
+</div>
+
+</div>
+
+<!-- Footer -->
+<div class="push"></div>
+
+<footer class="footer-content">
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 footer-about">
+                <h2>About</h2>
+                <p>
+                    天道酬勤，越努力，越幸运！<br />克己自律，逐梦前行！<br />愿一如既往！
+                </p>
+            </div>
+            
+    <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3 recent-posts">
+        <h2>Recent Posts</h2>
+        <ul>
+            
+            <li>
+                <a class="footer-post" href="/blog/React/cj6sxvfql002f0g5j7jnp3yq9/">React不得不熟记的知识点</a>
+            </li>
+            
+            <li>
+                <a class="footer-post" href="/blog/React/cj6sxvfqo002j0g5jjqcvd18m/">React学习总结</a>
+            </li>
+            
+            <li>
+                <a class="footer-post" href="/blog/AngularJS2/cj6sxvfou00060g5jqa9v944n/">AngularJS2辅助应用</a>
+            </li>
+            
+            <li>
+                <a class="footer-post" href="/blog/AngularJS2/cj6sxvfom00020g5jdki9r6qr/">AngularJS2起步</a>
+            </li>
+            
+        </ul>
+    </div>
+
+
+
+            
+<div class="col-xs-6 col-sm-6 col-md-3 col-lg-3 footer-categories">
+    <h2>Categories</h2>
+    <ul>
+        
+        <li>
+            <a class="footer-post" href="/blog/categories/DesignPattern/">DesignPattern</a>
+        </li>
+        
+        <li>
+            <a class="footer-post" href="/blog/categories/Python/">Python</a>
+        </li>
+        
+        <li>
+            <a class="footer-post" href="/blog/categories/VPS/">VPS</a>
+        </li>
+        
+        <li>
+            <a class="footer-post" href="/blog/categories/Plugin/">Plugin</a>
+        </li>
+        
+    </ul>
+</div>
+
+        </div>
+        <div class="row">
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                <ul class="list-inline footer-social-icons">
+                    
+                    <li class="list-inline-item">
+                        <a href="https://github.com/ldc4">
+                            <span class="footer-icon-container">
+                                <i class="fa fa-github"></i>
+                            </span>
+                        </a>
+                    </li>
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    <li class="list-inline-item">
+                        <a href="mailto:544420314@qq.com">
+                            <span class="footer-icon-container">
+                                <i class="fa fa-envelope-o"></i>
+                            </span>
+                        </a>
+                    </li>
+                    
+                    
+                </ul>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                <div class="footer-copyright">
+                    @weedustzhao. All right reserved
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<!-- After footer scripts -->
+
+<!-- jQuery -->
+<script src="//code.jquery.com/jquery-2.1.4.min.js"></script>
+
+<!-- Tween Max -->
+<script src="//cdnjs.cloudflare.com/ajax/libs/gsap/1.18.5/TweenMax.min.js"></script>
+
+<!-- Gallery -->
+<script src="//cdnjs.cloudflare.com/ajax/libs/featherlight/1.3.5/featherlight.min.js" type="text/javascript" charset="utf-8"></script>
+
+<!-- Custom JavaScript -->
+<script src="/blog/js/main.js"></script>
+
+<!-- Disqus Comments -->
+
+<script type="text/javascript">
+    var disqus_shortname = 'weedust';
+
+    (function(){
+        var dsq = document.createElement('script');
+        dsq.type = 'text/javascript';
+        dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    }());
+</script>
+
+
+
+</body>
+
+</html>
