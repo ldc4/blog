@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Head tag -->
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!--Description-->
+    
+        <meta name="description" content="weedustzhao的个人博客">
+    
+
+    <!--Author-->
+    
+        <meta name="author" content="Weedustzhao">
+    
+
+    <!--Open Graph Title-->
+    
+        <meta property="og:title" content="HeadFirst设计模式简记"/>
+    
+
+    <!--Open Graph Description-->
+    
+        <meta property="og:description" content="weedustzhao的个人博客" />
+    
+
+    <!--Open Graph Site Name-->
+    <meta property="og:site_name" content="零度尘封"/>
+
+    <!--Type page-->
+    
+        <meta property="og:type" content="article" />
+    
+
+    <!--Page Cover-->
+    
+
+    <meta name="twitter:card" content="summary" />
+    
+
+    <!-- Title -->
+    
+    <title>HeadFirst设计模式简记 - 零度尘封</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.2/css/bootstrap.min.css" integrity="sha384-y3tfxAZXuh4HwSYylfB+J125MxIs6mR5FOHamPBG064zB+AFeWH94NdvaCBm8qnd" crossorigin="anonymous">
+
+    <!-- Custom Fonts -->
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="//oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="//oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- Gallery -->
+    <link href="//cdnjs.cloudflare.com/ajax/libs/featherlight/1.3.5/featherlight.min.css" type="text/css" rel="stylesheet" />
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/blog/css/style.css">
+
+    <!-- Google Analytics -->
+    
+    <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+                    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+                m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-104966508-1', 'auto');
+        ga('send', 'pageview');
+
+    </script>
+
+
+
+</head>
+
+
+<body>
+
+<div class="bg-gradient"></div>
+<div class="bg-pattern"></div>
+
+<!-- Menu -->
+<!--Menu Links and Overlay-->
+<div class="menu-bg">
+    <div class="menu-container">
+        <ul>
+            
+            <li class="menu-item">
+                <a href="/blog/">
+                    Home - 首页
+                </a>
+            </li>
+            
+            <li class="menu-item">
+                <a href="/blog/tags">
+                    Tags - 标签
+                </a>
+            </li>
+            
+            <li class="menu-item">
+                <a href="/blog/archives">
+                    Archives - 归档
+                </a>
+            </li>
+            
+            <li class="menu-item">
+                <a href="/blog/categories">
+                    Categories - 分类
+                </a>
+            </li>
+            
+            <li class="menu-item">
+                <a href="/blog/#menu">
+                    +
+                </a>
+            </li>
+            
+            <li class="menu-item">
+                <a href="/blog/../page/e-nav">
+                    E-Nav - 生态导航
+                </a>
+            </li>
+            
+        </ul>
+    </div>
+</div>
+
+<!--Hamburger Icon-->
+<nav>
+    <a href="#menu"></a>
+</nav>
+
+<div class="container">
+
+    <!-- Main Content -->
+    <div class="row">
+    <div class="col-sm-12">
+
+        <!--Title and Logo-->
+        <header>
+    <div class="logo">
+        <a href="/blog/"><i class="logo-icon fa fa-gg" aria-hidden="true"></i></a>
+        
+    </div>
+</header>
+
+        <section class="main">
+            
+<div class="post">
+
+    <div class="post-header">
+        <h1 class="title">
+            <a href="/blog/DesignPattern/cj7ohus3b000oyk5jg20h7158/">
+                HeadFirst设计模式简记
+            </a>
+        </h1>
+        <div class="post-info">
+            
+                <span class="date">2016-05-20</span>
+            
+            
+                <a href="#disqus_thread" class="comments">留言</a>
+            
+            
+                <span class="category">
+                    <a href="/blog/categories/DesignPattern/">DesignPattern</a>
+                </span>
+            
+        </div>
+    </div>
+
+    <div class="content">
+
+        <!-- Gallery -->
+        
+
+        <!-- Post Content -->
+        <p>久闻GOF大名，但是我还是打算先从《HeadFirst设计模式》看着走。<br>同样，该文依然是作为巩固记忆的学习总结，不适合当做学习资料阅读。</p>
+<a id="more"></a>
+<h2 id="策略模式"><a href="#策略模式" class="headerlink" title="策略模式"></a>策略模式</h2><p>设计原则：</p>
+<ol>
+<li>找出应用中可能需要变化之处，把它们独立出来，不要和那些不需要变化的代码混合在一起</li>
+<li>针对接口编程，而不是针对实现编程</li>
+<li>多用组合，少用继承</li>
+</ol>
+<p>策略模式：<br>定义算法族，分别封装起来，让它们之间可以相互替换，此模式让算法的变化独立于使用算法的客户</p>
+<p>我的理解：<br>策略模式就是利用了多态的特性。</p>
+<p>比如spring的xml与properties资源加载，就算是一个策略模式</p>
+<p><img src="http://ldc4.qiniudn.com/images/HeadFirst/strategy.png" alt="strategy"></p>
+<h2 id="观察者模式"><a href="#观察者模式" class="headerlink" title="观察者模式"></a>观察者模式</h2><p>出版者+订阅者=观察者模式</p>
+<p>Subject 与 Observer</p>
+<p>观察者模式：<br>定义了对象之间的一对多依赖，这样一来，当一个对象改变状态时，它的所有依赖者都会收到通知并自动更新。</p>
+<p>松耦合：观察者模式提供了一种对象设计，让主题和观察者之间松耦合<br>主题是真正拥有数据的人，观察者是主题的依赖者，在数据变化时更新，这样比起许多对象控制同一份数据来，可以得到更干净的OO设计</p>
+<p>设计原则：<br>为了交互对象之间的松耦合设计而努力</p>
+<p>松耦合的设计之所以能让我们建立有弹性的OO系统，能够应对变化，是因为对象之间的相互依赖降低到了最底</p>
+<p>（天气系统设计）</p>
+<p>Java内置的观察者模式（Observable/Observer）</p>
+<p>观察者模式有两种获取数据的方式：<strong>推</strong> 和 <strong>拉</strong></p>
+<p>拉的话，被观察者就不用发送数据了，直接通知一下，我改变了，然后观察者就调用被观察者的getter方法来获得数据。</p>
+<p>JDK的内置的观察者模式的Observable是个类，这种设计是在面向现实编程了，而且通知观察者的顺序是从后往前的。</p>
+<p><img src="http://ldc4.qiniudn.com/images/HeadFirst/observer.jpg" alt="observer"></p>
+<h2 id="装饰者模式"><a href="#装饰者模式" class="headerlink" title="装饰者模式"></a>装饰者模式</h2><p>设计原则：<br>类应该对扩张开放，对修改关闭。（开闭原则）</p>
+<p>把注意力集中在设计中最有可能改变的地方，然后应用开闭原则</p>
+<p><strong>装饰者和被装饰对象有相同的超类型</strong></p>
+<p>装饰者模式：<br>动态地将责任附加到对象上。若要扩展功能，装饰者提供了比继承更有弹性的替代方案</p>
+<p>缺点：会产生很多小类</p>
+<p>java i/o系统就是典型的装饰者模式</p>
+<p>这里需要思考一个混淆性问题：装饰、包装、代理？</p>
+<p><img src="http://ldc4.qiniudn.com/images/HeadFirst/decorator.png" alt="decorator"></p>
+<h2 id="工厂模式"><a href="#工厂模式" class="headerlink" title="工厂模式"></a>工厂模式</h2><p>简单工厂，仅仅把new部分抽取出来单独封装了起来。但是当有新的具体的实现类，还是得去修改这个简单工厂</p>
+<p>简单工厂只是一种习惯，并不是真正意义上的模式</p>
+<p>工厂方法模式：<br>定义了一个创建对象的接口，但由子类决定要实例化的类是哪一个。工厂方法让类把实例化推迟到子类。</p>
+<p>设计原则：<br>要依赖抽象，不要依赖具体实现（依赖倒置原则）<br>(不能让高层组件依赖低层组件，而且，不管高层或低层组件，”两者“都应该依赖于抽象)</p>
+<p>抽象工厂模式：<br>提供一个接口，用于创建相关或依赖对象的家族，而不需要明确指定具体类</p>
+<p>抽象工厂的方法经常以工厂方法的方式实现</p>
+<p>工厂方法使用继承：把对象的创建委托给子类，子类实现工厂方法来创建对象<br>抽象工厂使用对象组合：对象的创建被实现在工厂接口所暴露出来的方法中</p>
+<h2 id="单例模式"><a href="#单例模式" class="headerlink" title="单例模式"></a>单例模式</h2><p>经典实现：（懒汉模式）<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">private static Singleton singleton;</div><div class="line"></div><div class="line">private Singleton()&#123;</div><div class="line">&#125;</div><div class="line"></div><div class="line">public Singleton getInstance()&#123;</div><div class="line">     if(singleton==null)&#123;</div><div class="line">          singleton = new Singleton();</div><div class="line">     &#125;</div><div class="line">     return singleton;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>单例模式：<br>确保一个类只有一个实例，并提供一个全局访问点</p>
+<p>多线程环境下，经典实现不能正常工作</p>
+<p>饿汉模式，JVM保证在任何线程访问uniqueInstance静态变量之前，一定先创建此实例。</p>
+<p>双重校验锁：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">private volatile static Singleton singleton;</div><div class="line"></div><div class="line">private Singleton()&#123;&#125;</div><div class="line"></div><div class="line">public static Singleton getInstance()&#123;</div><div class="line">     if(singleton==null)&#123;</div><div class="line">          sysnchronized(Singleton.class)&#123;</div><div class="line">               if(singleton==null)&#123;</div><div class="line">                    singleton = new Singleton();</div><div class="line">               &#125;</div><div class="line">          &#125;</div><div class="line">     &#125;</div><div class="line">     return singleton;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>如果使用JVM 1.2或之前的版本，你必须建立单例注册表，以免垃圾收集器将单例回收了。</p>
+<h2 id="命令模式"><a href="#命令模式" class="headerlink" title="命令模式"></a>命令模式</h2><p>餐厅：顾客-&gt;订单-&gt;女服务员-&gt;订单-&gt;厨师</p>
+<p>client、command、invoker、receiver</p>
+<p>简单命令模式</p>
+<p>命令模式：<br>将“请求”封装成对象，以便使用不同的请求、队列或者日志来参数化其他对象。命令模式也支持可撤销的操作。</p>
+<p>我们知道一个命令对象通过在特定接收者上绑定一组动作来封装一个请求。要达到这一点，命令对象将动作和接收者包进对象中。</p>
+<p>空对象，有时候空对象本身也被视为是一种设计模式。</p>
+<p>撤销，undo，使用状态来撤销</p>
+<p>宏命令</p>
+<p>队列请求，日志请求（即命令也可以用来实现日志和事务系统）</p>
+<p><img src="http://ldc4.qiniudn.com/images/HeadFirst/command.png" alt="command"></p>
+<h2 id="适配器模式和外观模式"><a href="#适配器模式和外观模式" class="headerlink" title="适配器模式和外观模式"></a>适配器模式和外观模式</h2><p>适配器模式：<br>将一个类的接口，转换成客户期望的另外一个接口。适配器让原本接口不兼容的类可以合作无间。</p>
+<p>对象适配器和类适配器</p>
+<p>类适配器需要多重继承，java并不支持</p>
+<p>适配器与装饰者的区别</p>
+<p>装饰者的目的：不改变接口，但加入职责<br>适配器的目的：将一个接口转成另一个接口<br>外观的目的：让接口更简单</p>
+<p><img src="http://ldc4.qiniudn.com/images/HeadFirst/adapter.png" alt="adapter"></p>
+<p>外观模式：<br>提供了一个统一的接口，用来访问子系统中的一群接口。外观定义了一个高层接口，让子系统更容易使用。</p>
+<p>我的理解：<br>其实，这就是最直接的组合解耦的表现！</p>
+<p>设计原则：<br>最少知识原则：只和你的密友谈话。</p>
+<p>这个原则提供的方针：<br>就任何对象而言，在该对象的方法内，我们只应该调用属于以下范围的方法：<br>1.该对象本身<br>2.被当做方法的参数而传递进来的对象<br>3.此方法所创建或实例化的任何对象<br>4.对象的任何组件</p>
+<p><img src="http://ldc4.qiniudn.com/images/HeadFirst/facade.png" alt="facade"></p>
+<h2 id="模板方法模式"><a href="#模板方法模式" class="headerlink" title="模板方法模式"></a>模板方法模式</h2><p>模板方法模式：<br>在一个方法中定义一个算法的骨架，而将一些步骤延迟到子类中。<br>模板方法使得子类可以在不改变算法结构的情况下，重新定义算法中的某些步骤。</p>
+<p>这模式其实就是利用继承抽象基类。基类就是所谓的模板。</p>
+<p>hook方法：是一种被声明在抽象类中的方法，但只有空的或者默认的实现。</p>
+<p>好莱坞原则？：<br>别调用（打电话给）我们，我们会调用（打电话给）你。</p>
+<p>避免让高层和底层组件之间有明显的环状依赖。</p>
+<p>模板方法：子类决定如何实现算法中的步骤<br>策略：封装可互换的行为，然后使用委托来决定要采用哪一个行为<br>工厂方法：由子类决定实例化哪个具体类</p>
+<p>为了防止子类改变模板方法中的算法，可以将模板方法声明为final。</p>
+<p>策略模式和模板方法模式都封装算法，一个用组合，一个用继承。<br>工厂方法是模板方法的一种特殊版本。</p>
+<p><img src="http://ldc4.qiniudn.com/images/HeadFirst/template.png" alt="template"></p>
+<h2 id="迭代器与组合模式"><a href="#迭代器与组合模式" class="headerlink" title="迭代器与组合模式"></a>迭代器与组合模式</h2><p>迭代器模式：<br>提供一种方法顺序访问一个聚合对象中的各个元素，而又不暴露其内部的表示。</p>
+<p>单一责任</p>
+<p>设计原则：<br>一个类应该只有一个引起变化的原因</p>
+<p>内聚</p>
+<p><img src="http://ldc4.qiniudn.com/images/HeadFirst/iterator.png" alt="iterator"></p>
+<p>组合模式：<br>允许你将对象组合成树形结构来表现“整体/部分”层次结构。组合能让客户一致的方式处理个别对象以及对象组合</p>
+<p>迭代器 -提供一个方式来遍历集合，而无须暴露集合的实现<br>组合 -客户可以将对象的集合以及个别的对象一视同仁</p>
+<p>在实现组合模式时，有许多设计上的折衷。根据需要来平衡透明性和安全性。</p>
+<p><img src="http://ldc4.qiniudn.com/images/HeadFirst/composite.png" alt="composite"></p>
+
+    </div>
+
+    
+
+    
+        <div class="post-tags">
+            <i class="fa fa-tags" aria-hidden="true"></i>
+            <a href="/blog/tags/designpattern/">#designpattern</a>
+        </div>
+    
+
+    <!-- Comments -->
+    
+    <div class="comments">
+        
+<div id="disqus_thread">
+    <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+
+
+
+    </div>
+    
+
+</div>
+        </section>
+
+    </div>
+</div>
+
+</div>
+
+<!-- Footer -->
+<div class="push"></div>
+
+<footer class="footer-content">
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 footer-about">
+                <h2>About</h2>
+                <p>
+                    天道酬勤，越努力，越幸运！<br />克己自律，逐梦前行！<br />愿一如既往！
+                </p>
+            </div>
+            
+    <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3 recent-posts">
+        <h2>Recent Posts</h2>
+        <ul>
+            
+            <li>
+                <a class="footer-post" href="/blog/React/cj7ohus4k002uyk5j9io79bnp/">React不得不熟记的知识点</a>
+            </li>
+            
+            <li>
+                <a class="footer-post" href="/blog/React/cj7ohus4d002iyk5judknls8e/">React学习总结</a>
+            </li>
+            
+            <li>
+                <a class="footer-post" href="/blog/AngularJS2/cj7ohus2e0002yk5j6l2hvjxa/">AngularJS2辅助应用</a>
+            </li>
+            
+            <li>
+                <a class="footer-post" href="/blog/AngularJS2/cj7ohus2u0008yk5jk37o5mpx/">AngularJS2起步</a>
+            </li>
+            
+        </ul>
+    </div>
+
+
+
+            
+<div class="col-xs-6 col-sm-6 col-md-3 col-lg-3 footer-categories">
+    <h2>Categories</h2>
+    <ul>
+        
+        <li>
+            <a class="footer-post" href="/blog/categories/Plugin/">Plugin</a>
+        </li>
+        
+        <li>
+            <a class="footer-post" href="/blog/categories/VPS/">VPS</a>
+        </li>
+        
+        <li>
+            <a class="footer-post" href="/blog/categories/Hexo/">Hexo</a>
+        </li>
+        
+        <li>
+            <a class="footer-post" href="/blog/categories/Javascript/">Javascript</a>
+        </li>
+        
+    </ul>
+</div>
+
+        </div>
+        <div class="row">
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                <ul class="list-inline footer-social-icons">
+                    
+                    <li class="list-inline-item">
+                        <a href="https://github.com/ldc4">
+                            <span class="footer-icon-container">
+                                <i class="fa fa-github"></i>
+                            </span>
+                        </a>
+                    </li>
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    <li class="list-inline-item">
+                        <a href="mailto:544420314@qq.com">
+                            <span class="footer-icon-container">
+                                <i class="fa fa-envelope-o"></i>
+                            </span>
+                        </a>
+                    </li>
+                    
+                    
+                </ul>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                <div class="footer-copyright">
+                    @weedustzhao. All right reserved
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<!-- After footer scripts -->
+
+<!-- jQuery -->
+<script src="//code.jquery.com/jquery-2.1.4.min.js"></script>
+
+<!-- Tween Max -->
+<script src="//cdnjs.cloudflare.com/ajax/libs/gsap/1.18.5/TweenMax.min.js"></script>
+
+<!-- Gallery -->
+<script src="//cdnjs.cloudflare.com/ajax/libs/featherlight/1.3.5/featherlight.min.js" type="text/javascript" charset="utf-8"></script>
+
+<!-- Custom JavaScript -->
+<script src="/blog/js/main.js"></script>
+
+<!-- Disqus Comments -->
+
+<script type="text/javascript">
+    var disqus_shortname = 'weedust';
+
+    (function(){
+        var dsq = document.createElement('script');
+        dsq.type = 'text/javascript';
+        dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    }());
+</script>
+
+
+
+</body>
+
+</html>
