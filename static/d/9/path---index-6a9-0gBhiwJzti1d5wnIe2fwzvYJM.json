@@ -1,0 +1,1 @@
+{"data":{"site":{"siteMetadata":{"title":"LDC4","author":"Weedust"}},"allMarkdownRemark":{"edges":[{"node":{"excerpt":"<p>解决：查看vs code的node版本，然后npm rebuild一下。</p>","fields":{"slug":"/hello-gatsby-blog/"},"frontmatter":{"date":"2019-01-06 17:44:58","title":"README","tags":"hello-","category":null}}}]}},"pageContext":{}}
