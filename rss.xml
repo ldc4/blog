@@ -1,4 +1,101 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[LDC4]]></title><description><![CDATA[从零开始，斗破苍穹，七界传说]]></description><link>https://weedust.com/</link><generator>RSS for Node</generator><lastBuildDate>Wed, 23 Jan 2019 01:06:52 GMT</lastBuildDate><item><title><![CDATA[2019年工作学习计划]]></title><description><![CDATA[
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[LDC4]]></title><description><![CDATA[从零开始，斗破苍穹，七界传说]]></description><link>https://weedust.com/</link><generator>RSS for Node</generator><lastBuildDate>Tue, 07 May 2019 06:51:56 GMT</lastBuildDate><item><title><![CDATA[React Hooks]]></title><description><![CDATA[
+相关链接：
+[官方文档（中文）](https://zh-hans.reactjs.org/docs/hooks-intro.html)
+[精读React Hooks](https://github.com/dt-fe/weekly/blob/master/79.%E7%B2%BE%E8%AF%BB%E3%80%8AReact%20Hooks%E3%80%8B.md)
+[拥抱React Hooks](https://juejin.im/post/5ccd3f8fe51d455c6049b7e6?utm_source=gold_browser_extension)
+
+为什么要创造Hook？
+1. 在组件之间复用状态逻辑很难 （这个可以理解）
+2. 复杂组件变得难以理解（任何组件复杂了，都会变得难以理解）
+3. 难以理解的class（class还是很好用的）
+
+]]></description><link>https://weedust.com//react-hooks/</link><guid isPermaLink="false">https://weedust.com//react-hooks/</guid><pubDate>Tue, 07 May 2019 04:25:53 GMT</pubDate><content:encoded>&lt;p&gt;相关链接：
+&lt;a href=&quot;https://zh-hans.reactjs.org/docs/hooks-intro.html&quot;&gt;官方文档（中文）&lt;/a&gt;
+&lt;a href=&quot;https://github.com/dt-fe/weekly/blob/master/79.%E7%B2%BE%E8%AF%BB%E3%80%8AReact%20Hooks%E3%80%8B.md&quot;&gt;精读React Hooks&lt;/a&gt;
+&lt;a href=&quot;https://juejin.im/post/5ccd3f8fe51d455c6049b7e6?utm_source=gold_browser_extension&quot;&gt;拥抱React Hooks&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;为什么要创造Hook？&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;在组件之间复用状态逻辑很难 （这个可以理解）&lt;/li&gt;
+&lt;li&gt;复杂组件变得难以理解（任何组件复杂了，都会变得难以理解）&lt;/li&gt;
+&lt;li&gt;难以理解的class（class还是很好用的）&lt;/li&gt;
+&lt;/ol&gt;
+&lt;!-- more --&gt;
+&lt;h2&gt;阅读笔记&lt;/h2&gt;
+&lt;p&gt;hook是react16.8正式引入的特性，是一些可以让你在函数组件里“钩入”React state及生命周期等特性的函数。&lt;/p&gt;
+&lt;h3&gt;Hook Demo Code&lt;/h3&gt;
+&lt;p&gt;react hook大致长这个样：&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;javascript&quot;&gt;&lt;pre class=&quot;language-javascript&quot;&gt;&lt;code class=&quot;language-javascript&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;import&lt;/span&gt; React&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt; useState&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; useEffect &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;react&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+
+&lt;span class=&quot;token keyword&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;Foo&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;token keyword&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;count&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; setCount&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;useState&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token number&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;token function&quot;&gt;useEffect&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&gt;&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+        document&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;title &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token template-string&quot;&gt;&lt;span class=&quot;token string&quot;&gt;`&lt;/span&gt;&lt;span class=&quot;token interpolation&quot;&gt;&lt;span class=&quot;token interpolation-punctuation punctuation&quot;&gt;${&lt;/span&gt;count&lt;span class=&quot;token interpolation-punctuation punctuation&quot;&gt;}&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;`&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+    
+    &lt;span class=&quot;token keyword&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;handleClick&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;token function&quot;&gt;setCount&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;count&lt;span class=&quot;token operator&quot;&gt;++&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+    
+    &lt;span class=&quot;token keyword&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;
+        &lt;span class=&quot;token operator&quot;&gt;&amp;lt;&lt;/span&gt;div onClick&lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;handleClick&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;&gt;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;count&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;/&lt;/span&gt;div&lt;span class=&quot;token operator&quot;&gt;&gt;&lt;/span&gt;
+    &lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h3&gt;Hook API索引&lt;/h3&gt;
+&lt;p&gt;&lt;a href=&quot;https://zh-hans.reactjs.org/docs/hooks-reference.html&quot;&gt;https://zh-hans.reactjs.org/docs/hooks-reference.html&lt;/a&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;基础hook&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;useState&lt;/strong&gt; 替代class state&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;useEffect&lt;/strong&gt; 替代生命周期函数（componentDidMount，componentDidUpdate， componentWillUnmount）&lt;/li&gt;
+&lt;li&gt;useContext 替代class context&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;高级hook&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;useReducer&lt;/li&gt;
+&lt;li&gt;useCallback&lt;/li&gt;
+&lt;li&gt;useMemo&lt;/li&gt;
+&lt;li&gt;useRef&lt;/li&gt;
+&lt;li&gt;useImperativeHandle&lt;/li&gt;
+&lt;li&gt;useLayoutEffect&lt;/li&gt;
+&lt;li&gt;useDebugValue&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;Hook 使用规则&lt;/h3&gt;
+&lt;p&gt;官方提供了eslint插件：&lt;a href=&quot;https://www.npmjs.com/package/eslint-plugin-react-hooks&quot;&gt;eslint-plugin-react-hooks&lt;/a&gt;&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;只能在函数最外层调用hook。不要在循环、条件判断或者子函数中调用。&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;这样可以确保Hook在每一次渲染中都按照同样的顺序被调用&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;只在React函数中调用hook。不要在普通的 JavaScript 函数中调用 Hook。&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;在React的函数组件中调用hook&lt;/li&gt;
+&lt;li&gt;在自定义hook中调用其他hook &lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3&gt;Hook 哲学&lt;/h3&gt;
+&lt;p&gt;使用多个Effect实现关注点分离
+Hook 允许我们按照代码的用途分离他们， 而不是像生命周期函数那样
+使用 Hook 其中一个目的就是要解决 class 中生命周期函数经常包含不相关的逻辑，但又把相关逻辑分离到了几个不同方法中的问题
+useEffect它会在调用一个新的 effect 之前对前一个 effect 进行清理。
+useEffect的第二个参数为依赖列表，支持跳过Effect执行。
+如果想执行只运行一次的 effect（仅在组件挂载和卸载时执行），可以传递一个空数组（[]）作为第二个参数。&lt;/p&gt;
+&lt;h3&gt;自定义Hook&lt;/h3&gt;
+&lt;p&gt;约定命名以use开头的函数，可以自定义出入参，和函数组件一样，可以使用hook&lt;/p&gt;</content:encoded></item><item><title><![CDATA[面试基础知识汇总]]></title><description><![CDATA[
+如果面试你的人，不是搞前端的，或者是组长、总监、GM以上的  
+基本上都会问基础知识，例如：https、浏览器从输入url之后都经历了什么
+
+]]></description><link>https://weedust.com//interview/</link><guid isPermaLink="false">https://weedust.com//interview/</guid><pubDate>Wed, 23 Jan 2019 06:17:21 GMT</pubDate><content:encoded>&lt;p&gt;如果面试你的人，不是搞前端的，或者是组长、总监、GM以上的&lt;br&gt;
+基本上都会问基础知识，例如：https、浏览器从输入url之后都经历了什么&lt;/p&gt;
+&lt;!-- more --&gt;</content:encoded></item><item><title><![CDATA[2019年工作学习计划]]></title><description><![CDATA[
 
 从大学本科毕业后，出来工作已经一年半了。  
 经历了很多，但成长感觉还是很慢。要是再这样下去，就没救了。  
@@ -14,12 +111,23 @@
 &lt;li&gt;多看书：技术书籍和方法论（单独做一个页面来跟踪记录）&lt;/li&gt;
 &lt;li&gt;输出技术博文（每周2篇，工作日一篇，周末一篇，每月底最后一个周末总结。简称7+1）&lt;/li&gt;
 &lt;/ol&gt;
+&lt;h3&gt;方向&lt;/h3&gt;
+&lt;ol&gt;
+&lt;li&gt;web(React技术栈)&lt;/li&gt;
+&lt;li&gt;工程化(打包和模块化)&lt;/li&gt;
+&lt;li&gt;node.js&lt;/li&gt;
+&lt;li&gt;动画动效&lt;/li&gt;
+&lt;li&gt;移动端(小程序、H5页面、RN)&lt;/li&gt;
+&lt;li&gt;桌面端(Electron)&lt;/li&gt;
+&lt;li&gt;数据可视化&lt;/li&gt;
+&lt;/ol&gt;
 &lt;h3&gt;TODO&lt;/h3&gt;
 &lt;ul&gt;
 &lt;li&gt;React v16的新特性&lt;/li&gt;
 &lt;li&gt;更深入的学习一下GraphQL&lt;/li&gt;
 &lt;li&gt;了解并学习一个CSS-in-JS框架&lt;/li&gt;
 &lt;li&gt;了解并学习服务端渲染Next.js&lt;/li&gt;
+&lt;li&gt;学习一下动画库&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h3&gt;好奇&lt;/h3&gt;
 &lt;ul&gt;
