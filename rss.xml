@@ -1,4 +1,227 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[LDC4]]></title><description><![CDATA[从零开始，斗破苍穹，七界传说]]></description><link>https://weedust.com/</link><generator>RSS for Node</generator><lastBuildDate>Thu, 09 May 2019 02:21:26 GMT</lastBuildDate><item><title><![CDATA[React Hooks]]></title><description><![CDATA[
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[LDC4]]></title><description><![CDATA[从零开始，斗破苍穹，七界传说]]></description><link>https://weedust.com/</link><generator>RSS for Node</generator><lastBuildDate>Tue, 25 Jun 2019 12:12:26 GMT</lastBuildDate><item><title><![CDATA[eggjs学习与实践]]></title><description><![CDATA[
+相关链接：
+[官方文档（中文）](https://eggjs.org/zh-cn/intro/quickstart.html)
+[Github](https://github.com/eggjs/egg/)
+
+最近依赖别人的背景图片接口挂掉了，索性自己搭建一个nodejs服务来提供每日必应图。  
+之前有看过koa2，做微信小程序有用过wafer2的server端。  
+比较知名的还是eggjs，基于koa封装的企业级nodejs框架。  
+
+]]></description><link>https://weedust.com//eggjs/</link><guid isPermaLink="false">https://weedust.com//eggjs/</guid><pubDate>Tue, 25 Jun 2019 11:03:17 GMT</pubDate><content:encoded>&lt;p&gt;相关链接：
+&lt;a href=&quot;https://eggjs.org/zh-cn/intro/quickstart.html&quot;&gt;官方文档（中文）&lt;/a&gt;
+&lt;a href=&quot;https://github.com/eggjs/egg/&quot;&gt;Github&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;最近依赖别人的背景图片接口挂掉了，索性自己搭建一个nodejs服务来提供每日必应图。&lt;br&gt;
+之前有看过koa2，做微信小程序有用过wafer2的server端。&lt;br&gt;
+比较知名的还是eggjs，基于koa封装的企业级nodejs框架。  &lt;/p&gt;
+&lt;!-- more --&gt;
+&lt;h2&gt;学习笔记&lt;/h2&gt;
+&lt;p&gt;eggjs继承于koa，所以很多内置对象和API都类似，建议可以先看看koa2&lt;/p&gt;
+&lt;p&gt;从 Koa 继承而来的 4 个对象（Application, Context, Request, Response) 以及框架扩展的一些对象（Controller, Service, Helper, Config, Logger）&lt;/p&gt;
+&lt;h3&gt;内置对象&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;Application    全局应用对象，继承自Koa.Application&lt;/li&gt;
+&lt;li&gt;Context    一个请求级别的对象，继承自Koa.Context&lt;/li&gt;
+&lt;li&gt;Request    一个请求级别的对象，继承自Koa.Request（封装了Node.js原生的HTTP Request对象）&lt;/li&gt;
+&lt;li&gt;Response    一个请求级别的对象，继承自Koa.Response（封装了Node.js原生的HTTP Response对象）&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4&gt;app对象的获取&lt;/h4&gt;
+&lt;ol&gt;
+&lt;li&gt;继承于 Controller, Service, Helper 基类的实例中，this.ctx.app可以获取到app对象&lt;/li&gt;
+&lt;li&gt;导出函数的第一个参数可以获取到app对象&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h4&gt;ctx对象的获取&lt;/h4&gt;
+&lt;ol&gt;
+&lt;li&gt;继承于 Controller, Service, Helper 基类的实例中，this.ctx可以获取到ctx对象&lt;/li&gt;
+&lt;li&gt;Middleware，Schedule函数的第一个参数可以获取到ctx对象&lt;/li&gt;
+&lt;li&gt;Application.createAnonymousContext()可以创建一个匿名ctx对象&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h4&gt;request对象的获取&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;继承于 Controller, Service, Helper 基类的实例中，this.ctx.request 可以获取到&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4&gt;response对象的获取&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;继承于 Controller, Service, Helper 基类的实例中，this.ctx.response 可以获取到&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;注：&lt;code class=&quot;language-text&quot;&gt;ctx.response.body = ctx.body&lt;/code&gt;，而&lt;code class=&quot;language-text&quot;&gt;ctx.request.body&lt;/code&gt;是获取POST方法的请求体&lt;/p&gt;
+&lt;h3&gt;框架对象&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;Controller，Service类包含属性：ctx，app，config，service，logger  &lt;/li&gt;
+&lt;li&gt;Helper 用来提供一些实用的 utility 函数  &lt;/li&gt;
+&lt;li&gt;Config 推荐应用开发遵循配置和代码分离的原则  &lt;/li&gt;
+&lt;li&gt;Logger 四个级别：debug/info/warn/error  &lt;/li&gt;
+&lt;li&gt;Subscription 订阅模型，可用于创建定时任务&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;运行环境&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;通过config/env文件指定&lt;/li&gt;
+&lt;li&gt;通过 EGG&lt;em&gt;SERVER&lt;/em&gt;ENV 环境变量指定&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;获取运行环境：app.config.env&lt;/p&gt;
+&lt;p&gt;一般项目开发流程包含：本地开发、测试环境、生产环境，可以通过运行环境变量来做一些跟环境有关的逻辑判断&lt;/p&gt;
+&lt;h3&gt;配置（Config）&lt;/h3&gt;
+&lt;p&gt;会根据环境读取不同的js配置&lt;/p&gt;
+&lt;p&gt;支持导出对象和函数，函数包含appInfo参数：&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;pkg: package.json&lt;br&gt;
+name: 应用名，同pkg.name&lt;br&gt;
+baseDir: 应用代码的目录&lt;br&gt;
+HOME: 用户目录，如 admin 账户为 /home/admin&lt;br&gt;
+root: 应用根目录，只有在 local 和 unittest 环境下为 baseDir，其他都为 HOME。  &lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;加载优先级：应用 &gt; 框架 &gt; 插件&lt;/p&gt;
+&lt;p&gt;注：数据库密码和云上SecretKey等，一定不要提交到github上&lt;/p&gt;
+&lt;h3&gt;中间件（Middleware）&lt;/h3&gt;
+&lt;p&gt;放置在app/middleware目录下的单独文件，需要exports一个普通函数，接收两个参数：&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;options: 中间件的配置项，框架会将app.config[${middlewareName}]传递进来&lt;br&gt;
+app: 当前应用的app对象&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;ul&gt;
+&lt;li&gt;框架默认中间件：如果应用层有自定义同名中间件，在启动时会报错。&lt;/li&gt;
+&lt;li&gt;使用Koa的中间件：如果不符合egg的middleware规范，则需要自行处理&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4&gt;示例&lt;/h4&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;javascript&quot;&gt;&lt;pre class=&quot;language-javascript&quot;&gt;&lt;code class=&quot;language-javascript&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;const&lt;/span&gt; isJSON &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;require&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&apos;koa-is-json&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;token keyword&quot;&gt;const&lt;/span&gt; zlib &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;require&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&apos;zlib&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+
+module&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function-variable function&quot;&gt;exports&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; options &lt;span class=&quot;token operator&quot;&gt;=&gt;&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;token keyword&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;async&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;gzip&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;ctx&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; next&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;token keyword&quot;&gt;await&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;next&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+  
+    &lt;span class=&quot;token keyword&quot;&gt;let&lt;/span&gt; body &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; ctx&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;body&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;token keyword&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;!&lt;/span&gt;body&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;return&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+
+    &lt;span class=&quot;token keyword&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;options&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;threshold &lt;span class=&quot;token operator&quot;&gt;&amp;amp;&amp;amp;&lt;/span&gt; ctx&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;length &lt;span class=&quot;token operator&quot;&gt;&amp;lt;&lt;/span&gt; options&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;threshold&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;return&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+
+    &lt;span class=&quot;token keyword&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;isJSON&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;body&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; body &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token constant&quot;&gt;JSON&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;stringify&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;body&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+    
+    &lt;span class=&quot;token keyword&quot;&gt;const&lt;/span&gt; stream &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; zlib&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;createGzip&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+    stream&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;end&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;body&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+    ctx&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;body &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; stream&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+    ctx&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token keyword&quot;&gt;set&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&apos;Content-Encoding&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;gzip&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+  &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h4&gt;在应用中使用&lt;/h4&gt;
+&lt;p&gt;在config.default.js中配置对应中间件，通用的配置项：enable，match，ignore&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;javascript&quot;&gt;&lt;pre class=&quot;language-javascript&quot;&gt;&lt;code class=&quot;language-javascript&quot;&gt;module&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;exports &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;token comment&quot;&gt;// 配置需要的中间件，数组顺序即为中间件的加载顺序&lt;/span&gt;
+  middleware&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;gzip&apos;&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+
+  &lt;span class=&quot;token comment&quot;&gt;// 配置 gzip 中间件的配置&lt;/span&gt;
+  gzip&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+    threshold&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;1024&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token comment&quot;&gt;// 小于 1k 的响应体不压缩&lt;/span&gt;
+  &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h4&gt;在框架和插件中使用&lt;/h4&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;javascript&quot;&gt;&lt;pre class=&quot;language-javascript&quot;&gt;&lt;code class=&quot;language-javascript&quot;&gt;&lt;span class=&quot;token comment&quot;&gt;// app.js&lt;/span&gt;
+module&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function-variable function&quot;&gt;exports&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; app &lt;span class=&quot;token operator&quot;&gt;=&gt;&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+  app&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;config&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;coreMiddleware&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;unshift&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&apos;gzip&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;框架和插件不支持在 config.default.js 中匹配 middleware&lt;/p&gt;
+&lt;p&gt;应用层定义的中间件（app.config.appMiddleware）&lt;/p&gt;
+&lt;p&gt;框架默认中间件（app.config.coreMiddleware）&lt;/p&gt;
+&lt;h4&gt;在路由中使用&lt;/h4&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;javascript&quot;&gt;&lt;pre class=&quot;language-javascript&quot;&gt;&lt;code class=&quot;language-javascript&quot;&gt;module&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function-variable function&quot;&gt;exports&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; app &lt;span class=&quot;token operator&quot;&gt;=&gt;&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;token keyword&quot;&gt;const&lt;/span&gt; gzip &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; app&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;middleware&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;gzip&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt; threshold&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;1024&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+  app&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;router&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token keyword&quot;&gt;get&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&apos;/needgzip&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; gzip&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; app&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;controller&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;handler&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h3&gt;路由（Router）&lt;/h3&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;javascript&quot;&gt;&lt;pre class=&quot;language-javascript&quot;&gt;&lt;code class=&quot;language-javascript&quot;&gt;router&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;verb&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&apos;path-match&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; app&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;controller&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;action&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+router&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;verb&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&apos;router-name&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;path-match&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; app&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;controller&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;action&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+router&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;verb&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&apos;path-match&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; middleware1&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;...&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; middlewareN&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; app&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;controller&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;action&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+router&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;verb&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&apos;router-name&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;path-match&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; middleware1&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;...&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; middlewareN&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; app&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;controller&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;action&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt; &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;ul&gt;
+&lt;li&gt;verb: head, options, get, post, put, post, patch, delete, del, redirect&lt;/li&gt;
+&lt;li&gt;router-name: 路由的别名，可以通过 Helper 提供的辅助函数 pathFor 和 urlFor 来生成 URL&lt;/li&gt;
+&lt;li&gt;path-match: 路由的URL路径&lt;/li&gt;
+&lt;li&gt;middleware: 中间件（可以配置多个）&lt;/li&gt;
+&lt;li&gt;controller: 控制器（引用app.controller.user.fetch 或 字符串’user.fetch’）&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;动态路由参数获取：ctx.params&lt;br&gt;
+内部重定向：router.redirect&lt;br&gt;
+外部重定向：ctx.redirect  &lt;/p&gt;
+&lt;h3&gt;控制器（Controller）&lt;/h3&gt;
+&lt;p&gt;controller负责解析用户的输入，处理后返回相应的结果&lt;br&gt;
+编写controller类继承至egg.Controller，包含内置属性：ctx、app、service、config、logger&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;获取请求参数：ctx.query | ctx.queries (没有过滤相同的key) &lt;/li&gt;
+&lt;li&gt;获取header: ctx.get(‘xxx’) | ctx.header | ctx.headers&lt;/li&gt;
+&lt;li&gt;获取cookies: ctx.cookies | ctx.cookies.get(‘xxx’) | ctx.cookies.set(‘yyy’)&lt;/li&gt;
+&lt;li&gt;获取session: ctx.session&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;服务（Service）&lt;/h3&gt;
+&lt;p&gt;service是在复杂业务场景下用于做业务逻辑封装的一个抽象层&lt;br&gt;
+编写service类继承至egg.Serivce，包含内置属性：ctx、app、service、config、logger  &lt;/p&gt;
+&lt;h3&gt;插件（Plugin）&lt;/h3&gt;
+&lt;p&gt;使用方式：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;安装对应的插件NPM包&lt;/li&gt;
+&lt;li&gt;在config/plugin.js中添加配置&lt;/li&gt;
+&lt;li&gt;在业务逻辑中，使用插件提供的功能&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;plugin.js配置包含：enable、package、path、env&lt;br&gt;
+可以通过plugin.{env}.js来区分不同环境使用哪些插件  &lt;/p&gt;
+&lt;p&gt;框架默认插件：
+onerror
+Session
+i18n
+watcher
+multipart
+security
+development
+logrotator
+schedule
+static
+jsonp
+view&lt;/p&gt;
+&lt;h3&gt;定时任务（Schedule）&lt;/h3&gt;
+&lt;p&gt;继承至egg.Subscription类：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;schedule属性来设置定时任务配置&lt;/li&gt;
+&lt;li&gt;subscribe()方法即是被定时任务执行的方法&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;定时方式：interval | cron&lt;br&gt;
+类型：worker | all  &lt;/p&gt;
+&lt;h4&gt;示例&lt;/h4&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;javascript&quot;&gt;&lt;pre class=&quot;language-javascript&quot;&gt;&lt;code class=&quot;language-javascript&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;const&lt;/span&gt; Subscription &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;require&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&apos;egg&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;Subscription&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+
+&lt;span class=&quot;token keyword&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;UpdateCache&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;extends&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;Subscription&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;token comment&quot;&gt;// 通过 schedule 属性来设置定时任务的执行间隔等配置&lt;/span&gt;
+  &lt;span class=&quot;token keyword&quot;&gt;static&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;get&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;schedule&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;token keyword&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+      interval&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;1m&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token comment&quot;&gt;// 1 分钟间隔&lt;/span&gt;
+      type&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;all&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token comment&quot;&gt;// 指定所有的 worker 都需要执行&lt;/span&gt;
+    &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+  &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+
+  &lt;span class=&quot;token comment&quot;&gt;// subscribe 是真正定时任务执行时被运行的函数&lt;/span&gt;
+  &lt;span class=&quot;token keyword&quot;&gt;async&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;subscribe&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;token keyword&quot;&gt;const&lt;/span&gt; res &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;await&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;ctx&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;curl&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&apos;http://www.api.com/cache&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+      dataType&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;json&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+    &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;token keyword&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;ctx&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;app&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;cache &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; res&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;data&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+  &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+
+module&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;exports &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; UpdateCache&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h4&gt;缩写&lt;/h4&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;javascript&quot;&gt;&lt;pre class=&quot;language-javascript&quot;&gt;&lt;code class=&quot;language-javascript&quot;&gt;module&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;exports &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+  schedule&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+    interval&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;1m&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token comment&quot;&gt;// 1 分钟间隔&lt;/span&gt;
+    type&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;all&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token comment&quot;&gt;// 指定所有的 worker 都需要执行&lt;/span&gt;
+  &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+  &lt;span class=&quot;token keyword&quot;&gt;async&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;task&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;ctx&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;token keyword&quot;&gt;const&lt;/span&gt; res &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;await&lt;/span&gt; ctx&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;curl&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&apos;http://www.api.com/cache&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+      dataType&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;json&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+    &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+    ctx&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;app&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;cache &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; res&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;data&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+  &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;执行日志：执行日志会输出到 ${appInfo.root}/logs/{app_name}/egg-schedule.log，默认不会输出到控制台，可以通过 config.customLogger.scheduleLogger 来自定义。&lt;/p&gt;
+&lt;p&gt;手动执行定制任务：&lt;code class=&quot;language-text&quot;&gt;app.runSchedule(path)&lt;/code&gt;&lt;/p&gt;
+&lt;h2&gt;实践过程&lt;/h2&gt;
+&lt;p&gt;coming soon…&lt;/p&gt;</content:encoded></item><item><title><![CDATA[React Hooks]]></title><description><![CDATA[
 相关链接：
 [官方文档（中文）](https://zh-hans.reactjs.org/docs/hooks-intro.html)
 [精读React Hooks](https://github.com/dt-fe/weekly/blob/master/79.%E7%B2%BE%E8%AF%BB%E3%80%8AReact%20Hooks%E3%80%8B.md)
@@ -125,7 +348,8 @@
 &lt;/ol&gt;
 &lt;h3&gt;TODO&lt;/h3&gt;
 &lt;ul&gt;
-&lt;li&gt;React v16的新特性&lt;/li&gt;
+&lt;li&gt;React v16的新特性 ✔&lt;/li&gt;
+&lt;li&gt;egg.js学习与实践&lt;/li&gt;
 &lt;li&gt;更深入的学习一下GraphQL&lt;/li&gt;
 &lt;li&gt;了解并学习一个CSS-in-JS框架&lt;/li&gt;
 &lt;li&gt;了解并学习服务端渲染Next.js&lt;/li&gt;
