@@ -1,0 +1,502 @@
+<!DOCTYPE html><html lang="en"><head><meta charSet="utf-8"/><meta http-equiv="x-ua-compatible" content="ie=edge"/><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/><style data-href="/blog/app.198d93319ef7e0703812.css">/*! normalize.css v8.0.1 | MIT License | github.com/necolas/normalize.css */html{line-height:1.15;-webkit-text-size-adjust:100%}body{margin:0}main{display:block}h1{font-size:2em;margin:.67em 0}hr{box-sizing:content-box;height:0;overflow:visible}pre{font-family:monospace,monospace;font-size:1em}a{background-color:transparent}abbr[title]{border-bottom:none;text-decoration:underline;-webkit-text-decoration:underline dotted;text-decoration:underline dotted}b,strong{font-weight:bolder}code,kbd,samp{font-family:monospace,monospace;font-size:1em}small{font-size:80%}sub,sup{font-size:75%;line-height:0;position:relative;vertical-align:baseline}sub{bottom:-.25em}sup{top:-.5em}img{border-style:none}button,input,optgroup,select,textarea{font-family:inherit;font-size:100%;line-height:1.15;margin:0}button,input{overflow:visible}button,select{text-transform:none}[type=button],[type=reset],[type=submit],button{-webkit-appearance:button}[type=button]::-moz-focus-inner,[type=reset]::-moz-focus-inner,[type=submit]::-moz-focus-inner,button::-moz-focus-inner{border-style:none;padding:0}[type=button]:-moz-focusring,[type=reset]:-moz-focusring,[type=submit]:-moz-focusring,button:-moz-focusring{outline:1px dotted ButtonText}fieldset{padding:.35em .75em .625em}legend{box-sizing:border-box;color:inherit;display:table;max-width:100%;padding:0;white-space:normal}progress{vertical-align:baseline}textarea{overflow:auto}[type=checkbox],[type=radio]{box-sizing:border-box;padding:0}[type=number]::-webkit-inner-spin-button,[type=number]::-webkit-outer-spin-button{height:auto}[type=search]{-webkit-appearance:textfield;outline-offset:-2px}[type=search]::-webkit-search-decoration{-webkit-appearance:none}::-webkit-file-upload-button{-webkit-appearance:button;font:inherit}details{display:block}summary{display:list-item}[hidden],template{display:none}body,html{position:relative;overflow:auto;margin:0;padding:0;height:100%;min-width:666px;font-family:Roboto,San Francisco,Helvetica Neue,Helvetica,Arial,PingFangSC-Light,Hiragina Sans GB,WenQuanYi Micro Hei,microsoft yahei ui,microsoft yahei,sans-serif;font-size:14px;background-color:#fff}#___gatsby,#___gatsby>div{min-height:100%;height:100%}.page-content{max-width:1024px;margin:0 auto;padding:20px;font:300 14px/1.8 PingFang SC,Lantinghei SC,Microsoft Yahei,Hiragino Sans GB,Microsoft Sans Serif,WenQuanYi Micro Hei,sans}a{color:#262626;text-decoration:none}@font-face{font-family:Montserrat;font-style:normal;font-display:swap;font-weight:100;src:local("Montserrat Thin "),local("Montserrat-Thin"),url(/blog/static/montserrat-latin-100-50d279861fb3cbfed809eae6ed8b9ac9.woff2) format("woff2"),url(/blog/static/montserrat-latin-100-5e334eff013f12fbb8ed72c2a253f119.woff) format("woff")}@font-face{font-family:Montserrat;font-style:italic;font-display:swap;font-weight:100;src:local("Montserrat Thin italic"),local("Montserrat-Thinitalic"),url(/blog/static/montserrat-latin-100italic-8c0705336558194799a8729840d7ed9d.woff2) format("woff2"),url(/blog/static/montserrat-latin-100italic-03e19243272affe738654a157625ec26.woff) format("woff")}@font-face{font-family:Montserrat;font-style:normal;font-display:swap;font-weight:200;src:local("Montserrat Extra Light "),local("Montserrat-Extra Light"),url(/blog/static/montserrat-latin-200-4343d3d91a9446226e7a8bbb024111ad.woff2) format("woff2"),url(/blog/static/montserrat-latin-200-f2022ecd65a0703ec3edcb7641709a75.woff) format("woff")}@font-face{font-family:Montserrat;font-style:italic;font-display:swap;font-weight:200;src:local("Montserrat Extra Light italic"),local("Montserrat-Extra Lightitalic"),url(/blog/static/montserrat-latin-200italic-116c4c4b14ef76b0555da09854512022.woff2) format("woff2"),url(/blog/static/montserrat-latin-200italic-89614a6008fc5c60739012463d0ee7e6.woff) format("woff")}@font-face{font-family:Montserrat;font-style:normal;font-display:swap;font-weight:300;src:local("Montserrat Light "),local("Montserrat-Light"),url(/blog/static/montserrat-latin-300-d2ad295b60682a6537c358e06ea80c61.woff2) format("woff2"),url(/blog/static/montserrat-latin-300-3a371ee0d175f5c2b15ce1d6b981dc4e.woff) format("woff")}@font-face{font-family:Montserrat;font-style:italic;font-display:swap;font-weight:300;src:local("Montserrat Light italic"),local("Montserrat-Lightitalic"),url(/blog/static/montserrat-latin-300italic-f6b6bf2431003f8142e800f9df157989.woff2) format("woff2"),url(/blog/static/montserrat-latin-300italic-16521668f5f238098329cdd7d27c391e.woff) format("woff")}@font-face{font-family:Montserrat;font-style:normal;font-display:swap;font-weight:400;src:local("Montserrat Regular "),local("Montserrat-Regular"),url(/blog/static/montserrat-latin-400-240a84447b78da0920fcb07e378f2c5f.woff2) format("woff2"),url(/blog/static/montserrat-latin-400-b20cc131034316b1c85d0498fb9ed5c5.woff) format("woff")}@font-face{font-family:Montserrat;font-style:italic;font-display:swap;font-weight:400;src:local("Montserrat Regular italic"),local("Montserrat-Regularitalic"),url(/blog/static/montserrat-latin-400italic-86172bb829de6be08b92512096b6aca6.woff2) format("woff2"),url(/blog/static/montserrat-latin-400italic-9405e78785a55cf0e4ea7669d4616ea9.woff) format("woff")}@font-face{font-family:Montserrat;font-style:normal;font-display:swap;font-weight:500;src:local("Montserrat Medium "),local("Montserrat-Medium"),url(/blog/static/montserrat-latin-500-fb8d6b71dbe8d9294be43082936f649e.woff2) format("woff2"),url(/blog/static/montserrat-latin-500-50825d47af7ae47e055018eb689c6c99.woff) format("woff")}@font-face{font-family:Montserrat;font-style:italic;font-display:swap;font-weight:500;src:local("Montserrat Medium italic"),local("Montserrat-Mediumitalic"),url(/blog/static/montserrat-latin-500italic-c0a555a4f8e997385a3eebbd4da0b9ee.woff2) format("woff2"),url(/blog/static/montserrat-latin-500italic-635de59c4be86285b1f70068c95b9816.woff) format("woff")}@font-face{font-family:Montserrat;font-style:normal;font-display:swap;font-weight:600;src:local("Montserrat SemiBold "),local("Montserrat-SemiBold"),url(/blog/static/montserrat-latin-600-d5615136a08cfee70deb4be1ee1651df.woff2) format("woff2"),url(/blog/static/montserrat-latin-600-f300da4fb4fe00e23915f62b2c643681.woff) format("woff")}@font-face{font-family:Montserrat;font-style:italic;font-display:swap;font-weight:600;src:local("Montserrat SemiBold italic"),local("Montserrat-SemiBolditalic"),url(/blog/static/montserrat-latin-600italic-10f29d139edacde92df63374c5672568.woff2) format("woff2"),url(/blog/static/montserrat-latin-600italic-2bc37d86a4ba12ce526c4af904a9946e.woff) format("woff")}@font-face{font-family:Montserrat;font-style:normal;font-display:swap;font-weight:700;src:local("Montserrat Bold "),local("Montserrat-Bold"),url(/blog/static/montserrat-latin-700-7d77e1f03eefc452dab14d7f89080083.woff2) format("woff2"),url(/blog/static/montserrat-latin-700-81826529772e52f0f14a4c73c2f2c7f1.woff) format("woff")}@font-face{font-family:Montserrat;font-style:italic;font-display:swap;font-weight:700;src:local("Montserrat Bold italic"),local("Montserrat-Bolditalic"),url(/blog/static/montserrat-latin-700italic-1dd2b53f1567a29e0505de9b27c4352c.woff2) format("woff2"),url(/blog/static/montserrat-latin-700italic-c162d257f5e9f9b108a96a604cfb2132.woff) format("woff")}@font-face{font-family:Montserrat;font-style:normal;font-display:swap;font-weight:800;src:local("Montserrat ExtraBold "),local("Montserrat-ExtraBold"),url(/blog/static/montserrat-latin-800-d4e7bf86bbd8e5f43ca73fa831218648.woff2) format("woff2"),url(/blog/static/montserrat-latin-800-895aadbff357be35ac8dd107c7975ee7.woff) format("woff")}@font-face{font-family:Montserrat;font-style:italic;font-display:swap;font-weight:800;src:local("Montserrat ExtraBold italic"),local("Montserrat-ExtraBolditalic"),url(/blog/static/montserrat-latin-800italic-fc0cbe442f7b3733c91e982e825c4daa.woff2) format("woff2"),url(/blog/static/montserrat-latin-800italic-b3362875067300abedb7a8fb97903258.woff) format("woff")}@font-face{font-family:Montserrat;font-style:normal;font-display:swap;font-weight:900;src:local("Montserrat Black "),local("Montserrat-Black"),url(/blog/static/montserrat-latin-900-c8bdd772c0d1347720ff7e3fb72719f3.woff2) format("woff2"),url(/blog/static/montserrat-latin-900-1b99ef78e627dd9bbd0ca4b5c0789547.woff) format("woff")}@font-face{font-family:Montserrat;font-style:italic;font-display:swap;font-weight:900;src:local("Montserrat Black italic"),local("Montserrat-Blackitalic"),url(/blog/static/montserrat-latin-900italic-cb72c1f90f66c124fb897a75bec64c78.woff2) format("woff2"),url(/blog/static/montserrat-latin-900italic-b78bb9f8ecec6c5a924c873f1818095f.woff) format("woff")}@font-face{font-family:Merriweather;font-style:normal;font-display:swap;font-weight:300;src:local("Merriweather Light "),local("Merriweather-Light"),url(/blog/static/merriweather-latin-300-f015f1e9a46a3b9db4fd64564dacece4.woff2) format("woff2"),url(/blog/static/merriweather-latin-300-92dfe81b725c342d31d962da975c07a6.woff) format("woff")}@font-face{font-family:Merriweather;font-style:italic;font-display:swap;font-weight:300;src:local("Merriweather Light italic"),local("Merriweather-Lightitalic"),url(/blog/static/merriweather-latin-300italic-7fd86b32accf2df4403d1d4fa3a81502.woff2) format("woff2"),url(/blog/static/merriweather-latin-300italic-878b76f59d5ba58dd1652dc8d2a0f4f9.woff) format("woff")}@font-face{font-family:Merriweather;font-style:normal;font-display:swap;font-weight:400;src:local("Merriweather Regular "),local("Merriweather-Regular"),url(/blog/static/merriweather-latin-400-12dbf4c00ae43698f278b099e4b0ec9e.woff2) format("woff2"),url(/blog/static/merriweather-latin-400-1fffad22b085a877995812dbf1d9ac08.woff) format("woff")}@font-face{font-family:Merriweather;font-style:italic;font-display:swap;font-weight:400;src:local("Merriweather Regular italic"),local("Merriweather-Regularitalic"),url(/blog/static/merriweather-latin-400italic-1e0d3e8121d88969bfb153c8f174b758.woff2) format("woff2"),url(/blog/static/merriweather-latin-400italic-de18d4c4e8e808a7248a185f866ff094.woff) format("woff")}@font-face{font-family:Merriweather;font-style:normal;font-display:swap;font-weight:700;src:local("Merriweather Bold "),local("Merriweather-Bold"),url(/blog/static/merriweather-latin-700-dc8fec81a125fc63856587e6683da73b.woff2) format("woff2"),url(/blog/static/merriweather-latin-700-d7d2ed8e58f303392cc3fc00ba3a9186.woff) format("woff")}@font-face{font-family:Merriweather;font-style:italic;font-display:swap;font-weight:700;src:local("Merriweather Bold italic"),local("Merriweather-Bolditalic"),url(/blog/static/merriweather-latin-700italic-b7b7e5da4d7be8c12bd5a6c809edc8fc.woff2) format("woff2"),url(/blog/static/merriweather-latin-700italic-6210a5fc1c54ca85a5d82aa85d7a9b5c.woff) format("woff")}@font-face{font-family:Merriweather;font-style:normal;font-display:swap;font-weight:900;src:local("Merriweather Black "),local("Merriweather-Black"),url(/blog/static/merriweather-latin-900-43f870d543dd89fbeb66d417c0d97276.woff2) format("woff2"),url(/blog/static/merriweather-latin-900-8f3806df74937c7b8b53f24ae1e725d1.woff) format("woff")}@font-face{font-family:Merriweather;font-style:italic;font-display:swap;font-weight:900;src:local("Merriweather Black italic"),local("Merriweather-Blackitalic"),url(/blog/static/merriweather-latin-900italic-168c1ab28ed0e4e7d654334def288bc1.woff2) format("woff2"),url(/blog/static/merriweather-latin-900italic-ae7778f01871e35ee142ef207b313b34.woff) format("woff")}code[class*=language-],pre[class*=language-]{color:#ccc;background:none;font-family:Consolas,Monaco,Andale Mono,Ubuntu Mono,monospace;text-align:left;white-space:pre;word-spacing:normal;word-break:normal;word-wrap:normal;line-height:1.5;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-hyphens:none;-ms-hyphens:none;hyphens:none}pre[class*=language-]{padding:1em;margin:.5em 0;overflow:auto}:not(pre)>code[class*=language-],pre[class*=language-]{background:#2d2d2d}:not(pre)>code[class*=language-]{padding:.1em;border-radius:.3em;white-space:normal}.token.block-comment,.token.cdata,.token.comment,.token.doctype,.token.prolog{color:#999}.token.punctuation{color:#ccc}.token.attr-name,.token.deleted,.token.namespace,.token.tag{color:#e2777a}.token.function-name{color:#6196cc}.token.boolean,.token.function,.token.number{color:#f08d49}.token.class-name,.token.constant,.token.property,.token.symbol{color:#f8c555}.token.atrule,.token.builtin,.token.important,.token.keyword,.token.selector{color:#cc99cd}.token.attr-value,.token.char,.token.regex,.token.string,.token.variable{color:#7ec699}.token.entity,.token.operator,.token.url{color:#67cdcc}.token.bold,.token.important{font-weight:700}.token.italic{font-style:italic}.token.entity{cursor:help}.token.inserted{color:green}</style><style data-href="/blog/component---src-templates-blog-post-js.e0e956f592d77010cae3.css">.header{height:50px;background-color:#262626}.header .logo{height:50px;margin-left:10px;float:left}.header .logo .img{display:inline-block;height:50px;line-height:50px;margin:5px 0}.header .logo .title{display:inline-block;height:50px;line-height:40px;color:#fff;font-size:36px;vertical-align:top;padding:0 5px;border-top:5px solid #262626;border-bottom:5px solid #262626}.header .logo.active .title,.header .logo:hover .title{color:#000;background-color:#fff}.header .nav{height:50px;margin-left:20px;float:left}.header .nav ul.nav-list{list-style:none;height:50px;padding-top:8px}.header .nav ul.nav-list a{text-decoration:none;word-break:keep-all;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;color:#fff;font-size:18px;font-weight:900;height:20px;box-sizing:border-box;line-height:18px}.header .nav ul.nav-list li{display:inline-block;box-sizing:border-box;list-style:none;padding:5px 20px;margin-right:1px;border:2px solid #262626}.header .nav ul.nav-list li.active{border:2px solid #ddd}.header .nav ul.nav-list li:hover{background-color:#fff;border:2px solid #fff}.header .nav ul.nav-list a:hover{color:#000}.footer{height:50px;line-height:50px;position:relative;margin-top:-50px;clear:both;text-align:center;background-color:hsla(0,0%,60%,.07)}.footer .author{display:inline-block;margin-right:10px;font-size:16px}.footer .location{display:inline-block;color:#666}.footer .location-icon{position:relative;display:inline-block;width:16px;height:16px;margin-right:5px;background:url("data:image/png;base64,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") no-repeat 0;background-size:16px}.layout-container{min-height:100%;height:100%}.layout-container .layout-content{min-height:100%;margin-bottom:-50px}.layout-container .layout-content .layout-page{padding-bottom:50px}.blog-header{background-color:#fff;text-align:center;padding:20px}.blog-header .blog-title{font-size:32px;padding:5px}.blog-header .blog-info{padding-bottom:5px}.blog-header .blog-info .blog-category,.blog-header .blog-info .blog-date{display:inline-block;padding:0 10px;color:#666}.blog-header .blog-info .blog-category{border-right:1px solid #ccc}.blog-header .blog-info .blog-category a,.blog-header .blog-info .blog-draft{padding:0 5px;background-color:#000;color:#fff}.blog-header .blog-info .blog-draft{display:inline-block}.blog-header .blog-info .blog-tags{display:inline-block;text-align:left}.blog-header .blog-info .blog-tags .blog-tag{border:1px solid #262626;display:inline-block;padding:0 2px;margin:0 2px 2px;border-radius:2px;text-align:center}.blog-header .blog-info .blog-tags .blog-tag a{color:#262626;text-decoration:none;padding:0 2px}.blog-header .blog-info .blog-tags .blog-tag:hover{background-color:#262626}.blog-header .blog-info .blog-tags .blog-tag:hover a{color:#fff}.blog-content .blog-excerpt{padding-top:10px;border-top:1px solid rgba(0,0,0,.13);border-bottom:1px solid rgba(0,0,0,.13);margin-bottom:20px}.blog-content .blog-excerpt a{color:#262626;text-decoration:none}.blog-content .blog-excerpt a:hover{text-decoration:none;color:#fff;background-color:#262626;transition:all .25s;cursor:pointer}.blog-content .blog-excerpt a:after{content:url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxNiIgaGVpZ2h0PSIxNiI+PGcgZmlsbD0iIzg4OCI+PHBhdGggZD0iTTggM2wxLjc5MyAxLjc5M0w2IDguNTg2IDcuNDE0IDEwbDMuNzkzLTMuNzkzTDEzIDhWM3oiLz48cGF0aCBkPSJNMTEgMTFINVY1aDJWM0gzdjEwaDEwVjloLTJ6Ii8+PC9nPjwvc3ZnPg==");position:relative;top:3.5px}.blog-content .blog-over{text-align:center;margin-top:40px;font-size:16px}.blog-content .blog-over .over-l{display:inline-block;position:relative;top:50%;left:0;width:35%;height:0;border-top:1px solid #ededed;vertical-align:middle}.blog-content .blog-over .over-m{display:inline-block;background-color:#eee;font-size:16px;border-radius:32px;width:20%;padding:5px;margin:0 5%}.blog-content .blog-over .over-r{display:inline-block;position:relative;top:50%;right:0;width:35%;height:0;border-top:1px solid #ededed;vertical-align:middle}.blog-content .blog-footer{padding:10px 20px 20px}.blog-content .blog-footer .prev-post{float:left}.blog-content .blog-footer .next-post{float:right}</style><meta name="generator" content="Gatsby 2.0.76"/><link rel="alternate" type="application/rss+xml" href="/blog/rss.xml"/><link rel="shortcut icon" href="/blog/icons/icon-48x48.png"/><link rel="manifest" href="/blog/manifest.webmanifest"/><meta name="theme-color" content="#663399"/><title data-react-helmet="true">重拾Webpack | LDC4</title><meta data-react-helmet="true" name="description" content="
+相关链接：
+[官方文档（中文）](https://www.webpackjs.com/guides/)
+[深入浅出Webpack](http://webpack.wuhaolin.cn/)
+
+每搭建一个项目，都会用到的东西就是构建工具，每次搭建完，就基本上不会去修改了。  
+但每次手动搭建，似乎都会存在各种奇葩的问题，因为构建工具的版本迭代还是非常快的。  
+尽管webpack的文档是如此详细，但还是会踩到一些坑。  
+在这种间歇性一次性使用情况下，配置项经常搞忘。  
+
+"/><meta data-react-helmet="true" property="og:title" content="重拾Webpack"/><meta data-react-helmet="true" property="og:description" content="
+相关链接：
+[官方文档（中文）](https://www.webpackjs.com/guides/)
+[深入浅出Webpack](http://webpack.wuhaolin.cn/)
+
+每搭建一个项目，都会用到的东西就是构建工具，每次搭建完，就基本上不会去修改了。  
+但每次手动搭建，似乎都会存在各种奇葩的问题，因为构建工具的版本迭代还是非常快的。  
+尽管webpack的文档是如此详细，但还是会踩到一些坑。  
+在这种间歇性一次性使用情况下，配置项经常搞忘。  
+
+"/><meta data-react-helmet="true" property="og:type" content="website"/><meta data-react-helmet="true" name="twitter:card" content="summary"/><meta data-react-helmet="true" name="twitter:creator" content="Weedust"/><meta data-react-helmet="true" name="twitter:title" content="重拾Webpack"/><meta data-react-helmet="true" name="twitter:description" content="
+相关链接：
+[官方文档（中文）](https://www.webpackjs.com/guides/)
+[深入浅出Webpack](http://webpack.wuhaolin.cn/)
+
+每搭建一个项目，都会用到的东西就是构建工具，每次搭建完，就基本上不会去修改了。  
+但每次手动搭建，似乎都会存在各种奇葩的问题，因为构建工具的版本迭代还是非常快的。  
+尽管webpack的文档是如此详细，但还是会踩到一些坑。  
+在这种间歇性一次性使用情况下，配置项经常搞忘。  
+
+"/><style id="typography.js">html{font-family:sans-serif;-ms-text-size-adjust:100%;-webkit-text-size-adjust:100%}body{margin:0}article,aside,details,figcaption,figure,footer,header,main,menu,nav,section,summary{display:block}audio,canvas,progress,video{display:inline-block}audio:not([controls]){display:none;height:0}progress{vertical-align:baseline}[hidden],template{display:none}a{background-color:transparent;-webkit-text-decoration-skip:objects}a:active,a:hover{outline-width:0}abbr[title]{border-bottom:none;text-decoration:underline;text-decoration:underline dotted}b,strong{font-weight:inherit;font-weight:bolder}dfn{font-style:italic}h1{font-size:2em;margin:.67em 0}mark{background-color:#ff0;color:#000}small{font-size:80%}sub,sup{font-size:75%;line-height:0;position:relative;vertical-align:baseline}sub{bottom:-.25em}sup{top:-.5em}img{border-style:none}svg:not(:root){overflow:hidden}code,kbd,pre,samp{font-family:monospace,monospace;font-size:1em}figure{margin:1em 40px}hr{box-sizing:content-box;height:0;overflow:visible}button,input,optgroup,select,textarea{font:inherit;margin:0}optgroup{font-weight:700}button,input{overflow:visible}button,select{text-transform:none}[type=reset],[type=submit],button,html [type=button]{-webkit-appearance:button}[type=button]::-moz-focus-inner,[type=reset]::-moz-focus-inner,[type=submit]::-moz-focus-inner,button::-moz-focus-inner{border-style:none;padding:0}[type=button]:-moz-focusring,[type=reset]:-moz-focusring,[type=submit]:-moz-focusring,button:-moz-focusring{outline:1px dotted ButtonText}fieldset{border:1px solid silver;margin:0 2px;padding:.35em .625em .75em}legend{box-sizing:border-box;color:inherit;display:table;max-width:100%;padding:0;white-space:normal}textarea{overflow:auto}[type=checkbox],[type=radio]{box-sizing:border-box;padding:0}[type=number]::-webkit-inner-spin-button,[type=number]::-webkit-outer-spin-button{height:auto}[type=search]{-webkit-appearance:textfield;outline-offset:-2px}[type=search]::-webkit-search-cancel-button,[type=search]::-webkit-search-decoration{-webkit-appearance:none}::-webkit-input-placeholder{color:inherit;opacity:.54}::-webkit-file-upload-button{-webkit-appearance:button;font:inherit}html{font:100%/1.625 -apple-system,'BlinkMacSystemFont','Segoe UI','Roboto','Helvetica','Arial',sans-serif,'Apple Color Emoji','Segoe UI Emoji','Segoe UI Symbol';box-sizing:border-box;overflow-y:scroll;}*{box-sizing:inherit;}*:before{box-sizing:inherit;}*:after{box-sizing:inherit;}body{color:hsla(0,0%,0%,0.8);font-family:-apple-system,'BlinkMacSystemFont','Segoe UI','Roboto','Helvetica','Arial',sans-serif,'Apple Color Emoji','Segoe UI Emoji','Segoe UI Symbol';font-weight:normal;word-wrap:break-word;font-kerning:normal;-moz-font-feature-settings:"kern", "liga", "clig", "calt";-ms-font-feature-settings:"kern", "liga", "clig", "calt";-webkit-font-feature-settings:"kern", "liga", "clig", "calt";font-feature-settings:"kern", "liga", "clig", "calt";}img{max-width:100%;margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:0.8125rem;}h1{margin-left:0;margin-right:0;margin-top:2.4375rem;padding-bottom:calc(0.40625rem - 1px);padding-left:0;padding-right:0;padding-top:0;margin-bottom:1.21875rem;color:inherit;font-family:-apple-system,'BlinkMacSystemFont','Segoe UI','Roboto','Helvetica','Arial',sans-serif,'Apple Color Emoji','Segoe UI Emoji','Segoe UI Symbol';font-weight:600;text-rendering:optimizeLegibility;font-size:2rem;line-height:1.1;border-bottom:1px solid hsla(0,0%,0%,0.07);}h2{margin-left:0;margin-right:0;margin-top:1.625rem;padding-bottom:calc(0.40625rem - 1px);padding-left:0;padding-right:0;padding-top:0;margin-bottom:0.40625rem;color:inherit;font-family:-apple-system,'BlinkMacSystemFont','Segoe UI','Roboto','Helvetica','Arial',sans-serif,'Apple Color Emoji','Segoe UI Emoji','Segoe UI Symbol';font-weight:600;text-rendering:optimizeLegibility;font-size:1.51572rem;line-height:1.1;border-bottom:1px solid hsla(0,0%,0%,0.07);}h3{margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:0.8125rem;color:inherit;font-family:-apple-system,'BlinkMacSystemFont','Segoe UI','Roboto','Helvetica','Arial',sans-serif,'Apple Color Emoji','Segoe UI Emoji','Segoe UI Symbol';font-weight:600;text-rendering:optimizeLegibility;font-size:1.31951rem;line-height:1.1;}h4{margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:0.8125rem;color:inherit;font-family:-apple-system,'BlinkMacSystemFont','Segoe UI','Roboto','Helvetica','Arial',sans-serif,'Apple Color Emoji','Segoe UI Emoji','Segoe UI Symbol';font-weight:600;text-rendering:optimizeLegibility;font-size:1rem;line-height:1.1;}h5{margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:0.8125rem;color:inherit;font-family:-apple-system,'BlinkMacSystemFont','Segoe UI','Roboto','Helvetica','Arial',sans-serif,'Apple Color Emoji','Segoe UI Emoji','Segoe UI Symbol';font-weight:600;text-rendering:optimizeLegibility;font-size:0.87055rem;line-height:1.1;}h6{margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:0.8125rem;color:hsla(0,0%,0%,0.53);font-family:-apple-system,'BlinkMacSystemFont','Segoe UI','Roboto','Helvetica','Arial',sans-serif,'Apple Color Emoji','Segoe UI Emoji','Segoe UI Symbol';font-weight:600;text-rendering:optimizeLegibility;font-size:0.81225rem;line-height:1.1;}hgroup{margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:0.8125rem;}ul{margin-left:1.625rem;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:0.8125rem;list-style-position:outside;list-style-image:none;}ol{margin-left:1.625rem;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:0.8125rem;list-style-position:outside;list-style-image:none;}dl{margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:0.8125rem;}dd{margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:0.8125rem;}p{margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:0.8125rem;}figure{margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:0.8125rem;}pre{margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:0.8125rem;font-size:0.85rem;line-height:1.42;background:hsla(0,0%,0%,0.04);border-radius:3px;overflow:auto;word-wrap:normal;padding:0.8125rem;}table{margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:0.8125rem;font-size:1rem;line-height:1.625rem;border-collapse:collapse;width:100%;}fieldset{margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:0.8125rem;}blockquote{margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:calc(0.8125rem - 1px);padding-right:0;padding-top:0;margin-bottom:0.8125rem;border-left:4px solid hsla(0,0%,0%,0.13);color:hsla(0,0%,0%,0.53);}form{margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:0.8125rem;}noscript{margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:0.8125rem;}iframe{margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:0.8125rem;}hr{margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:calc(0.8125rem - 1px);background:hsla(0,0%,0%,0.2);border:none;height:1px;}address{margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:0.8125rem;}b{font-weight:600;}strong{font-weight:600;}dt{font-weight:600;}th{font-weight:600;}li{margin-bottom:calc(0.8125rem / 2);}ol li{padding-left:0;}ul li{padding-left:0;}li > ol{margin-left:1.625rem;margin-bottom:calc(0.8125rem / 2);margin-top:calc(0.8125rem / 2);}li > ul{margin-left:1.625rem;margin-bottom:calc(0.8125rem / 2);margin-top:calc(0.8125rem / 2);}blockquote *:last-child{margin-bottom:0;}li *:last-child{margin-bottom:0;}p *:last-child{margin-bottom:0;}li > p{margin-bottom:calc(0.8125rem / 2);}code{font-size:0.85rem;line-height:1.625rem;}kbd{font-size:0.85rem;line-height:1.625rem;}samp{font-size:0.85rem;line-height:1.625rem;}abbr{border-bottom:1px dotted hsla(0,0%,0%,0.5);cursor:help;}acronym{border-bottom:1px dotted hsla(0,0%,0%,0.5);cursor:help;}abbr[title]{border-bottom:1px dotted hsla(0,0%,0%,0.5);cursor:help;text-decoration:none;}thead{text-align:left;}td,th{text-align:left;border-bottom:1px solid hsla(0,0%,0%,0.12);font-feature-settings:"tnum";-moz-font-feature-settings:"tnum";-ms-font-feature-settings:"tnum";-webkit-font-feature-settings:"tnum";padding-left:1.08333rem;padding-right:1.08333rem;padding-top:0.8125rem;padding-bottom:calc(0.8125rem - 1px);}th:first-child,td:first-child{padding-left:0;}th:last-child,td:last-child{padding-right:0;}tt,code{background-color:hsla(0,0%,0%,0.04);border-radius:3px;font-family:"SFMono-Regular", Consolas,"Roboto Mono","Droid Sans Mono","Liberation Mono",Menlo,Courier,monospace;padding:0;padding-top:0.2em;padding-bottom:0.2em;}pre code{background:none;line-height:1.42;}code:before,code:after,tt:before,tt:after{letter-spacing:-0.2em;content:" ";}pre code:before,pre code:after,pre tt:before,pre tt:after{content:none;}h3,h4,h5,h6{margin-bottom:0.8125rem;margin-top:1.625rem;}ol,ul{margin-left:2.03125rem;}li>ol,li>ul{margin-left:2.03125rem;}a{color:#4078c0;text-decoration:none;}a:hover,a:active{text-decoration:underline;}</style><link as="script" rel="preload" href="/blog/1-e68ae6c282512d6b2b09.js"/><link as="script" rel="preload" href="/blog/component---src-templates-blog-post-js-bce442fcf9a0c61c7421.js"/><link as="script" rel="preload" href="/blog/0-69ed53a4fac20407bde9.js"/><link as="script" rel="preload" href="/blog/app-4f5808a4521299f82535.js"/><link as="script" rel="preload" href="/blog/webpack-runtime-1d08d3102d4e2b1a2c04.js"/><link as="fetch" rel="preload" href="/blog/static/d/948/path---webpack-70-c-491-FPdPCw2iQSl0BibhjF4p6ph6c.json" crossOrigin="use-credentials"/></head><body><div id="___gatsby"><div style="outline:none" tabindex="-1" role="group"><div class="layout-container"><div class="layout-content"><div class="header"><div class="logo "><a href="/blog/"><div class="img"><div class=" gatsby-image-wrapper" style="position:relative;overflow:hidden;display:inline-block;width:40px;height:40px"><img src="data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAAUABQDASIAAhEBAxEB/8QAFwABAQEBAAAAAAAAAAAAAAAAAAUDAv/EABcBAAMBAAAAAAAAAAAAAAAAAAECAwT/2gAMAwEAAhADEAAAAbSfjJbbFRpvZmXMEf/EABoQAAIDAQEAAAAAAAAAAAAAAAECAAMSESH/2gAIAQEAAQUCZ8s74EvJa1uyptVr6TEcqP/EABYRAQEBAAAAAAAAAAAAAAAAABARQf/aAAgBAwEBPwGmH//EABgRAAIDAAAAAAAAAAAAAAAAAAABAhAR/9oACAECAQE/AXO9P//EAB0QAAEEAgMAAAAAAAAAAAAAAAABEBEhAkExUWH/2gAIAQEABj8CxTsn1q0c7kQVqP/EABwQAAICAwEBAAAAAAAAAAAAAAABESExQVEQcf/aAAgBAQABPyFXSwLTlh5sA1XKWhxkz3hlu8tiran6MiapP//aAAwDAQACAAMAAAAQo+g+/8QAGBEAAgMAAAAAAAAAAAAAAAAAAAEQEVH/2gAIAQMBAT8QbRos/8QAFxEBAQEBAAAAAAAAAAAAAAAAAQARMf/aAAgBAgEBPxDDSHTZ4sIO3//EAB8QAQEAAgEEAwAAAAAAAAAAAAERACExEEFRgWGh0f/aAAgBAQABPxB2zavjX7MvAoPfG9/XRSFiBOzziaZmPI5y0tB7DWWjaVTIIB9sh3VTP//Z" alt="" style="position:absolute;top:0;left:0;width:100%;height:100%;object-fit:cover;object-position:center;opacity:1;transition:opacity 0.5s;transition-delay:0.25s"/><noscript><picture><source srcSet="/blog/static/f787f37e0f47ed616b6dedf49c2a7501/32de1/logo.jpg 1x,
+/blog/static/f787f37e0f47ed616b6dedf49c2a7501/0a2ed/logo.jpg 1.5x,
+/blog/static/f787f37e0f47ed616b6dedf49c2a7501/7f057/logo.jpg 2x,
+/blog/static/f787f37e0f47ed616b6dedf49c2a7501/bf8bc/logo.jpg 3x" /><img width="40" height="40" src="/blog/static/f787f37e0f47ed616b6dedf49c2a7501/32de1/logo.jpg" alt="" style="position:absolute;top:0;left:0;transition:opacity 0.5s;transition-delay:0.5s;opacity:1;width:100%;height:100%;object-fit:cover;object-position:center"/></picture></noscript></div></div><div class="title">LDC4</div></a></div><div class="nav"><ul class="nav-list"><a href="/blog/cats"><li class="">分类</li></a><a href="/blog/tags"><li class="">标签</li></a></ul></div></div><div class="layout-page"><div class="blog-header"><div class="blog-title">重拾Webpack</div><div class="blog-info"><div class="blog-category">Under <a href="/blog/cats/学习/">学习</a></div><div class="blog-date">On <!-- -->2019-07-09 09:21:42</div></div><div class="blog-info"><div class="blog-tags"></div></div></div><div class="blog-content page-content"><div class="blog-excerpt"><blockquote><p>相关链接：
+<a href="https://www.webpackjs.com/guides/">官方文档（中文）</a>
+<a href="http://webpack.wuhaolin.cn/">深入浅出Webpack</a></p>
+<p>每搭建一个项目，都会用到的东西就是构建工具，每次搭建完，就基本上不会去修改了。<br>
+但每次手动搭建，似乎都会存在各种奇葩的问题，因为构建工具的版本迭代还是非常快的。<br>
+尽管webpack的文档是如此详细，但还是会踩到一些坑。<br>
+在这种间歇性一次性使用情况下，配置项经常搞忘。  </p>
+</blockquote></div><div class="blog-post">
+<h3>基本概念</h3>
+<h4>构建工具做的事情</h4>
+<p>工程化、自动化思想在前端开发中的体现</p>
+<ul>
+<li>代码转换：转换成可执行代码</li>
+<li>文件优化：文件压缩</li>
+<li>代码分割：模块化</li>
+<li>模块合并：减少请求</li>
+<li>自动刷新：监听代码变更</li>
+<li>代码校验：代码规范和单元测试</li>
+<li>自动发布：持续集成</li>
+</ul>
+<h4>6个核心概念</h4>
+<ul>
+<li>Entry：入口，Webpack 执行构建的第一步将从 Entry 开始，可抽象成输入。</li>
+<li>Module：模块，在 Webpack 里一切皆模块，一个模块对应着一个文件。Webpack 会从配置的 Entry 开始递归找出所有依赖的模块。</li>
+<li>Chunk：代码块，一个 Chunk 由多个模块组合而成，用于代码合并与分割。</li>
+<li>Loader：模块转换器，用于把模块原内容按照需求转换成新内容。</li>
+<li>Plugin：扩展插件，在 Webpack 构建流程中的特定时机注入扩展逻辑来改变构建结果或做你想要的事情。</li>
+<li>Output：输出结果，在 Webpack 经过一系列处理并得出最终想要的代码后输出结果。 </li>
+</ul>
+<h4>处理流程</h4>
+<ul>
+<li>Webpack 启动后会从 Entry 里配置的 Module 开始递归解析 Entry 依赖的所有 Module。  </li>
+<li>每找到一个 Module， 就会根据配置的 Loader 去找出对应的转换规则，对 Module 进行转换后，再解析出当前 Module 依赖的 Module。  </li>
+<li>这些模块会以 Entry 为单位进行分组，一个 Entry 和其所有依赖的 Module 被分到一个组也就是一个 Chunk。  </li>
+<li>最后 Webpack 会把所有 Chunk 转换成文件输出。  </li>
+<li>在整个流程中 Webpack 会在恰当的时机执行 Plugin 里定义的逻辑。   </li>
+</ul>
+<h3>配置简介</h3>
+<h4>示例</h4>
+<div class="gatsby-highlight" data-language="javascript"><pre class="language-javascript"><code class="language-javascript"><span class="token keyword">const</span> path <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'path'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">const</span> <span class="token punctuation">{</span> CleanWebpackPlugin <span class="token punctuation">}</span> <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'clean-webpack-plugin'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">const</span> HtmlWebpackPlugin <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'html-webpack-plugin'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+module<span class="token punctuation">.</span>exports <span class="token operator">=</span> <span class="token punctuation">{</span>
+  entry<span class="token punctuation">:</span> <span class="token punctuation">{</span>
+    app<span class="token punctuation">:</span> <span class="token string">'./src/index.js'</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  output<span class="token punctuation">:</span> <span class="token punctuation">{</span>
+    filename<span class="token punctuation">:</span> <span class="token string">'[name].bundle.js'</span><span class="token punctuation">,</span>
+    path<span class="token punctuation">:</span> path<span class="token punctuation">.</span><span class="token function">resolve</span><span class="token punctuation">(</span>__dirname<span class="token punctuation">,</span> <span class="token string">'../dist'</span><span class="token punctuation">)</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  module<span class="token punctuation">:</span> <span class="token punctuation">{</span>
+    rules<span class="token punctuation">:</span> <span class="token punctuation">[</span>
+      <span class="token punctuation">{</span>
+        test<span class="token punctuation">:</span> <span class="token regex">/\.(less|css)$/</span><span class="token punctuation">,</span>
+        use<span class="token punctuation">:</span> <span class="token punctuation">[</span>
+          <span class="token punctuation">{</span> loader<span class="token punctuation">:</span> <span class="token string">'style-loader'</span> <span class="token punctuation">}</span><span class="token punctuation">,</span>
+          <span class="token punctuation">{</span> loader<span class="token punctuation">:</span> <span class="token string">'css-loader'</span><span class="token punctuation">,</span> options<span class="token punctuation">:</span> <span class="token punctuation">{</span> modules<span class="token punctuation">:</span> <span class="token boolean">true</span> <span class="token punctuation">}</span> <span class="token punctuation">}</span><span class="token punctuation">,</span>
+          <span class="token punctuation">{</span> loader<span class="token punctuation">:</span> <span class="token string">'postcss-loader'</span> <span class="token punctuation">}</span><span class="token punctuation">,</span>
+          <span class="token punctuation">{</span> loader<span class="token punctuation">:</span> <span class="token string">'less-loader'</span> <span class="token punctuation">}</span>
+        <span class="token punctuation">]</span>
+      <span class="token punctuation">}</span>
+    <span class="token punctuation">]</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  plugins<span class="token punctuation">:</span> <span class="token punctuation">[</span>
+    <span class="token keyword">new</span> <span class="token class-name">CleanWebpackPlugin</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token keyword">new</span> <span class="token class-name">HtmlWebpackPlugin</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+      template<span class="token punctuation">:</span> <span class="token string">'./src/index.html'</span><span class="token punctuation">,</span>
+      inject<span class="token punctuation">:</span> <span class="token string">'head'</span><span class="token punctuation">,</span>
+      minify<span class="token punctuation">:</span> <span class="token punctuation">{</span>
+        collapseWhitespace<span class="token punctuation">:</span> <span class="token boolean">true</span>
+      <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span><span class="token punctuation">)</span>
+  <span class="token punctuation">]</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span></code></pre></div>
+<h4>Loader的使用</h4>
+<p>module.rules可以配置一组规则：{ test, use }<br>
+test: 匹配的正则<br>
+use: 采用的loader数组，从后到前的顺序执行loader  </p>
+<p>也可以通过import采用内联的写法: (不推荐)
+<code class="language-text">import Styles from &#39;style-loader!css-loader?modules!./styles.css&#39;;</code></p>
+<h4>Plugin的使用</h4>
+<p>插件列表：<a href="https://www.webpackjs.com/plugins/">https://www.webpackjs.com/plugins/</a></p>
+<p>安装需要的插件，然后在plugins里面使用即可，需要注意阅读插件官方文档来确认用法。</p>
+<h4>开发过程中</h4>
+<p>开发的时候会用webpack-dev-server、devtool等配置，方便开发调试。<br>
+配置文件最好区分一下环境，抽取公共配置，通过webpack-merge来合并。  </p>
+<div class="gatsby-highlight" data-language="javascript"><pre class="language-javascript"><code class="language-javascript"><span class="token keyword">const</span> merge <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'webpack-merge'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">const</span> common <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'./webpack.common.js'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+module<span class="token punctuation">.</span>exports <span class="token operator">=</span> <span class="token function">merge</span><span class="token punctuation">(</span>common<span class="token punctuation">,</span> <span class="token punctuation">{</span>
+  mode<span class="token punctuation">:</span> <span class="token string">'development'</span><span class="token punctuation">,</span>
+  devtool<span class="token punctuation">:</span> <span class="token string">'inline-source-map'</span><span class="token punctuation">,</span>
+  devServer<span class="token punctuation">:</span> <span class="token punctuation">{</span>
+    contentBase<span class="token punctuation">:</span> <span class="token string">'./dist'</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre></div>
+<p>注意使用webpack-dev-server与webpack的版本对应<br>
+webpack-dev-server2.x对应webpack3.x<br>
+webpack-dev-server3.x对应webpack4.x  </p>
+<h3>配置详解</h3>
+<h4>示例</h4>
+<div class="gatsby-highlight" data-language="javascript"><pre class="language-javascript"><code class="language-javascript"><span class="token keyword">const</span> path <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'path'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+module<span class="token punctuation">.</span>exports <span class="token operator">=</span> <span class="token punctuation">{</span>
+  <span class="token comment">// entry 表示 入口，Webpack 执行构建的第一步将从 Entry 开始，可抽象成输入。</span>
+  <span class="token comment">// 类型可以是 string | object | array   </span>
+  entry<span class="token punctuation">:</span> <span class="token string">'./app/entry'</span><span class="token punctuation">,</span> <span class="token comment">// 只有1个入口，入口只有1个文件</span>
+  entry<span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token string">'./app/entry1'</span><span class="token punctuation">,</span> <span class="token string">'./app/entry2'</span><span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token comment">// 只有1个入口，入口有2个文件</span>
+  entry<span class="token punctuation">:</span> <span class="token punctuation">{</span> <span class="token comment">// 有2个入口</span>
+    a<span class="token punctuation">:</span> <span class="token string">'./app/entry-a'</span><span class="token punctuation">,</span>
+    b<span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token string">'./app/entry-b1'</span><span class="token punctuation">,</span> <span class="token string">'./app/entry-b2'</span><span class="token punctuation">]</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+
+  <span class="token comment">// 如何输出结果：在 Webpack 经过一系列处理后，如何输出最终想要的代码。</span>
+  output<span class="token punctuation">:</span> <span class="token punctuation">{</span>
+    <span class="token comment">// 输出文件存放的目录，必须是 string 类型的绝对路径。</span>
+    path<span class="token punctuation">:</span> path<span class="token punctuation">.</span><span class="token function">resolve</span><span class="token punctuation">(</span>__dirname<span class="token punctuation">,</span> <span class="token string">'dist'</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+
+    <span class="token comment">// 输出文件的名称</span>
+    filename<span class="token punctuation">:</span> <span class="token string">'bundle.js'</span><span class="token punctuation">,</span> <span class="token comment">// 完整的名称</span>
+    filename<span class="token punctuation">:</span> <span class="token string">'[name].js'</span><span class="token punctuation">,</span> <span class="token comment">// 当配置了多个 entry 时，通过名称模版为不同的 entry 生成不同的文件名称</span>
+    filename<span class="token punctuation">:</span> <span class="token string">'[chunkhash].js'</span><span class="token punctuation">,</span> <span class="token comment">// 根据文件内容 hash 值生成文件名称，用于浏览器长时间缓存文件</span>
+
+    <span class="token comment">// 发布到线上的所有资源的 URL 前缀，string 类型</span>
+    publicPath<span class="token punctuation">:</span> <span class="token string">'/assets/'</span><span class="token punctuation">,</span> <span class="token comment">// 放到指定目录下</span>
+    publicPath<span class="token punctuation">:</span> <span class="token string">''</span><span class="token punctuation">,</span> <span class="token comment">// 放到根目录下</span>
+    publicPath<span class="token punctuation">:</span> <span class="token string">'https://cdn.example.com/'</span><span class="token punctuation">,</span> <span class="token comment">// 放到 CDN 上去</span>
+
+    <span class="token comment">// 导出库的名称，string 类型</span>
+    <span class="token comment">// 不填它时，默认输出格式是匿名的立即执行函数</span>
+    library<span class="token punctuation">:</span> <span class="token string">'MyLibrary'</span><span class="token punctuation">,</span>
+
+    <span class="token comment">// 导出库的类型，枚举类型，默认是 var</span>
+    <span class="token comment">// 可以是 umd | umd2 | commonjs2 | commonjs | amd | this | var | assign | window | global | jsonp ，</span>
+    libraryTarget<span class="token punctuation">:</span> <span class="token string">'umd'</span><span class="token punctuation">,</span> 
+
+    <span class="token comment">// 是否包含有用的文件路径信息到生成的代码里去，boolean 类型</span>
+    pathinfo<span class="token punctuation">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span> 
+
+    <span class="token comment">// 附加 Chunk 的文件名称</span>
+    chunkFilename<span class="token punctuation">:</span> <span class="token string">'[id].js'</span><span class="token punctuation">,</span>
+    chunkFilename<span class="token punctuation">:</span> <span class="token string">'[chunkhash].js'</span><span class="token punctuation">,</span>
+
+    <span class="token comment">// JSONP 异步加载资源时的回调函数名称，需要和服务端搭配使用</span>
+    jsonpFunction<span class="token punctuation">:</span> <span class="token string">'myWebpackJsonp'</span><span class="token punctuation">,</span>
+
+    <span class="token comment">// 生成的 Source Map 文件名称</span>
+    sourceMapFilename<span class="token punctuation">:</span> <span class="token string">'[file].map'</span><span class="token punctuation">,</span>
+
+    <span class="token comment">// 浏览器开发者工具里显示的源码模块名称</span>
+    devtoolModuleFilenameTemplate<span class="token punctuation">:</span> <span class="token string">'webpack:///[resource-path]'</span><span class="token punctuation">,</span>
+
+    <span class="token comment">// 异步加载跨域的资源时使用的方式</span>
+    crossOriginLoading<span class="token punctuation">:</span> <span class="token string">'use-credentials'</span><span class="token punctuation">,</span>
+    crossOriginLoading<span class="token punctuation">:</span> <span class="token string">'anonymous'</span><span class="token punctuation">,</span>
+    crossOriginLoading<span class="token punctuation">:</span> <span class="token boolean">false</span><span class="token punctuation">,</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+
+  <span class="token comment">// 配置模块相关</span>
+  module<span class="token punctuation">:</span> <span class="token punctuation">{</span>
+    rules<span class="token punctuation">:</span> <span class="token punctuation">[</span> <span class="token comment">// 配置 Loader</span>
+      <span class="token punctuation">{</span>  
+        test<span class="token punctuation">:</span> <span class="token regex">/\.jsx?$/</span><span class="token punctuation">,</span> <span class="token comment">// 正则匹配命中要使用 Loader 的文件</span>
+        include<span class="token punctuation">:</span> <span class="token punctuation">[</span> <span class="token comment">// 只会命中这里面的文件</span>
+          path<span class="token punctuation">.</span><span class="token function">resolve</span><span class="token punctuation">(</span>__dirname<span class="token punctuation">,</span> <span class="token string">'app'</span><span class="token punctuation">)</span>
+        <span class="token punctuation">]</span><span class="token punctuation">,</span>
+        exclude<span class="token punctuation">:</span> <span class="token punctuation">[</span> <span class="token comment">// 忽略这里面的文件</span>
+          path<span class="token punctuation">.</span><span class="token function">resolve</span><span class="token punctuation">(</span>__dirname<span class="token punctuation">,</span> <span class="token string">'app/demo-files'</span><span class="token punctuation">)</span>
+        <span class="token punctuation">]</span><span class="token punctuation">,</span>
+        use<span class="token punctuation">:</span> <span class="token punctuation">[</span> <span class="token comment">// 使用那些 Loader，有先后次序，从后往前执行</span>
+          <span class="token string">'style-loader'</span><span class="token punctuation">,</span> <span class="token comment">// 直接使用 Loader 的名称</span>
+          <span class="token punctuation">{</span>
+            loader<span class="token punctuation">:</span> <span class="token string">'css-loader'</span><span class="token punctuation">,</span>      
+            options<span class="token punctuation">:</span> <span class="token punctuation">{</span> <span class="token comment">// 给 html-loader 传一些参数</span>
+            <span class="token punctuation">}</span>
+          <span class="token punctuation">}</span>
+        <span class="token punctuation">]</span>
+      <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    <span class="token punctuation">]</span><span class="token punctuation">,</span>
+    noParse<span class="token punctuation">:</span> <span class="token punctuation">[</span> <span class="token comment">// 不用解析和处理的模块</span>
+      <span class="token operator">/</span>special<span class="token operator">-</span>library\<span class="token punctuation">.</span>js$<span class="token operator">/</span>  <span class="token comment">// 用正则匹配</span>
+    <span class="token punctuation">]</span><span class="token punctuation">,</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+
+  <span class="token comment">// 配置插件</span>
+  plugins<span class="token punctuation">:</span> <span class="token punctuation">[</span>
+  <span class="token punctuation">]</span><span class="token punctuation">,</span>
+
+  <span class="token comment">// 配置寻找模块的规则</span>
+  resolve<span class="token punctuation">:</span> <span class="token punctuation">{</span> 
+    modules<span class="token punctuation">:</span> <span class="token punctuation">[</span> <span class="token comment">// 寻找模块的根目录，array 类型，默认以 node_modules 为根目录</span>
+      <span class="token string">'node_modules'</span><span class="token punctuation">,</span>
+      path<span class="token punctuation">.</span><span class="token function">resolve</span><span class="token punctuation">(</span>__dirname<span class="token punctuation">,</span> <span class="token string">'app'</span><span class="token punctuation">)</span>
+    <span class="token punctuation">]</span><span class="token punctuation">,</span>
+    extensions<span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token string">'.js'</span><span class="token punctuation">,</span> <span class="token string">'.json'</span><span class="token punctuation">,</span> <span class="token string">'.jsx'</span><span class="token punctuation">,</span> <span class="token string">'.css'</span><span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token comment">// 模块的后缀名</span>
+    alias<span class="token punctuation">:</span> <span class="token punctuation">{</span> <span class="token comment">// 模块别名配置，用于映射模块</span>
+       <span class="token comment">// 把 'module' 映射 'new-module'，同样的 'module/path/file' 也会被映射成 'new-module/path/file'</span>
+      <span class="token string">'module'</span><span class="token punctuation">:</span> <span class="token string">'new-module'</span><span class="token punctuation">,</span>
+      <span class="token comment">// 使用结尾符号 $ 后，把 'only-module' 映射成 'new-module'，</span>
+      <span class="token comment">// 但是不像上面的，'module/path/file' 不会被映射成 'new-module/path/file'</span>
+      <span class="token string">'only-module$'</span><span class="token punctuation">:</span> <span class="token string">'new-module'</span><span class="token punctuation">,</span> 
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    alias<span class="token punctuation">:</span> <span class="token punctuation">[</span> <span class="token comment">// alias 还支持使用数组来更详细的配置</span>
+      <span class="token punctuation">{</span>
+        name<span class="token punctuation">:</span> <span class="token string">'module'</span><span class="token punctuation">,</span> <span class="token comment">// 老的模块</span>
+        alias<span class="token punctuation">:</span> <span class="token string">'new-module'</span><span class="token punctuation">,</span> <span class="token comment">// 新的模块</span>
+        <span class="token comment">// 是否是只映射模块，如果是 true 只有 'module' 会被映射，如果是 false 'module/inner/path' 也会被映射</span>
+        onlyModule<span class="token punctuation">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span> 
+      <span class="token punctuation">}</span>
+    <span class="token punctuation">]</span><span class="token punctuation">,</span>
+    symlinks<span class="token punctuation">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span> <span class="token comment">// 是否跟随文件软链接去搜寻模块的路径</span>
+    descriptionFiles<span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token string">'package.json'</span><span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token comment">// 模块的描述文件</span>
+    mainFields<span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token string">'main'</span><span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token comment">// 模块的描述文件里的描述入口的文件的字段名称</span>
+    enforceExtension<span class="token punctuation">:</span> <span class="token boolean">false</span><span class="token punctuation">,</span> <span class="token comment">// 是否强制导入语句必须要写明文件后缀</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+
+  <span class="token comment">// 输出文件性能检查配置</span>
+  performance<span class="token punctuation">:</span> <span class="token punctuation">{</span> 
+    hints<span class="token punctuation">:</span> <span class="token string">'warning'</span><span class="token punctuation">,</span> <span class="token comment">// 有性能问题时输出警告</span>
+    hints<span class="token punctuation">:</span> <span class="token string">'error'</span><span class="token punctuation">,</span> <span class="token comment">// 有性能问题时输出错误</span>
+    hints<span class="token punctuation">:</span> <span class="token boolean">false</span><span class="token punctuation">,</span> <span class="token comment">// 关闭性能检查</span>
+    maxAssetSize<span class="token punctuation">:</span> <span class="token number">200000</span><span class="token punctuation">,</span> <span class="token comment">// 最大文件大小 (单位 bytes)</span>
+    maxEntrypointSize<span class="token punctuation">:</span> <span class="token number">400000</span><span class="token punctuation">,</span> <span class="token comment">// 最大入口文件大小 (单位 bytes)</span>
+    assetFilter<span class="token punctuation">:</span> <span class="token keyword">function</span><span class="token punctuation">(</span>assetFilename<span class="token punctuation">)</span> <span class="token punctuation">{</span> <span class="token comment">// 过滤要检查的文件</span>
+      <span class="token keyword">return</span> assetFilename<span class="token punctuation">.</span><span class="token function">endsWith</span><span class="token punctuation">(</span><span class="token string">'.css'</span><span class="token punctuation">)</span> <span class="token operator">||</span> assetFilename<span class="token punctuation">.</span><span class="token function">endsWith</span><span class="token punctuation">(</span><span class="token string">'.js'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+
+  devtool<span class="token punctuation">:</span> <span class="token string">'source-map'</span><span class="token punctuation">,</span> <span class="token comment">// 配置 source-map 类型</span>
+
+  context<span class="token punctuation">:</span> __dirname<span class="token punctuation">,</span> <span class="token comment">// Webpack 使用的根目录，string 类型必须是绝对路径</span>
+
+  <span class="token comment">// 配置输出代码的运行环境</span>
+  target<span class="token punctuation">:</span> <span class="token string">'web'</span><span class="token punctuation">,</span> <span class="token comment">// 浏览器，默认</span>
+  target<span class="token punctuation">:</span> <span class="token string">'webworker'</span><span class="token punctuation">,</span> <span class="token comment">// WebWorker</span>
+  target<span class="token punctuation">:</span> <span class="token string">'node'</span><span class="token punctuation">,</span> <span class="token comment">// Node.js，使用 `require` 语句加载 Chunk 代码</span>
+  target<span class="token punctuation">:</span> <span class="token string">'async-node'</span><span class="token punctuation">,</span> <span class="token comment">// Node.js，异步加载 Chunk 代码</span>
+  target<span class="token punctuation">:</span> <span class="token string">'node-webkit'</span><span class="token punctuation">,</span> <span class="token comment">// nw.js</span>
+  target<span class="token punctuation">:</span> <span class="token string">'electron-main'</span><span class="token punctuation">,</span> <span class="token comment">// electron, 主线程</span>
+  target<span class="token punctuation">:</span> <span class="token string">'electron-renderer'</span><span class="token punctuation">,</span> <span class="token comment">// electron, 渲染线程</span>
+
+  externals<span class="token punctuation">:</span> <span class="token punctuation">{</span> <span class="token comment">// 使用来自 JavaScript 运行环境提供的全局变量</span>
+    jquery<span class="token punctuation">:</span> <span class="token string">'jQuery'</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+
+  stats<span class="token punctuation">:</span> <span class="token punctuation">{</span> <span class="token comment">// 控制台输出日志控制</span>
+    assets<span class="token punctuation">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>
+    colors<span class="token punctuation">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>
+    errors<span class="token punctuation">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>
+    errorDetails<span class="token punctuation">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>
+    hash<span class="token punctuation">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+
+  devServer<span class="token punctuation">:</span> <span class="token punctuation">{</span> <span class="token comment">// DevServer 相关的配置</span>
+    proxy<span class="token punctuation">:</span> <span class="token punctuation">{</span> <span class="token comment">// 代理到后端服务接口</span>
+      <span class="token string">'/api'</span><span class="token punctuation">:</span> <span class="token string">'http://localhost:3000'</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    contentBase<span class="token punctuation">:</span> path<span class="token punctuation">.</span><span class="token function">join</span><span class="token punctuation">(</span>__dirname<span class="token punctuation">,</span> <span class="token string">'public'</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token comment">// 配置 DevServer HTTP 服务器的文件根目录</span>
+    compress<span class="token punctuation">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span> <span class="token comment">// 是否开启 gzip 压缩</span>
+    historyApiFallback<span class="token punctuation">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span> <span class="token comment">// 是否开发 HTML5 History API 网页</span>
+    hot<span class="token punctuation">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span> <span class="token comment">// 是否开启模块热替换功能</span>
+    https<span class="token punctuation">:</span> <span class="token boolean">false</span><span class="token punctuation">,</span> <span class="token comment">// 是否开启 HTTPS 模式</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+
+    profile<span class="token punctuation">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span> <span class="token comment">// 是否捕捉 Webpack 构建的性能信息，用于分析什么原因导致构建性能不佳</span>
+
+    cache<span class="token punctuation">:</span> <span class="token boolean">false</span><span class="token punctuation">,</span> <span class="token comment">// 是否启用缓存提升构建速度</span>
+
+    watch<span class="token punctuation">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span> <span class="token comment">// 是否开始</span>
+    watchOptions<span class="token punctuation">:</span> <span class="token punctuation">{</span> <span class="token comment">// 监听模式选项</span>
+    <span class="token comment">// 不监听的文件或文件夹，支持正则匹配。默认为空</span>
+    ignored<span class="token punctuation">:</span> <span class="token regex">/node_modules/</span><span class="token punctuation">,</span>
+    <span class="token comment">// 监听到变化发生后会等300ms再去执行动作，防止文件更新太快导致重新编译频率太高</span>
+    <span class="token comment">// 默认为300ms </span>
+    aggregateTimeout<span class="token punctuation">:</span> <span class="token number">300</span><span class="token punctuation">,</span>
+    <span class="token comment">// 判断文件是否发生变化是不停的去询问系统指定文件有没有变化，默认每秒问 1000 次</span>
+    poll<span class="token punctuation">:</span> <span class="token number">1000</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+<span class="token punctuation">}</span></code></pre></div>
+<h4>Entry</h4>
+<p>context属性：Webpack 在寻找相对路径的文件时会以 context 为根目录，context 默认为执行启动 Webpack 时所在的当前工作目录。</p>
+<table>
+<thead>
+<tr>
+<th>类型</th>
+<th>例子</th>
+<th>含义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>string</td>
+<td>’./app/entry’</td>
+<td>入口模块的文件路径，可以是相对路径。</td>
+</tr>
+<tr>
+<td>array</td>
+<td>[’./app/entry1’, ‘./app/entry2’]</td>
+<td>入口模块的文件路径，可以是相对路径。</td>
+</tr>
+<tr>
+<td>object</td>
+<td>{ a: ‘./app/entry-a’, b: [’./app/entry-b1’, ‘./app/entry-b2’]}</td>
+<td>配置多个入口，每个入口生成一个 Chunk</td>
+</tr>
+</tbody>
+</table>
+<p>entry属性：可以是 string | array | object 三种方式</p>
+<p>chunk名称：Webpack 会为每个生成的 Chunk 取一个名称  </p>
+<blockquote>
+<p>如果 entry 是一个 string 或 array，就只会生成一个 Chunk，这时 Chunk 的名称是 main；<br>
+如果 entry 是一个 object，就可能会出现多个 Chunk，这时 Chunk 的名称是 object 键值对里键的名称。  </p>
+</blockquote>
+<p>entry通过设置函数，可以动态设置入口文件。</p>
+<h4>Output</h4>
+<p>filename属性：配置输出文件的名称，包含一些内置的模板变量</p>
+<table>
+<thead>
+<tr>
+<th>变量名</th>
+<th>含义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>id</td>
+<td>Chunk 的唯一标识，从0开始</td>
+</tr>
+<tr>
+<td>name</td>
+<td>Chunk 的名称</td>
+</tr>
+<tr>
+<td>hash</td>
+<td>Chunk 的唯一标识的 Hash 值</td>
+</tr>
+<tr>
+<td>chunkhash</td>
+<td>Chunk 内容的 Hash 值</td>
+</tr>
+</tbody>
+</table>
+<p>例如 filename: ’[name].[hash].js’;</p>
+<p>另外还有一个chunkFilename:<br>
+output.chunkFilename 配置无入口的 Chunk 在输出时的文件名称。<br>
+chunkFilename 和上面的 filename 非常类似，但 chunkFilename 只用于指定在运行过程中生成的 Chunk 在输出时的文件名称。<br>
+常见的会在运行时生成 Chunk 场景有在使用 CommonChunkPlugin、使用 import(‘path/to/module’) 动态加载等时。<br>
+chunkFilename 支持和 filename 一致的内置变量。  </p>
+<p>path属性：配置输出文件存放在本地的目录，必须是 string 类型的绝对路径。</p>
+<p>publicPath属性：配置发布到线上资源的 URL 前缀，为string 类型。 默认值是空字符串 ”，即使用相对路径。</p>
+<div class="gatsby-highlight" data-language="text"><pre class="language-text"><code class="language-text">publicPath: &quot;https://cdn.example.com/assets/&quot;, // CDN（总是 HTTPS 协议）
+publicPath: &quot;//cdn.example.com/assets/&quot;, // CDN (协议相同)
+publicPath: &quot;/assets/&quot;, // 相对于服务(server-relative)
+publicPath: &quot;assets/&quot;, // 相对于 HTML 页面
+publicPath: &quot;../assets/&quot;, // 相对于 HTML 页面
+publicPath: &quot;&quot;, // 相对于 HTML 页面（目录相同）</code></pre></div>
+<p>path和publicPath只支持[hash]模板变量</p>
+<p>crossOriginLoading属性：用于配置异步插入的<code class="language-text">&lt;script&gt;</code>标签的 crossorigin 值。<br>
+Webpack 输出的部分代码块可能需要异步加载，而异步加载是通过 JSONP 方式实现的。<br>
+JSONP 的原理是动态地向 HTML 中插入一个 <code class="language-text">&lt;script src=&quot;url&quot;&gt;&lt;/script&gt;</code> 标签去加载异步资源。<br>
+script 标签的 crossorigin 属性可以取以下值：</p>
+<blockquote>
+<p>anonymous(默认) 在加载此脚本资源时不会带上用户的 Cookies；<br>
+use-credentials 在加载此脚本资源时会带上用户的 Cookies。</p>
+</blockquote>
+<p>当用 Webpack 去构建一个可以被其他模块导入使用的库时需要用到它们：</p>
+<blockquote>
+<p>libraryTarget属性：配置以何种方式导出库<br>
+library属性：配置导出库的名称</p>
+</blockquote>
+<h4>Module</h4>
+<p>rules属性：配置模块的读取和解析规则，通常用来配置 Loader  </p>
+<blockquote>
+<p>条件匹配：通过 test 、 include 、 exclude 三个配置项来命中 Loader 要应用规则的文件。<br>
+应用规则：对选中后的文件通过 use 配置项来应用 Loader，可以只应用一个 Loader 或者按照从后往前的顺序应用一组 Loader，同时还可以分别给 Loader 传入参数。<br>
+重置顺序：一组 Loader 的执行顺序默认是从右到左执行，通过 enforce 选项可以让其中一个 Loader 的执行顺序放到最前或者最后。   </p>
+</blockquote>
+<p>noParse属性：可以让 Webpack 忽略对部分没采用模块化的文件的递归解析和处理，这样做的好处是能提高构建性能。</p>
+<h4>Resolve</h4>
+<p>Webpack 在启动后会从配置的入口模块出发找出所有依赖的模块，Resolve 配置 Webpack 如何寻找模块所对应的文件</p>
+<p>alias属性: 配置项通过别名来把原导入路径映射成一个新的导入路径。</p>
+<p>extensions属性：在导入语句没带文件后缀时，Webpack 会自动带上后缀后去尝试访问文件是否存在。</p>
+<p>modules属性：配置 Webpack 去哪些目录下寻找第三方模块，默认是只会去 node_modules 目录下寻找。</p>
+<h4>Plugin</h4>
+<p>plugins 配置项接受一个数组，数组里每一项都是一个要使用的 Plugin 的实例，Plugin 需要的参数通过构造函数传入。</p>
+<h4>DevServer</h4>
+<p>hot属性：模块热替换功能</p>
+<p>inline属性：DevServer 的实时预览功能依赖一个注入到页面里的代理客户端去接受来自 DevServer 的命令和负责刷新网页的工作。默认是开启的。</p>
+<p>historyApiFallback属性：用于方便的开发使用了 HTML5 History API 的单页应用，若是有多个单页应用，需要规则匹配</p>
+<div class="gatsby-highlight" data-language="javascript"><pre class="language-javascript"><code class="language-javascript">historyApiFallback<span class="token punctuation">:</span> <span class="token punctuation">{</span>
+  <span class="token comment">// 使用正则匹配命中路由</span>
+  rewrites<span class="token punctuation">:</span> <span class="token punctuation">[</span>
+    <span class="token comment">// /user 开头的都返回 user.html</span>
+    <span class="token punctuation">{</span> <span class="token keyword">from</span><span class="token punctuation">:</span> <span class="token regex">/^\/user/</span><span class="token punctuation">,</span> to<span class="token punctuation">:</span> <span class="token string">'/user.html'</span> <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    <span class="token punctuation">{</span> <span class="token keyword">from</span><span class="token punctuation">:</span> <span class="token regex">/^\/game/</span><span class="token punctuation">,</span> to<span class="token punctuation">:</span> <span class="token string">'/game.html'</span> <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    <span class="token comment">// 其它的都返回 index.html</span>
+    <span class="token punctuation">{</span> <span class="token keyword">from</span><span class="token punctuation">:</span> <span class="token regex">/./</span><span class="token punctuation">,</span> to<span class="token punctuation">:</span> <span class="token string">'/index.html'</span> <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  <span class="token punctuation">]</span>
+<span class="token punctuation">}</span> </code></pre></div>
+<p>contentBase属性：配置 DevServer HTTP 服务器的文件根目录</p>
+<p>headers属性：可以在 HTTP 响应中注入一些 HTTP 响应头</p>
+<p>host属性：用于配置 DevServer 服务监听的地址</p>
+<blockquote>
+<p>例如你想要局域网中的其它设备访问你本地的服务，可以在启动 DevServer 时带上 —host 0.0.0.0</p>
+</blockquote>
+<p>port属性：用于配置 DevServer 服务监听的端口</p>
+<p>allowedHosts属性：一个白名单列表，只有 HTTP 请求的 HOST 在列表里才正常返回</p>
+<p>disableHostCheck属性：用于配置是否关闭（用于 DNS 重绑定的 HTTP 请求的） HOST 检查。 它通常用于搭配 —host 0.0.0.0 使用</p>
+<p>https属性：DevServer 默认使用 HTTP 协议服务，它也能通过 HTTPS 协议服务</p>
+<p>clientLogLevel属性：配置在客户端的日志等级（none | error | warning | info - 默认值）</p>
+<p>compress属性：配置是否启用 gzip 压缩</p>
+<p>open属性：用于在 DevServer 启动且第一次构建完时自动用你系统上默认的浏览器去打开要开发的网页</p>
+<p>openPage属性：用于打开指定 URL 的网页</p>
+<h4>Other</h4>
+<p>Target：可以让 Webpack 构建出针对不同运行环境的代码</p>
+<table>
+<thead>
+<tr>
+<th>target值</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>web</td>
+<td>针对浏览器 (默认)，所有代码都集中在一个文件里</td>
+</tr>
+<tr>
+<td>node</td>
+<td>针对 Node.js，使用 require 语句加载 Chunk 代码</td>
+</tr>
+<tr>
+<td>async-node</td>
+<td>针对 Node.js，异步加载 Chunk 代码</td>
+</tr>
+<tr>
+<td>webworker</td>
+<td>针对 WebWorker</td>
+</tr>
+<tr>
+<td>electron-main</td>
+<td>针对 Electron 主线程</td>
+</tr>
+<tr>
+<td>electron-renderer</td>
+<td>针对 Electron 渲染线程</td>
+</tr>
+</tbody>
+</table>
+<p>Devtool: 配置 Webpack 如何生成 Source Map</p>
+<p>Watch 和 WatchOptions：它支持监听文件更新，在文件发生变化时重新编译</p>
+<p>Externals：用来告诉 Webpack 要构建的代码中使用了哪些不用被打包的模块，也就是说这些模版是外部环境提供的，Webpack 在打包时可以忽略它们</p>
+<p>ResolveLoader：用来告诉 Webpack 如何去寻找 Loader</p>
+<h3>实践</h3>
+<p>coming soon…</p></div><div class="blog-over"><span class="over-l"></span><span class="over-m">OVER</span><span class="over-r"></span></div><div class="blog-footer"><div class="prev-post"><div><span>上一篇：</span><a rel="prev" href="/blog/eggjs/">eggjs学习与实践</a></div></div><div class="next-post"></div></div></div></div></div><div class="footer"><div class="author">Theme By <!-- -->Weedust</div><div class="location"><i class="location-icon"></i><span>ShenZhen - China</span></div></div></div></div></div><script>
+  
+  
+  if(true) {
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+  }
+  if (typeof ga === "function") {
+    ga('create', 'undefined', 'auto', {});
+      
+      }
+      </script><script id="gatsby-script-loader">/*<![CDATA[*/window.page={"componentChunkName":"component---src-templates-blog-post-js","jsonName":"webpack-70c","path":"/webpack/"};window.dataPath="948/path---webpack-70-c-491-FPdPCw2iQSl0BibhjF4p6ph6c";/*]]>*/</script><script id="gatsby-chunk-mapping">/*<![CDATA[*/window.___chunkMapping={"app":["/app.198d93319ef7e0703812.css","/app-4f5808a4521299f82535.js"],"component---node-modules-gatsby-plugin-offline-app-shell-js":["/component---node-modules-gatsby-plugin-offline-app-shell-js-2005ac7c86ab6c1fa2ff.js"],"component---src-templates-blog-post-js":["/component---src-templates-blog-post-js.e0e956f592d77010cae3.css","/component---src-templates-blog-post-js-bce442fcf9a0c61c7421.js"],"component---src-templates-tags-js":["/component---src-templates-tags-js.c06a4ff35472387920d6.css","/component---src-templates-tags-js-62f40fca7c277f710397.js"],"component---src-templates-cats-js":["/component---src-templates-cats-js.41c146a7521cefb65596.css","/component---src-templates-cats-js-e1a450ae8f6a62e7a3ae.js"],"component---src-pages-404-js":["/component---src-pages-404-js-7ca2eb5b9cfe95cf5654.js"],"component---src-pages-cats-js":["/component---src-pages-cats-js.574b218fa04de20dda36.css","/component---src-pages-cats-js-a58bfcbf099801058ecc.js"],"component---src-pages-index-js":["/component---src-pages-index-js.a119087f3720a2be1e06.css","/component---src-pages-index-js-791737df9a583d5f21ea.js"],"component---src-pages-tags-js":["/component---src-pages-tags-js.ff2fe8d32fec1bbfa2e4.css","/component---src-pages-tags-js-ea1d8265a275c19c8ae2.js"],"pages-manifest":["/pages-manifest-70ece35e3ccbce5b0fe4.js"]};/*]]>*/</script><script src="/blog/webpack-runtime-1d08d3102d4e2b1a2c04.js" async=""></script><script src="/blog/app-4f5808a4521299f82535.js" async=""></script><script src="/blog/0-69ed53a4fac20407bde9.js" async=""></script><script src="/blog/component---src-templates-blog-post-js-bce442fcf9a0c61c7421.js" async=""></script><script src="/blog/1-e68ae6c282512d6b2b09.js" async=""></script></body></html>
