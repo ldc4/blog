@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[LDC4]]></title><description><![CDATA[从零开始，斗破苍穹，七界传说]]></description><link>https://weedust.com/</link><generator>RSS for Node</generator><lastBuildDate>Fri, 11 Oct 2019 02:19:35 GMT</lastBuildDate><item><title><![CDATA[Vue学习与实践]]></title><description><![CDATA[
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[LDC4]]></title><description><![CDATA[从零开始，斗破苍穹，七界传说]]></description><link>https://weedust.com/</link><generator>RSS for Node</generator><lastBuildDate>Thu, 31 Oct 2019 03:45:46 GMT</lastBuildDate><item><title><![CDATA[Vue学习与实践]]></title><description><![CDATA[
 因为工作调动的原因，现在技术栈切到了 Vue + Express  
 Vue上手倒是挺快，但是看完一遍文档还是花费了一周  
 然后工作两周，发现很多东西都记不住，印象逐渐消失  
@@ -1908,61 +1908,25 @@ module&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;exports &lt;
 &lt;h2&gt;学习计划&lt;/h2&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;a href=&quot;./2019-down&quot;&gt;2019年下半年学习计划&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;</content:encoded></item><item><title><![CDATA[README]]></title><description><![CDATA[
-采用[gatsby](https://github.com/gatsbyjs/gatsby)来搭建博客  
-Gatsby v2: Blazing fast modern site generator for React
-
-]]></description><link>https://weedust.com//hello-gatsby-blog/</link><guid isPermaLink="false">https://weedust.com//hello-gatsby-blog/</guid><pubDate>Sun, 06 Jan 2019 09:44:58 GMT</pubDate><content:encoded>&lt;p&gt;采用&lt;a href=&quot;https://github.com/gatsbyjs/gatsby&quot;&gt;gatsby&lt;/a&gt;来搭建博客&lt;br&gt;
-Gatsby v2: Blazing fast modern site generator for React&lt;/p&gt;
-&lt;!-- more --&gt;
-&lt;h2&gt;说明&lt;/h2&gt;
-&lt;p&gt;该博客用gatsby创建&lt;/p&gt;
-&lt;h2&gt;使用&lt;/h2&gt;
-&lt;h3&gt;使用cli工具&lt;/h3&gt;
-&lt;p&gt;利用&lt;a href=&quot;https://www.gatsbyjs.org/docs/quick-start&quot;&gt;cli工具&lt;/a&gt;启动&lt;/p&gt;
-&lt;p&gt;开发:&lt;/p&gt;
-&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;# gatsby develop&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;生成静态页面:&lt;/p&gt;
-&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;# gatsby build
-# gatsby serve&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;h3&gt;使用npm script&lt;/h3&gt;
-&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;&amp;quot;scripts&amp;quot;: {
-  &amp;quot;dev&amp;quot;: &amp;quot;gatsby develop&amp;quot;,
-  &amp;quot;lint&amp;quot;: &amp;quot;eslint --ext .js,.jsx --ignore-pattern public .&amp;quot;,
-  &amp;quot;test&amp;quot;: &amp;quot;echo \&amp;quot;Write tests! -&amp;gt; https://gatsby.app/unit-testing\&amp;quot;&amp;quot;,
-  &amp;quot;format&amp;quot;: &amp;quot;prettier --trailing-comma es5 --no-semi --single-quote --write &amp;#39;src/**/*.js&amp;#39; &amp;#39;src/**/*.md&amp;#39;&amp;quot;,
-  &amp;quot;develop&amp;quot;: &amp;quot;gatsby develop&amp;quot;,
-  &amp;quot;start&amp;quot;: &amp;quot;npm run develop&amp;quot;,
-  &amp;quot;build&amp;quot;: &amp;quot;gatsby build&amp;quot;,
-  &amp;quot;fix-semi&amp;quot;: &amp;quot;eslint --quiet --ignore-pattern node_modules --ignore-pattern public --parser babel-eslint --no-eslintrc --rule &amp;#39;{\&amp;quot;semi\&amp;quot;: [2, \&amp;quot;never\&amp;quot;], \&amp;quot;no-extra-semi\&amp;quot;: [2]}&amp;#39; --fix gatsby-node.js&amp;quot;
-}&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;开发：&lt;code class=&quot;language-text&quot;&gt;npm start&lt;/code&gt; 或 &lt;code class=&quot;language-text&quot;&gt;npm run dev&lt;/code&gt;&lt;/p&gt;
-&lt;p&gt;生成静态页面：&lt;code class=&quot;language-text&quot;&gt;npm run build&lt;/code&gt;&lt;/p&gt;
-&lt;p&gt;格式化代码：&lt;code class=&quot;language-text&quot;&gt;npm run format&lt;/code&gt;&lt;/p&gt;
-&lt;h2&gt;疑问&lt;/h2&gt;
+&lt;/ul&gt;
+&lt;h2&gt;方式方法&lt;/h2&gt;
+&lt;p&gt;想要后续发力：&lt;/p&gt;
 &lt;ol&gt;
-&lt;li&gt;如何部署在github上&lt;/li&gt;
+&lt;li&gt;打牢固基础知识  &lt;/li&gt;
+&lt;li&gt;储备知识、想法、技能  &lt;/li&gt;
+&lt;li&gt;保持好心态，持之以恒  &lt;/li&gt;
+&lt;li&gt;思维的转变，重复实践123点  &lt;/li&gt;
 &lt;/ol&gt;
-&lt;p&gt;&lt;a href=&quot;https://www.gatsbyjs.org/docs/how-gatsby-works-with-github-pages/&quot;&gt;https://www.gatsbyjs.org/docs/how-gatsby-works-with-github-pages/&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;根据本项目的情况：&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;安装gh-pages开发依赖&lt;/p&gt;
-&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;npm install gh-pages --save-dev&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;添加npm script&lt;/p&gt;
-&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;&amp;quot;scripts&amp;quot;: {
-  &amp;quot;deploy&amp;quot;: &amp;quot;gatsby build --prefix-paths &amp;amp;&amp;amp; gh-pages -r https://github.com/ldc4/blog.git -d public&amp;quot;
-}&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;/blockquote&gt;
-&lt;ol start=&quot;2&quot;&gt;
-&lt;li&gt;
-&lt;p&gt;启动报错&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ol&gt;
-&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;Error: The module &amp;#39;/Users/weedustzhao/WeeCode/StudySpace/MyGatsby/node_modules/sharp/build/Release/sharp.node&amp;#39;
-was compiled against a different Node.js version using
-NODE_MODULE_VERSION 57. This version of Node.js requires
-NODE_MODULE_VERSION 64. Please try re-compiling or re-installing
-the module (for instance, using `npm rebuild` or `npm install`).&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;这是因为启动的node版本和安装时的node版本 不一致。
-iTerm的node版本和VS Code的版本不一致。&lt;/p&gt;
-&lt;p&gt;解决：查看vs code的node版本，然后npm rebuild一下。&lt;/p&gt;</content:encoded></item></channel></rss>
+&lt;p&gt;关于第二点：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;或多或少接触该知识领域&lt;/li&gt;
+&lt;li&gt;花点时间寻找学习短路径图&lt;/li&gt;
+&lt;li&gt;收集对应资料（官方文档，书籍，文章）&lt;/li&gt;
+&lt;li&gt;完成基础知识的学习&lt;/li&gt;
+&lt;li&gt;实践一个主知识点的demo&lt;/li&gt;
+&lt;li&gt;过一遍进阶知识点&lt;/li&gt;
+&lt;li&gt;上手工作项目，巩固基础点，找机会反复实践进阶点&lt;/li&gt;
+&lt;li&gt;关注知识点的最佳实践和更新记录（博客和周刊）&lt;/li&gt;
+&lt;li&gt;除工作外，输出个人的理解（博客）&lt;/li&gt;
+&lt;li&gt;慢慢成为这个知识领域专家&lt;/li&gt;
+&lt;/ol&gt;</content:encoded></item></channel></rss>
