@@ -1,4 +1,40 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[LDC4]]></title><description><![CDATA[从零开始，斗破苍穹，七界传说]]></description><link>https://weedust.com/</link><generator>RSS for Node</generator><lastBuildDate>Thu, 31 Oct 2019 03:45:46 GMT</lastBuildDate><item><title><![CDATA[Vue学习与实践]]></title><description><![CDATA[
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[LDC4]]></title><description><![CDATA[从零开始，斗破苍穹，七界传说]]></description><link>https://weedust.com/</link><generator>RSS for Node</generator><lastBuildDate>Wed, 20 Nov 2019 09:35:22 GMT</lastBuildDate><item><title><![CDATA[虚拟列表/树]]></title><description><![CDATA[
+任何极端情况下，都存在性能优化。  
+页面上DOM只要一多，即便是性能怪兽的V8也会卡。  
+本案例的本质就是局部可见是有限的，可以限制在不卡的范围。  
+
+]]></description><link>https://weedust.com//virtual-tree/</link><guid isPermaLink="false">https://weedust.com//virtual-tree/</guid><pubDate>Fri, 15 Nov 2019 01:23:32 GMT</pubDate><content:encoded>&lt;p&gt;任何极端情况下，都存在性能优化。&lt;br&gt;
+页面上DOM只要一多，即便是性能怪兽的V8也会卡。&lt;br&gt;
+本案例的本质就是局部可见是有限的，可以限制在不卡的范围。  &lt;/p&gt;
+&lt;!-- more --&gt;
+&lt;h2&gt;背景&lt;/h2&gt;
+&lt;p&gt;todo&lt;/p&gt;
+&lt;h2&gt;参考资料&lt;/h2&gt;
+&lt;p&gt;从时间线列举了一些跟虚拟列表有关的文章和库&lt;/p&gt;
+&lt;p&gt;React Virtualized: &lt;a href=&quot;https://github.com/bvaughn/react-virtualized&quot;&gt;https://github.com/bvaughn/react-virtualized&lt;/a&gt;
+Vue Virtual Scroll: &lt;a href=&quot;https://github.com/Akryum/vue-virtual-scroller&quot;&gt;https://github.com/Akryum/vue-virtual-scroller&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Complexities of an Infinite Scroller
+&lt;a href=&quot;https://developers.google.com/web/updates/2016/07/infinite-scroller&quot;&gt;https://developers.google.com/web/updates/2016/07/infinite-scroller&lt;/a&gt;
+by 【developers.google.com/web】&lt;/p&gt;
+&lt;p&gt;Infinite List and React
+&lt;a href=&quot;https://itsze.ro/blog/2017/04/09/infinite-list-and-react.html&quot;&gt;https://itsze.ro/blog/2017/04/09/infinite-list-and-react.html&lt;/a&gt;
+by 【itsze.ro/blog】&lt;/p&gt;
+&lt;p&gt;聊聊前端开发中的长列表
+&lt;a href=&quot;https://zhuanlan.zhihu.com/p/26022258&quot;&gt;https://zhuanlan.zhihu.com/p/26022258&lt;/a&gt;
+by 【知乎专栏 - Furybean】&lt;/p&gt;
+&lt;p&gt;再谈前端虚拟列表的实现
+&lt;a href=&quot;https://zhuanlan.zhihu.com/p/34585166&quot;&gt;https://zhuanlan.zhihu.com/p/34585166&lt;/a&gt;
+by 【知乎专栏 - Furybean】&lt;/p&gt;
+&lt;p&gt;浅说虚拟列表的实现原理
+&lt;a href=&quot;https://github.com/dwqs/blog/issues/70&quot;&gt;https://github.com/dwqs/blog/issues/70&lt;/a&gt;
+by 【github - dwqs】&lt;/p&gt;
+&lt;p&gt;「前端进阶」高性能渲染十万条数据(时间分片)
+&lt;a href=&quot;https://juejin.im/post/5d76f469f265da039a28aff7&quot;&gt;https://juejin.im/post/5d76f469f265da039a28aff7&lt;/a&gt;
+by 【掘金 - 云中桥】&lt;/p&gt;
+&lt;p&gt;「前端进阶」高性能渲染十万条数据(虚拟列表)
+&lt;a href=&quot;https://juejin.im/post/5db684ddf265da4d495c40e5&quot;&gt;https://juejin.im/post/5db684ddf265da4d495c40e5&lt;/a&gt;
+by 【掘金 - 云中桥】&lt;/p&gt;
+&lt;h2&gt;实际场景&lt;/h2&gt;</content:encoded></item><item><title><![CDATA[Vue学习与实践]]></title><description><![CDATA[
 因为工作调动的原因，现在技术栈切到了 Vue + Express  
 Vue上手倒是挺快，但是看完一遍文档还是花费了一周  
 然后工作两周，发现很多东西都记不住，印象逐渐消失  
