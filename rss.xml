@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[LDC4]]></title><description><![CDATA[从零开始，斗破苍穹，七界传说]]></description><link>https://weedust.com/</link><generator>RSS for Node</generator><lastBuildDate>Wed, 20 Nov 2019 09:35:22 GMT</lastBuildDate><item><title><![CDATA[虚拟列表/树]]></title><description><![CDATA[
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[LDC4]]></title><description><![CDATA[从零开始，斗破苍穹，七界传说]]></description><link>https://weedust.com/</link><generator>RSS for Node</generator><lastBuildDate>Thu, 21 Nov 2019 06:54:57 GMT</lastBuildDate><item><title><![CDATA[虚拟列表/树]]></title><description><![CDATA[
 任何极端情况下，都存在性能优化。  
 页面上DOM只要一多，即便是性能怪兽的V8也会卡。  
 本案例的本质就是局部可见是有限的，可以限制在不卡的范围。  
@@ -7,34 +7,43 @@
 页面上DOM只要一多，即便是性能怪兽的V8也会卡。&lt;br&gt;
 本案例的本质就是局部可见是有限的，可以限制在不卡的范围。  &lt;/p&gt;
 &lt;!-- more --&gt;
-&lt;h2&gt;背景&lt;/h2&gt;
-&lt;p&gt;todo&lt;/p&gt;
+&lt;h2&gt;介绍&lt;/h2&gt;
+&lt;p&gt;树形结构经常会在开发中用到，不过渲染在页面上，本质上也是列表（拍平的树）。&lt;/p&gt;
+&lt;p&gt;关于列表的加载和渲染：
+&lt;img src=&quot;https://xmind-1251945389.cos.ap-guangzhou.myqcloud.com/1.png&quot;&gt;&lt;/p&gt;
+&lt;p&gt;如果一次性加载数据的接口耗时过长，建议还是将加载的压力分解在时间上，即懒分页。&lt;br&gt;
+如果不得不全量加载，但是数据量不算太多，可以直接全量渲染。&lt;br&gt;
+但在有的场景下，不得不一次性全量加载，如果加载的数据项过多，页面就会存在卡顿，这就是我们所谓的长列表。  &lt;/p&gt;
+&lt;p&gt;长列表：无法通过分页方式来加载的数量大到一次渲染导致页面卡顿的列表&lt;/p&gt;
+&lt;p&gt;解决方案：时间分片，虚拟列表&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;网上已经存在很多关于这类解决方案的文章和库，有兴趣的可以阅读一下，我下面罗列的系列文章&lt;/p&gt;
+&lt;/blockquote&gt;
 &lt;h2&gt;参考资料&lt;/h2&gt;
 &lt;p&gt;从时间线列举了一些跟虚拟列表有关的文章和库&lt;/p&gt;
-&lt;p&gt;React Virtualized: &lt;a href=&quot;https://github.com/bvaughn/react-virtualized&quot;&gt;https://github.com/bvaughn/react-virtualized&lt;/a&gt;
-Vue Virtual Scroll: &lt;a href=&quot;https://github.com/Akryum/vue-virtual-scroller&quot;&gt;https://github.com/Akryum/vue-virtual-scroller&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;Complexities of an Infinite Scroller
-&lt;a href=&quot;https://developers.google.com/web/updates/2016/07/infinite-scroller&quot;&gt;https://developers.google.com/web/updates/2016/07/infinite-scroller&lt;/a&gt;
-by 【developers.google.com/web】&lt;/p&gt;
-&lt;p&gt;Infinite List and React
-&lt;a href=&quot;https://itsze.ro/blog/2017/04/09/infinite-list-and-react.html&quot;&gt;https://itsze.ro/blog/2017/04/09/infinite-list-and-react.html&lt;/a&gt;
-by 【itsze.ro/blog】&lt;/p&gt;
-&lt;p&gt;聊聊前端开发中的长列表
-&lt;a href=&quot;https://zhuanlan.zhihu.com/p/26022258&quot;&gt;https://zhuanlan.zhihu.com/p/26022258&lt;/a&gt;
-by 【知乎专栏 - Furybean】&lt;/p&gt;
-&lt;p&gt;再谈前端虚拟列表的实现
-&lt;a href=&quot;https://zhuanlan.zhihu.com/p/34585166&quot;&gt;https://zhuanlan.zhihu.com/p/34585166&lt;/a&gt;
-by 【知乎专栏 - Furybean】&lt;/p&gt;
-&lt;p&gt;浅说虚拟列表的实现原理
-&lt;a href=&quot;https://github.com/dwqs/blog/issues/70&quot;&gt;https://github.com/dwqs/blog/issues/70&lt;/a&gt;
-by 【github - dwqs】&lt;/p&gt;
-&lt;p&gt;「前端进阶」高性能渲染十万条数据(时间分片)
-&lt;a href=&quot;https://juejin.im/post/5d76f469f265da039a28aff7&quot;&gt;https://juejin.im/post/5d76f469f265da039a28aff7&lt;/a&gt;
-by 【掘金 - 云中桥】&lt;/p&gt;
-&lt;p&gt;「前端进阶」高性能渲染十万条数据(虚拟列表)
-&lt;a href=&quot;https://juejin.im/post/5db684ddf265da4d495c40e5&quot;&gt;https://juejin.im/post/5db684ddf265da4d495c40e5&lt;/a&gt;
-by 【掘金 - 云中桥】&lt;/p&gt;
-&lt;h2&gt;实际场景&lt;/h2&gt;</content:encoded></item><item><title><![CDATA[Vue学习与实践]]></title><description><![CDATA[
+&lt;p&gt;&lt;a href=&quot;https://github.com/bvaughn/react-virtualized&quot;&gt;React Virtualized&lt;/a&gt; |
+&lt;a href=&quot;https://github.com/Akryum/vue-virtual-scroller&quot;&gt;Vue Virtual Scroll&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;https://developers.google.com/web/updates/2016/07/infinite-scroller&quot;&gt;Complexities of an Infinite Scroller&lt;/a&gt;&lt;br&gt;
+by developers.google.com/web&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;https://itsze.ro/blog/2017/04/09/infinite-list-and-react.html&quot;&gt;Infinite List and React&lt;/a&gt;&lt;br&gt;
+by itsze.ro/blog&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;https://zhuanlan.zhihu.com/p/26022258&quot;&gt;聊聊前端开发中的长列表&lt;/a&gt;&lt;br&gt;
+by 知乎专栏 - Furybean&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;https://zhuanlan.zhihu.com/p/34585166&quot;&gt;再谈前端虚拟列表的实现&lt;/a&gt;&lt;br&gt;
+by 知乎专栏 - Furybean&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;https://github.com/dwqs/blog/issues/70&quot;&gt;浅说虚拟列表的实现原理&lt;/a&gt;&lt;br&gt;
+by github - dwqs&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;https://juejin.im/post/5d76f469f265da039a28aff7&quot;&gt;「前端进阶」高性能渲染十万条数据(时间分片)&lt;/a&gt;&lt;br&gt;
+by 掘金 - 云中桥&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;https://juejin.im/post/5db684ddf265da4d495c40e5&quot;&gt;「前端进阶」高性能渲染十万条数据(虚拟列表)&lt;/a&gt;&lt;br&gt;
+by 掘金 - 云中桥&lt;/p&gt;
+&lt;h2&gt;实际场景&lt;/h2&gt;
+&lt;p&gt;技术栈：vue + element-ui&lt;/p&gt;
+&lt;p&gt;场景：有一个复杂度很高的树，但需要一次性加载并展开全部&lt;/p&gt;
+&lt;p&gt;先来看看Element的tree组件的性能：
+&lt;a href=&quot;https://jsfiddle.net/ldc4/8v934a27/3/&quot;&gt;https://jsfiddle.net/ldc4/8v934a27/3/&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;构造 20 x 20 x 20 的树，全部展开，需要4s&lt;/p&gt;
+&lt;script src=&quot;https://jsfiddle.net/ldc4/8v934a27/3/embed/&quot;&gt;&lt;/script&gt;</content:encoded></item><item><title><![CDATA[Vue学习与实践]]></title><description><![CDATA[
 因为工作调动的原因，现在技术栈切到了 Vue + Express  
 Vue上手倒是挺快，但是看完一遍文档还是花费了一周  
 然后工作两周，发现很多东西都记不住，印象逐渐消失  
