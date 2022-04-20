@@ -1,0 +1,5 @@
+{
+    "componentChunkName": "component---src-pages-about-js",
+    "path": "/about/",
+    "result": {"data":{"site":{"siteMetadata":{"title":"LDC4","author":"Weedust"}},"allNavigationJson":{"edges":[{"node":{"name":"分类","link":"/cats"}},{"node":{"name":"标签","link":"/tags"}},{"node":{"name":"关于","link":"/about"}}]}},"pageContext":{}},
+    "staticQueryHashes": ["2704499628","3128451518"]}

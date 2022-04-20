@@ -1,0 +1,5 @@
+{
+    "componentChunkName": "component---src-templates-tags-js",
+    "path": "/tags/62b95daecb7f81da79fcd57572efc8582ecbebc8121f562e6ac37d547ac2f1e7/",
+    "result": {"data":{"site":{"siteMetadata":{"title":"LDC4","author":"Weedust"}},"tagMarkdownRemark":{"edges":[{"node":{"excerpt":"<p>这里可以写一些前言</p>\n","fields":{"slug":"/temp/模板/"},"frontmatter":{"date":"1970-01-01 00:00:00","title":"模板","tags":["模板"],"category":"模板","draft":true}}}]},"allMarkdownRemark":{"edges":[{"node":{"excerpt":"<p>把未来的自己当成博客的读者，内容写给自己看</p>\n<p>“你学习一门技术的最佳时机是三年前，其次是现在。”</p>\n","fields":{"slug":"/2022/重新出发/"},"frontmatter":{"date":"2022-04-15 12:51:50","title":"从零开始","tags":["想法"],"category":"心得体会","draft":null}}},{"node":{"excerpt":"<p>这里可以写一些前言</p>\n","fields":{"slug":"/temp/模板/"},"frontmatter":{"date":"1970-01-01 00:00:00","title":"模板","tags":["模板"],"category":"模板","draft":true}}}]},"allNavigationJson":{"edges":[{"node":{"name":"分类","link":"/cats"}},{"node":{"name":"标签","link":"/tags"}},{"node":{"name":"关于","link":"/about"}}]}},"pageContext":{"tag":"模板"}},
+    "staticQueryHashes": ["2704499628","3128451518"]}
